@@ -1,0 +1,281 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "SimSun", "STSong", serif;
+    background-color: #c04851; /* 中国红背景 */
+    color: white;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.color-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 70%;
+    padding-top: 20px;
+}
+
+.color-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px 20px 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.color-column:hover {
+    transform: translateY(-10px);
+}
+
+.color-bar {
+    width: 60px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+}
+
+.color-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px 0;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.color-circle:hover {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    transform: scale(1.1);
+}
+
+.color-circle.filled {
+    background-color: white;
+}
+
+.color-circle.half-filled {
+    background: linear-gradient(90deg, white 50%, transparent 50%);
+}
+
+.color-label {
+    margin-top: 10px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    padding-right: 20px;
+}
+
+.logo {
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.chinese-characters {
+    font-size: 64px;
+    margin: 10px 0;
+}
+
+.color-value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.color-indicator {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    transition: transform 0.3s ease;
+}
+
+.color-indicator:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.indicator-red {
+    background-color: white;
+    color: #c04851;
+}
+
+.indicator-blue {
+    background-color: #2775b6;
+}
+
+.indicator-yellow {
+    background-color: #eaad1a;
+}
+
+.rgb-value {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 28px;
+    letter-spacing: 5px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+#generate-btn {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#generate-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+#music-output {
+    margin-top: 15px;
+    font-size: 16px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .color-grid {
+        width: 100%;
+        overflow-x: auto;
+    }
+    
+    .sidebar {
+        width: 100%;
+        padding-right: 0;
+        margin-top: 30px;
+    }
+}
+
+
+/* 添加颜色选项样式 */
+.color-option {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+.color-option.selected {
+    border: 3px solid white;
+    box-shadow: 0 0 20px white;
+}
+
+.color-name {
+    margin-top: 5px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* 添加CMYK圆形进度条样式 */
+.cmyk-circles-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    gap: 15px;
+}
+
+.circle-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.circle-label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.circle-container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+.circle-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+/* 添加分隔线 */
+.cmyk-circles-container:after {
+    content: '';
+    display: block;
+    width: 80%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 10px auto;
+}
+
+.circle-percent {
+    font-size: 14px;
+    margin-top: 5px;
+    color: white;
+}
+
+/* 添加分隔线 */
+.circle-group:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 15px;
+}

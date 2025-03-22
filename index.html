@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国传统色彩音乐生成器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="color-grid" id="color-grid">
+            <!-- 颜色选项将通过JavaScript动态生成 -->
+        </div>
+        
+        <div class="sidebar">
+            <div class="logo">AI</div>
+            <div class="chinese-characters">音乐</div>
+            
+            <!-- 添加CMYK圆形进度条容器 -->
+            <div id="cmyk-circles-container" class="cmyk-circles-container"></div>
+            
+            <!-- 保留原有的RGB显示 -->
+            <div class="color-value">
+                <div class="color-indicator indicator-red">R</div>
+                <div class="rgb-value" id="r-value">192</div>
+            </div>
+            
+            <div class="color-value">
+                <div class="color-indicator indicator-blue">G</div>
+                <div class="rgb-value" id="g-value">72</div>
+            </div>
+            
+            <div class="color-value">
+                <div class="color-indicator indicator-yellow">B</div>
+                <div class="rgb-value" id="b-value">81</div>
+            </div>
+            
+            <div class="vertical-text">中国传统色彩</div>
+            
+            <button id="generate-btn">根据选择的颜色生成音乐</button>
+            <div id="music-output"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 中国传统色彩音乐生成器</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
