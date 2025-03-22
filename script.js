@@ -54,6 +54,15 @@ fetch('data/ColorData.json')
                 
                 // 更新CMYK圆形进度条
                 updateCMYKCircles(r, g, b);
+                
+                // 更新当前选中的颜色名称
+                document.getElementById('selected-color-name').textContent = color.Title;
+                
+                // 更新颜色描述
+                const descriptionElement = document.getElementById('color-description');
+                if (descriptionElement) {
+                    descriptionElement.textContent = color.Description || '暂无描述';
+                }
             });
             
             colorColumn.appendChild(colorOption);
@@ -141,7 +150,7 @@ function animateBackgroundColor(startR, startG, startB, endR, endG, endB) {
 // 更新CMYK圆形进度条
 function updateCMYKCircles(r, g, b) {
     // 计算CMYK值
-    let c = 0, m = 0, y = 0, k = 0;
+    let c = 0, m = 0, y = 0, k = 0, w = 0;
     
     // RGB转CMYK算法
     const r1 = r / 255;
@@ -157,6 +166,9 @@ function updateCMYKCircles(r, g, b) {
         y = (1 - b1 - k) / (1 - k);
     }
     
+    // 计算白色值 (简单算法：RGB平均值的百分比)
+    w = Math.round((r1 + g1 + b1) / 3 * 100);
+    
     // 转换为百分比
     c = Math.round(c * 100);
     m = Math.round(m * 100);
@@ -168,12 +180,14 @@ function updateCMYKCircles(r, g, b) {
     const currentM = parseInt(document.getElementById('m-value').textContent) || 0;
     const currentY = parseInt(document.getElementById('y-value').textContent) || 0;
     const currentK = parseInt(document.getElementById('k-value').textContent) || 0;
+    const currentW = parseInt(document.getElementById('w-value').textContent) || 0;
     
     // 平滑更新CMYK值显示和圆圈进度
     animateCMYKValue('c-value', 'c-circle', currentC, c, '#00AEEF');
     animateCMYKValue('m-value', 'm-circle', currentM, m, '#EC008C');
     animateCMYKValue('y-value', 'y-circle', currentY, y, '#FFF200');
     animateCMYKValue('k-value', 'k-circle', currentK, k, '#000000');
+    animateCMYKValue('w-value', 'w-circle', currentW, w, '#FFFFFF');
 }
 
 // CMYK值和圆圈平滑过渡动画函数
@@ -240,9 +254,32 @@ function updateCircleProgress(elementId, percent, color) {
 
 // 初始化页面时创建CMYK圆形进度条
 document.addEventListener('DOMContentLoaded', function() {
+    // 显示加载指示器
+    const colorGrid = document.getElementById('color-grid');
+    colorGrid.innerHTML = '<div class="loading-indicator">正在加载颜色数据...</div>';
+    
     // 创建CMYK圆形进度条
     createCMYKCircles();
     
+    // 设置默认RGB值
+    document.getElementById('r-value').textContent = '192';
+    document.getElementById('g-value').textContent = '72';
+    document.getElementById('b-value').textContent = '81';
+    
+    // 设置默认颜色名称和描述
+    document.getElementById('selected-color-name').textContent = '中国红';
+    
+    // 设置默认颜色描述
+    const descriptionElement = document.getElementById('color-description');
+    if (descriptionElement) {
+        descriptionElement.textContent = '大红：正红色，三原色中的红，传统的中国红，又称绛色。';
+    }
+    
+    // 设置默认CMYK值
+    const defaultR = 192, defaultG = 72, defaultB = 81;
+    updateCMYKCircles(defaultR, defaultG, defaultB);
+    
+    // 生成音乐按钮点击事件
     document.getElementById('generate-btn').addEventListener('click', function() {
         const selectedColor = document.querySelector('.color-option.selected');
         
@@ -259,6 +296,98 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('music-output').innerHTML = '请先选择一个颜色！';
         }
     });
+    
+    // 使用fetch API的缓存功能加载JSON
+    fetch('data/ColorData.json', { cache: 'force-cache' })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('网络响应不正常');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // 清除加载指示器
+            colorGrid.innerHTML = '';
+            
+            // 遍历颜色数据并创建颜色选项
+            data.forEach(color => {
+                const colorColumn = document.createElement('div');
+                colorColumn.className = 'color-column';
+                
+                const colorOption = document.createElement('div');
+                colorOption.className = 'color-option';
+                
+                // 从UniqueId中提取RGB值
+                let rgbValues = color.UniqueId.match(/\d+/g);
+                const r = parseInt(rgbValues[0]);
+                const g = parseInt(rgbValues[1]);
+                const b = parseInt(rgbValues[2]);
+                
+                colorOption.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+                
+                // 如果背景色太深，文字颜色设为白色
+                const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+                colorOption.style.color = brightness < 128 ? 'white' : 'black';
+                
+                const colorName = document.createElement('div');
+                colorName.className = 'color-name';
+                colorName.textContent = color.Title; // 使用Title字段作为颜色名称
+                
+                // 点击事件处理
+                colorOption.addEventListener('click', () => {
+                    // 移除其他选项的选中状态
+                    document.querySelectorAll('.color-option.selected').forEach(el => {
+                        el.classList.remove('selected');
+                    });
+                    
+                    // 添加选中状态
+                    colorOption.classList.add('selected');
+                    
+                    // 获取当前背景颜色
+                    const currentBgColor = getComputedStyle(document.body).backgroundColor;
+                    const rgbMatch = currentBgColor.match(/\d+/g);
+                    const currentR = parseInt(rgbMatch[0]);
+                    const currentG = parseInt(rgbMatch[1]);
+                    const currentB = parseInt(rgbMatch[2]);
+                    
+                    // 平滑过渡背景颜色
+                    animateBackgroundColor(currentR, currentG, currentB, r, g, b);
+                    
+                    // 平滑更新RGB值显示
+                    animateRGBValue('r-value', parseInt(document.getElementById('r-value').textContent), r);
+                    animateRGBValue('g-value', parseInt(document.getElementById('g-value').textContent), g);
+                    animateRGBValue('b-value', parseInt(document.getElementById('b-value').textContent), b);
+                    
+                    // 更新CMYK圆形进度条
+                    updateCMYKCircles(r, g, b);
+                    
+                    // 更新当前选中的颜色名称
+                    document.getElementById('selected-color-name').textContent = color.Title;
+                    
+                    // 更新颜色描述
+                    const descriptionElement = document.getElementById('color-description');
+                    if (descriptionElement) {
+                        descriptionElement.textContent = color.Description || '暂无描述';
+                    }
+                });
+                
+                colorColumn.appendChild(colorOption);
+                colorColumn.appendChild(colorName);
+                colorGrid.appendChild(colorColumn);
+            });
+            
+            // 默认选中第一个颜色
+            if (data.length > 0) {
+                const firstColorOption = document.querySelector('.color-option');
+                if (firstColorOption) {
+                    firstColorOption.click();
+                }
+            }
+        })
+        .catch(error => {
+            console.error('加载颜色数据失败:', error);
+            colorGrid.innerHTML = '<p>加载颜色数据失败，请检查数据文件路径。</p>';
+        });
 });
 
 // 创建CMYK圆形进度条
@@ -266,11 +395,15 @@ function createCMYKCircles() {
     const cmykCirclesContainer = document.getElementById('cmyk-circles-container');
     if (!cmykCirclesContainer) return;
     
+    // 清空容器
+    cmykCirclesContainer.innerHTML = '';
+    
     // 创建CMYK圆形进度条
     createCircleGroup(cmykCirclesContainer, 'c', 'C', '#00AEEF');
     createCircleGroup(cmykCirclesContainer, 'm', 'M', '#EC008C');
     createCircleGroup(cmykCirclesContainer, 'y', 'Y', '#FFF200');
     createCircleGroup(cmykCirclesContainer, 'k', 'K', '#000000');
+    createCircleGroup(cmykCirclesContainer, 'w', 'V', '#FFFFFF'); // 将W改为V
 }
 
 // 创建单个圆形进度条组
@@ -310,10 +443,22 @@ function createCircleGroup(container, id, label, color) {
     circle2.setAttribute('transform', 'rotate(-90 30 30)');
     circle2.id = `${id}-circle`;
     
+    // 为白色圆圈添加特殊样式，使其在深色背景上可见
+    if (id === 'w') {
+        circle2.setAttribute('stroke', '#FFFFFF');
+        circle2.setAttribute('stroke-opacity', '0.9');
+        circle2.setAttribute('stroke-width', '5');
+    }
+    
     const valueElem = document.createElement('div');
     valueElem.className = 'circle-value';
     valueElem.id = `${id}-value`;
     valueElem.textContent = '0';
+    
+    // 为白色值添加特殊样式
+    if (id === 'w') {
+        valueElem.style.textShadow = '0 0 3px rgba(0,0,0,0.5)';
+    }
     
     svg.appendChild(circle1);
     svg.appendChild(circle2);

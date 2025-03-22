@@ -12,6 +12,7 @@
             <!-- 颜色选项将通过JavaScript动态生成 -->
         </div>
         
+        <!-- 在侧边栏中添加颜色描述显示区域 -->
         <div class="sidebar">
             <div class="logo">AI</div>
             <div class="chinese-characters">音乐</div>
@@ -19,7 +20,18 @@
             <!-- 添加CMYK圆形进度条容器 -->
             <div id="cmyk-circles-container" class="cmyk-circles-container"></div>
             
-            <!-- 保留原有的RGB显示 -->
+            <!-- 添加当前选中颜色名称显示 -->
+            <div class="selected-color-container">
+                <div class="selected-color-label">当前选中色彩:</div>
+                <div id="selected-color-name" class="selected-color-name">中国红</div>
+            </div>
+            
+            <!-- 添加颜色描述显示区域 -->
+            <div class="color-description-container">
+                <div class="color-description-label">色彩描述:</div>
+                <div id="color-description" class="color-description">大红：正红色，三原色中的红，传统的中国红，又称绛色。</div>
+            </div>
+            
             <div class="color-value">
                 <div class="color-indicator indicator-red">R</div>
                 <div class="rgb-value" id="r-value">192</div>
