@@ -52,8 +52,8 @@ fetch('data/ColorData.json')
                 animateRGBValue('g-value', parseInt(document.getElementById('g-value').textContent), g);
                 animateRGBValue('b-value', parseInt(document.getElementById('b-value').textContent), b);
                 
-                // 更新CMYK圆形进度条
-                updateCMYKCircles(r, g, b);
+                // 更新五行元素关联
+                updateWuxingElements(r, g, b);
                 
                 // 更新当前选中的颜色名称
                 document.getElementById('selected-color-name').textContent = color.Title;
@@ -124,6 +124,12 @@ function animateBackgroundColor(startR, startG, startB, endR, endG, endB) {
     const duration = 800; // 动画持续时间（毫秒）
     const startTime = performance.now();
     
+    // 获取需要更新颜色的元素
+    const colorGrid = document.querySelector('.color-grid');
+    const sidebar = document.querySelector('.sidebar');
+    const patternOverlay = document.querySelector('.pattern-overlay');
+    const chinesePatternOverlay = document.querySelector('.chinese-pattern-overlay');
+    
     function updateColor(currentTime) {
         const elapsedTime = currentTime - startTime;
         
@@ -136,10 +142,39 @@ function animateBackgroundColor(startR, startG, startB, endR, endG, endB) {
             const currentG = Math.round(startG + (endG - startG) * easeProgress);
             const currentB = Math.round(startB + (endB - startB) * easeProgress);
             
+            // 更新背景颜色 - 直接使用选择的RGB值
             document.body.style.backgroundColor = `rgb(${currentR}, ${currentG}, ${currentB})`;
+            document.documentElement.style.setProperty('--selected-color', `rgb(${currentR}, ${currentG}, ${currentB})`);
+            
+            // 更新图案覆盖层，降低透明度以显示真实颜色
+            if (patternOverlay) {
+                patternOverlay.style.opacity = '0.3';
+                patternOverlay.style.mixBlendMode = 'overlay';
+            }
+            
+            // 更新中国风图案覆盖层
+            if (chinesePatternOverlay) {
+                chinesePatternOverlay.style.opacity = '0.15';
+                chinesePatternOverlay.style.mixBlendMode = 'soft-light';
+            }
+            
             requestAnimationFrame(updateColor);
         } else {
+            // 设置最终颜色
             document.body.style.backgroundColor = `rgb(${endR}, ${endG}, ${endB})`;
+            document.documentElement.style.setProperty('--selected-color', `rgb(${endR}, ${endG}, ${endB})`);
+            
+            // 更新图案覆盖层，保持与动画中相同的设置
+            if (patternOverlay) {
+                patternOverlay.style.opacity = '0.3';
+                patternOverlay.style.mixBlendMode = 'overlay';
+            }
+            
+            // 更新中国风图案覆盖层
+            if (chinesePatternOverlay) {
+                chinesePatternOverlay.style.opacity = '0.15';
+                chinesePatternOverlay.style.mixBlendMode = 'soft-light';
+            }
         }
     }
     
@@ -147,57 +182,88 @@ function animateBackgroundColor(startR, startG, startB, endR, endG, endB) {
 }
 
 // 添加在文件末尾
-// 更新CMYK圆形进度条
-function updateCMYKCircles(r, g, b) {
-    // 计算CMYK值
-    let c = 0, m = 0, y = 0, k = 0, w = 0;
+// 更新五行元素关联
+function updateWuxingElements(r, g, b) {
+    // 计算颜色的五行属性
+    // 根据RGB值判断颜色属于哪个五行元素
+    // 金(白)、木(青/绿)、水(黑/蓝)、火(红)、土(黄/棕)
     
-    // RGB转CMYK算法
-    const r1 = r / 255;
-    const g1 = g / 255;
-    const b1 = b / 255;
+    // 简化的颜色分类算法
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    const delta = max - min;
     
-    k = 1 - Math.max(r1, g1, b1);
-    if (k === 1) {
-        c = m = y = 0;
-    } else {
-        c = (1 - r1 - k) / (1 - k);
-        m = (1 - g1 - k) / (1 - k);
-        y = (1 - b1 - k) / (1 - k);
+    let wuxingElement = '';
+    let elementColor = '';
+    let description = '';
+    
+    // 判断是否为白色系 (金)
+    if (brightness > 200 && delta < 30) {
+        wuxingElement = '金';
+        elementColor = '#BDBDBD';
+        description = '金代表白色系，象征着纯洁、高贵与坚韧，对应西方与秋季。';
+    }
+    // 判断是否为绿色系 (木)
+    else if (g > r && g > b) {
+        wuxingElement = '木';
+        elementColor = '#33691E';
+        description = '木代表绿色系，象征着生长、希望与活力，对应东方与春季。';
+    }
+    // 判断是否为蓝黑色系 (水)
+    else if (b > r && b > g) {
+        wuxingElement = '水';
+        elementColor = '#0D47A1';
+        description = '水代表蓝黑色系，象征着智慧、深邃与包容，对应北方与冬季。';
+    }
+    // 判断是否为红色系 (火)
+    else if (r > g && r > b && r > 150) {
+        wuxingElement = '火';
+        elementColor = '#BF360C';
+        description = '火代表红色系，象征着热情、活力与温暖，对应南方与夏季。';
+    }
+    // 判断是否为黄棕色系 (土)
+    else {
+        wuxingElement = '土';
+        elementColor = '#5D4037';
+        description = '土代表黄棕色系，象征着稳重、包容与厚实，对应中央与四季交替时期。';
     }
     
-    // 计算白色值 (简单算法：RGB平均值的百分比)
-    w = Math.round((r1 + g1 + b1) / 3 * 100);
-    
-    // 转换为百分比
-    c = Math.round(c * 100);
-    m = Math.round(m * 100);
-    y = Math.round(y * 100);
-    k = Math.round(k * 100);
-    
-    // 获取当前值
-    const currentC = parseInt(document.getElementById('c-value').textContent) || 0;
-    const currentM = parseInt(document.getElementById('m-value').textContent) || 0;
-    const currentY = parseInt(document.getElementById('y-value').textContent) || 0;
-    const currentK = parseInt(document.getElementById('k-value').textContent) || 0;
-    const currentW = parseInt(document.getElementById('w-value').textContent) || 0;
-    
-    // 平滑更新CMYK值显示和圆圈进度
-    animateCMYKValue('c-value', 'c-circle', currentC, c, '#00AEEF');
-    animateCMYKValue('m-value', 'm-circle', currentM, m, '#EC008C');
-    animateCMYKValue('y-value', 'y-circle', currentY, y, '#FFF200');
-    animateCMYKValue('k-value', 'k-circle', currentK, k, '#000000');
-    animateCMYKValue('w-value', 'w-circle', currentW, w, '#FFFFFF');
+    // 高亮对应的五行元素
+    highlightWuxingElement(wuxingElement, elementColor, description);
 }
 
-// CMYK值和圆圈平滑过渡动画函数
-function animateCMYKValue(valueElementId, circleElementId, startValue, endValue, color) {
-    const valueElement = document.getElementById(valueElementId);
-    const circleElement = document.getElementById(circleElementId);
+// 高亮五行元素函数
+function highlightWuxingElement(element, color, description) {
+    // 获取五行图像
+    const wuxingImage = document.querySelector('.wuxing-image');
+    if (!wuxingImage) return;
     
-    if (!valueElement || !circleElement) return;
+    // 添加高亮效果
+    wuxingImage.classList.add('wuxing-highlight');
     
-    const duration = 800; // 动画持续时间（毫秒）
+    // 更新五行描述
+    const descriptionElement = document.querySelector('.wuxing-description');
+    if (descriptionElement) {
+        descriptionElement.textContent = description;
+        descriptionElement.style.color = color;
+    }
+    
+    // 更新五行标题
+    const titleElement = document.querySelector('.wuxing-title');
+    if (titleElement) {
+        titleElement.textContent = `五行相生 - ${element}`;  
+        titleElement.style.color = color;
+    }
+    
+    // 添加动画效果
+    setTimeout(() => {
+        wuxingImage.classList.remove('wuxing-highlight');
+    }, 1000);
+}
+
+// 圆形进度条动画函数
+function animateCircleValue(circleElement, valueElement, startValue, endValue, color, duration = 800) {
     const startTime = performance.now();
     const radius = circleElement.r.baseVal.value;
     const circumference = 2 * Math.PI * radius;
@@ -234,7 +300,7 @@ function animateCMYKValue(valueElementId, circleElementId, startValue, endValue,
     requestAnimationFrame(updateAnimation);
 }
 
-// 删除原来的updateCircleProgress函数，因为它被新的animateCMYKValue函数替代了
+// 更新圆形进度条
 // 更新圆形进度条
 function updateCircleProgress(elementId, percent, color) {
     const circle = document.getElementById(elementId);
@@ -252,14 +318,11 @@ function updateCircleProgress(elementId, percent, color) {
     circle.style.stroke = color;
 }
 
-// 初始化页面时创建CMYK圆形进度条
+// 初始化页面
 document.addEventListener('DOMContentLoaded', function() {
     // 显示加载指示器
     const colorGrid = document.getElementById('color-grid');
     colorGrid.innerHTML = '<div class="loading-indicator">正在加载颜色数据...</div>';
-    
-    // 创建CMYK圆形进度条
-    createCMYKCircles();
     
     // 设置默认RGB值
     document.getElementById('r-value').textContent = '192';
@@ -275,9 +338,9 @@ document.addEventListener('DOMContentLoaded', function() {
         descriptionElement.textContent = '大红：正红色，三原色中的红，传统的中国红，又称绛色。';
     }
     
-    // 设置默认CMYK值
+    // 设置默认五行元素
     const defaultR = 192, defaultG = 72, defaultB = 81;
-    updateCMYKCircles(defaultR, defaultG, defaultB);
+    updateWuxingElements(defaultR, defaultG, defaultB);
     
     // 生成音乐按钮点击事件
     document.getElementById('generate-btn').addEventListener('click', function() {
@@ -390,83 +453,68 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 });
 
-// 创建CMYK圆形进度条
-function createCMYKCircles() {
-    const cmykCirclesContainer = document.getElementById('cmyk-circles-container');
-    if (!cmykCirclesContainer) return;
+// 五行元素相关函数已在上方定义
+
+// 将RGB值转换为CMYK值
+function rgbToCmyk(r, g, b) {
+    // 将RGB值标准化到0-1范围
+    const normalizedR = r / 255;
+    const normalizedG = g / 255;
+    const normalizedB = b / 255;
     
-    // 清空容器
-    cmykCirclesContainer.innerHTML = '';
+    // 计算黑色通道值(K)
+    let k = 1 - Math.max(normalizedR, normalizedG, normalizedB);
     
-    // 创建CMYK圆形进度条
-    createCircleGroup(cmykCirclesContainer, 'c', 'C', '#00AEEF');
-    createCircleGroup(cmykCirclesContainer, 'm', 'M', '#EC008C');
-    createCircleGroup(cmykCirclesContainer, 'y', 'Y', '#FFF200');
-    createCircleGroup(cmykCirclesContainer, 'k', 'K', '#000000');
-    createCircleGroup(cmykCirclesContainer, 'w', 'V', '#FFFFFF'); // 将W改为V
+    // 避免除以零的情况
+    if (k === 1) {
+        return { c: 0, m: 0, y: 0, k: 100 };
+    }
+    
+    // 计算其他通道值
+    const c = Math.round(((1 - normalizedR - k) / (1 - k)) * 100);
+    const m = Math.round(((1 - normalizedG - k) / (1 - k)) * 100);
+    const y = Math.round(((1 - normalizedB - k) / (1 - k)) * 100);
+    const kPercent = Math.round(k * 100);
+    
+    return { c, m, y, k: kPercent };
 }
 
-// 创建单个圆形进度条组
-function createCircleGroup(container, id, label, color) {
-    const group = document.createElement('div');
-    group.className = 'circle-group';
+// 更新CMYK圆形进度条
+function updateCMYKCircles(r, g, b) {
+    // 将RGB值转换为CMYK值
+    const cmyk = rgbToCmyk(r, g, b);
     
-    const labelElem = document.createElement('div');
-    labelElem.className = 'circle-label';
-    labelElem.textContent = label;
+    // 检查是否存在CMYK圆形进度条元素
+    const cyanCircle = document.getElementById('cyan-circle');
+    const magentaCircle = document.getElementById('magenta-circle');
+    const yellowCircle = document.getElementById('yellow-circle');
+    const blackCircle = document.getElementById('black-circle');
     
-    const circleContainer = document.createElement('div');
-    circleContainer.className = 'circle-container';
-    
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.setAttribute('width', '60');
-    svg.setAttribute('height', '60');
-    
-    const circle1 = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    circle1.setAttribute('cx', '30');
-    circle1.setAttribute('cy', '30');
-    circle1.setAttribute('r', '25');
-    circle1.setAttribute('fill', 'none');
-    circle1.setAttribute('stroke', '#ddd');
-    circle1.setAttribute('stroke-width', '5');
-    circle1.setAttribute('opacity', '0.3');
-    
-    const circle2 = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    circle2.setAttribute('cx', '30');
-    circle2.setAttribute('cy', '30');
-    circle2.setAttribute('r', '25');
-    circle2.setAttribute('fill', 'none');
-    circle2.setAttribute('stroke', color);
-    circle2.setAttribute('stroke-width', '5');
-    circle2.setAttribute('stroke-dasharray', '157 157');
-    circle2.setAttribute('stroke-dashoffset', '157');
-    circle2.setAttribute('transform', 'rotate(-90 30 30)');
-    circle2.id = `${id}-circle`;
-    
-    // 为白色圆圈添加特殊样式，使其在深色背景上可见
-    if (id === 'w') {
-        circle2.setAttribute('stroke', '#FFFFFF');
-        circle2.setAttribute('stroke-opacity', '0.9');
-        circle2.setAttribute('stroke-width', '5');
+    // 如果元素存在，则更新进度条
+    if (cyanCircle) {
+        updateCircleProgress('cyan-circle', cmyk.c, '#00AEEF'); // 青色
     }
     
-    const valueElem = document.createElement('div');
-    valueElem.className = 'circle-value';
-    valueElem.id = `${id}-value`;
-    valueElem.textContent = '0';
-    
-    // 为白色值添加特殊样式
-    if (id === 'w') {
-        valueElem.style.textShadow = '0 0 3px rgba(0,0,0,0.5)';
+    if (magentaCircle) {
+        updateCircleProgress('magenta-circle', cmyk.m, '#EC008C'); // 品红色
     }
     
-    svg.appendChild(circle1);
-    svg.appendChild(circle2);
-    circleContainer.appendChild(svg);
-    circleContainer.appendChild(valueElem);
+    if (yellowCircle) {
+        updateCircleProgress('yellow-circle', cmyk.y, '#FFF200'); // 黄色
+    }
     
-    group.appendChild(labelElem);
-    group.appendChild(circleContainer);
+    if (blackCircle) {
+        updateCircleProgress('black-circle', cmyk.k, '#000000'); // 黑色
+    }
     
-    container.appendChild(group);
+    // 更新CMYK值显示（如果存在相应元素）
+    const cyanValue = document.getElementById('cyan-value');
+    const magentaValue = document.getElementById('magenta-value');
+    const yellowValue = document.getElementById('yellow-value');
+    const blackValue = document.getElementById('black-value');
+    
+    if (cyanValue) cyanValue.textContent = cmyk.c + '%';
+    if (magentaValue) magentaValue.textContent = cmyk.m + '%';
+    if (yellowValue) yellowValue.textContent = cmyk.y + '%';
+    if (blackValue) blackValue.textContent = cmyk.k + '%';
 }

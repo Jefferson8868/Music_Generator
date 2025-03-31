@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <!-- 纸张纹理背景 -->
+  <defs>
+    <filter id="paperTexture" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" seed="1" result="noise" />
+      <feDiffuseLighting in="noise" lighting-color="#f5f5f0" surfaceScale="1" result="diffLight">
+        <feDistantLight azimuth="45" elevation="60" />
+      </feDiffuseLighting>
+      <feComposite operator="in" in="diffLight" in2="SourceGraphic" result="composite" />
+    </filter>
+    
+    <pattern id="smallNoise" patternUnits="userSpaceOnUse" width="200" height="200">
+      <rect width="200" height="200" fill="#f9f6f0" />
+      <rect width="200" height="200" filter="url(#paperTexture)" opacity="0.8" />
+      <!-- 添加一些随机的墨点 -->
+      <circle cx="30" cy="40" r="1" fill="rgba(0,0,0,0.1)" />
+      <circle cx="120" cy="60" r="0.8" fill="rgba(0,0,0,0.1)" />
+      <circle cx="180" cy="140" r="1.2" fill="rgba(0,0,0,0.1)" />
+      <circle cx="65" cy="180" r="0.6" fill="rgba(0,0,0,0.1)" />
+      <circle cx="145" cy="25" r="0.7" fill="rgba(0,0,0,0.1)" />
+      <!-- 添加一些细微的纤维线条 -->
+      <line x1="10" y1="50" x2="30" y2="55" stroke="rgba(0,0,0,0.03)" stroke-width="0.5" />
+      <line x1="100" y1="120" x2="130" y2="110" stroke="rgba(0,0,0,0.03)" stroke-width="0.5" />
+      <line x1="170" y1="80" x2="190" y2="95" stroke="rgba(0,0,0,0.03)" stroke-width="0.5" />
+    </pattern>
+    
+    <!-- 水墨效果 -->
+    <filter id="inkEffect">
+      <feTurbulence type="turbulence" baseFrequency="0.05" numOctaves="2" result="turbulence" />
+      <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="5" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+  
+  <!-- 背景填充 -->
+  <rect width="400" height="400" fill="url(#smallNoise)" />
+  
+  <!-- 边框装饰 -->
+  <rect x="5" y="5" width="390" height="390" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1" />
+  
+  <!-- 角落装饰 - 简化的云纹 -->
+  <path d="M20,20 Q30,10 40,20 Q50,30 60,20" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1" filter="url(#inkEffect)" />
+  <path d="M380,20 Q370,10 360,20 Q350,30 340,20" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1" filter="url(#inkEffect)" />
+  <path d="M20,380 Q30,390 40,380 Q50,370 60,380" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1" filter="url(#inkEffect)" />
+  <path d="M380,380 Q370,390 360,380 Q350,370 340,380" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1" filter="url(#inkEffect)" />
+</svg>
