@@ -1,0 +1,3174 @@
+[
+  {
+    "wuxing": "木",
+    "color": "青",
+    "yinYue": "角",
+    "zangFu": "肝",
+    "direction": "东",
+    "season": "春",
+    "description": "青色代表生长、希望与活力，对应东方与春季。",
+    "colors": [
+      {
+        "UniqueId": "rgb(235, 238, 232)",
+        "Title": "皦玉",
+        "Subtitle": "RGB:235,238,232",
+        "Content": "CMYK:10,5,10,0",
+        "Color": "#FFEBEEE8",
+        "Description": "皦玉：传统中国青色系，十六进制值 #EBEEE8，RGB(235,238,232)，CMYK(10,5,10,0)。"
+      },
+      {
+        "UniqueId": "rgb(213, 235, 225)",
+        "Title": "天缥",
+        "Subtitle": "RGB:213,235,225",
+        "Content": "CMYK:20,0,15,0",
+        "Color": "#FFD5EBE1",
+        "Description": "天缥：传统中国青色系，十六进制值 #D5EBE1，RGB(213,235,225)，CMYK(20,0,15,0)。"
+      },
+      {
+        "UniqueId": "rgb(213, 227, 212)",
+        "Title": "卵色",
+        "Subtitle": "RGB:213,227,212",
+        "Content": "CMYK:20,5,20,0",
+        "Color": "#FFD5E3D4",
+        "Description": "卵色：传统中国青色系，十六进制值 #D5E3D4，RGB(213,227,212)，CMYK(20,5,20,0)。"
+      },
+      {
+        "UniqueId": "rgb(202, 215, 197)",
+        "Title": "葭菼",
+        "Subtitle": "RGB:202,215,197",
+        "Content": "CMYK:25,10,25,0",
+        "Color": "#FFCAD7C5",
+        "Description": "葭菼：传统中国青色系，十六进制值 #CAD7C5，RGB(202,215,197)，CMYK(25,10,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(190, 210, 187)",
+        "Title": "山岚",
+        "Subtitle": "RGB:190,210,187",
+        "Content": "CMYK:30,10,30,0",
+        "Color": "#FFBED2BB",
+        "Description": "山岚：传统中国青色系，十六进制值 #BED2BB，RGB(190,210,187)，CMYK(30,10,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(177, 213, 200)",
+        "Title": "沧浪",
+        "Subtitle": "RGB:177,213,200",
+        "Content": "CMYK:35,5,25,0",
+        "Color": "#FFB1D5C8",
+        "Description": "沧浪：传统中国青色系，十六进制值 #B1D5C8，RGB(177,213,200)，CMYK(35,5,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(190, 202, 183)",
+        "Title": "冰台",
+        "Subtitle": "RGB:190,202,183",
+        "Content": "CMYK:30,15,30,0",
+        "Color": "#FFBECAB7",
+        "Description": "冰台：传统中国青色系，十六进制值 #BECAB7，RGB(190,202,183)，CMYK(30,15,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(190, 194, 188)",
+        "Title": "溶溶月",
+        "Subtitle": "RGB:190,194,188",
+        "Content": "CMYK:30,20,25,0",
+        "Color": "#FFBEC2BC",
+        "Description": "溶溶月：传统中国青色系，十六进制值 #BEC2BC，RGB(190,194,188)，CMYK(30,20,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(179, 189, 169)",
+        "Title": "青古",
+        "Subtitle": "RGB:179,189,169",
+        "Content": "CMYK:35,20,35,0",
+        "Color": "#FFB3BDA9",
+        "Description": "青古：传统中国青色系，十六进制值 #B3BDA9，RGB(179,189,169)，CMYK(35,20,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(166, 186, 177)",
+        "Title": "醽醁",
+        "Subtitle": "RGB:166,186,177",
+        "Content": "CMYK:40,20,30,0",
+        "Color": "#FFA6BAB1",
+        "Description": "醽醁：传统中国青色系，十六进制值 #A6BAB1，RGB(166,186,177)，CMYK(40,20,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(153, 188, 172)",
+        "Title": "苍筤",
+        "Subtitle": "RGB:153,188,172",
+        "Content": "CMYK:45,15,35,0",
+        "Color": "#FF99BCAC",
+        "Description": "苍筤：传统中国青色系，十六进制值 #99BCAC，RGB(153,188,172)，CMYK(45,15,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(136, 191, 184)",
+        "Title": "繱犗",
+        "Subtitle": "RGB:136,191,184",
+        "Content": "CMYK:50,10,30,0",
+        "Color": "#FF88BFB8",
+        "Description": "繱犗：传统中国青色系，十六进制值 #88BFB8，RGB(136,191,184)，CMYK(50,10,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(195, 217, 78)",
+        "Title": "青粲",
+        "Subtitle": "RGB:195,217,78",
+        "Content": "CMYK:30,0,80,0",
+        "Color": "#FFC3D94E",
+        "Description": "青粲：传统中国青色系，十六进制值 #C3D94E，RGB(195,217,78)，CMYK(30,0,80,0)。"
+      },
+      {
+        "UniqueId": "rgb(155, 180, 150)",
+        "Title": "渌波",
+        "Subtitle": "RGB:155,180,150",
+        "Content": "CMYK:45,20,45,0",
+        "Color": "#FF9BB496",
+        "Description": "渌波：传统中国青色系，十六进制值 #9BB496，RGB(155,180,150)，CMYK(45,20,45,0)。"
+      },
+      {
+        "UniqueId": "rgb(183, 211, 50)",
+        "Title": "翠缥",
+        "Subtitle": "RGB:183,211,50",
+        "Content": "CMYK:35,0,90,0",
+        "Color": "#FFB7D332",
+        "Description": "翠缥：传统中国青色系，十六进制值 #B7D332，RGB(183,211,50)，CMYK(35,0,90,0)。"
+      },
+      {
+        "UniqueId": "rgb(128, 164, 146)",
+        "Title": "缥碧",
+        "Subtitle": "RGB:128,164,146",
+        "Content": "CMYK:55,25,45,0",
+        "Color": "#FF80A492",
+        "Description": "缥碧：传统中国青色系，十六进制值 #80A492，RGB(128,164,146)，CMYK(55,25,45,0)。"
+      },
+      {
+        "UniqueId": "rgb(129, 163, 128)",
+        "Title": "青楸",
+        "Subtitle": "RGB:129,163,128",
+        "Content": "CMYK:55,25,55,0",
+        "Color": "#FF81A380",
+        "Description": "青楸：传统中国青色系，十六进制值 #81A380，RGB(129,163,128)，CMYK(55,25,55,0)。"
+      },
+      {
+        "UniqueId": "rgb(129, 157, 142)",
+        "Title": "翠涛",
+        "Subtitle": "RGB:129,157,142",
+        "Content": "CMYK:55,30,45,0",
+        "Color": "#FF819D8E",
+        "Description": "翠涛：传统中国青色系，十六进制值 #819D8E，RGB(129,157,142)，CMYK(55,30,45,0)。"
+      },
+      {
+        "UniqueId": "rgb(144, 160, 125)",
+        "Title": "碧滋",
+        "Subtitle": "RGB:144,160,125",
+        "Content": "CMYK:50,30,55,0",
+        "Color": "#FF90A07D",
+        "Description": "碧滋：传统中国青色系，十六进制值 #90A07D，RGB(144,160,125)，CMYK(50,30,55,0)。"
+      },
+      {
+        "UniqueId": "rgb(134, 144, 138)",
+        "Title": "蕉月",
+        "Subtitle": "RGB:134,144,138",
+        "Content": "CMYK:50,35,40,10",
+        "Color": "#FF86908A",
+        "Description": "蕉月：传统中国青色系，十六进制值 #86908A，RGB(134,144,138)，CMYK(50,35,40,10)。"
+      },
+      {
+        "UniqueId": "rgb(93, 163, 157)",
+        "Title": "二绿",
+        "Subtitle": "RGB:93,163,157",
+        "Content": "CMYK:65,20,40,0",
+        "Color": "#FF5DA39D",
+        "Description": "二绿：传统中国青色系，十六进制值 #5DA39D，RGB(93,163,157)，CMYK(65,20,40,0)。"
+      },
+      {
+        "UniqueId": "rgb(119, 138, 119)",
+        "Title": "青梅",
+        "Subtitle": "RGB:119,138,119",
+        "Content": "CMYK:60,40,55,0",
+        "Color": "#FF778A77",
+        "Description": "青梅：传统中国青色系，十六进制值 #778A77，RGB(119,138,119)，CMYK(60,40,55,0)。"
+      },
+      {
+        "UniqueId": "rgb(120, 138, 111)",
+        "Title": "雀梅",
+        "Subtitle": "RGB:120,138,111",
+        "Content": "CMYK:60,40,60,0",
+        "Color": "#FF788A6F",
+        "Description": "雀梅：传统中国青色系，十六进制值 #788A6F，RGB(120,138,111)，CMYK(60,40,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(105, 142, 106)",
+        "Title": "菉竹",
+        "Subtitle": "RGB:105,142,106",
+        "Content": "CMYK:65,35,65,0",
+        "Color": "#FF698E6A",
+        "Description": "菉竹：传统中国青色系，十六进制值 #698E6A，RGB(105,142,106)，CMYK(65,35,65,0)。"
+      },
+      {
+        "UniqueId": "rgb(158, 188, 25)",
+        "Title": "人籁",
+        "Subtitle": "RGB:158,188,25",
+        "Content": "CMYK:45,10,100,0",
+        "Color": "#FF9EBC19",
+        "Description": "人籁：传统中国青色系，十六进制值 #9EBC19，RGB(158,188,25)，CMYK(45,10,100,0)。"
+      },
+      {
+        "UniqueId": "rgb(104, 148, 92)",
+        "Title": "庭芜绿",
+        "Subtitle": "RGB:104,148,92",
+        "Content": "CMYK:65,30,75,0",
+        "Color": "#FF68945C",
+        "Description": "庭芜绿：传统中国青色系，十六进制值 #68945C，RGB(104,148,92)，CMYK(65,30,75,0)。"
+      },
+      {
+        "UniqueId": "rgb(107, 125, 115)",
+        "Title": "千山翠",
+        "Subtitle": "RGB:107,125,115",
+        "Content": "CMYK:60,40,50,15",
+        "Color": "#FF6B7D73",
+        "Description": "千山翠：传统中国青色系，十六进制值 #6B7D73，RGB(107,125,115)，CMYK(60,40,50,15)。"
+      },
+      {
+        "UniqueId": "rgb(119, 150, 73)",
+        "Title": "碧山",
+        "Subtitle": "RGB:119,150,73",
+        "Content": "CMYK:60,30,85,0",
+        "Color": "#FF779649",
+        "Description": "碧山：传统中国青色系，十六进制值 #779649，RGB(119,150,73)，CMYK(60,30,85,0)。"
+      },
+      {
+        "UniqueId": "rgb(132, 167, 41)",
+        "Title": "水龙吟",
+        "Subtitle": "RGB:132,167,41",
+        "Content": "CMYK:55,20,100,0",
+        "Color": "#FF84A729",
+        "Description": "水龙吟：传统中国青色系，十六进制值 #84A729，RGB(132,167,41)，CMYK(55,20,100,0)。"
+      },
+      {
+        "UniqueId": "rgb(106, 141, 82)",
+        "Title": "石发",
+        "Subtitle": "RGB:106,141,82",
+        "Content": "CMYK:65,35,80,0",
+        "Color": "#FF6A8D52",
+        "Description": "石发：传统中国青色系，十六进制值 #6A8D52，RGB(106,141,82)，CMYK(65,35,80,0)。"
+      },
+      {
+        "UniqueId": "rgb(104, 106, 103)",
+        "Title": "石涅",
+        "Subtitle": "RGB:104,106,103",
+        "Content": "CMYK:65,55,55,10",
+        "Color": "#FF686A67",
+        "Description": "石涅：传统中国青色系，十六进制值 #686A67，RGB(104,106,103)，CMYK(65,55,55,10)。"
+      },
+      {
+        "UniqueId": "rgb(108, 134, 80)",
+        "Title": "葱倩",
+        "Subtitle": "RGB:108,134,80",
+        "Content": "CMYK:65,40,80,0",
+        "Color": "#FF6C8650",
+        "Description": "葱倩：传统中国青色系，十六进制值 #6C8650，RGB(108,134,80)，CMYK(65,40,80,0)。"
+      },
+      {
+        "UniqueId": "rgb(95, 118, 106)",
+        "Title": "翕赩",
+        "Subtitle": "RGB:95,118,106",
+        "Content": "CMYK:70,50,60,0",
+        "Color": "#FF5F766A",
+        "Description": "翕赩：传统中国青色系，十六进制值 #5F766A，RGB(95,118,106)，CMYK(70,50,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(93, 131, 81)",
+        "Title": "漆姑",
+        "Subtitle": "RGB:93,131,81",
+        "Content": "CMYK:70,40,80,0",
+        "Color": "#FF5D8351",
+        "Description": "漆姑：传统中国青色系，十六进制值 #5D8351，RGB(93,131,81)，CMYK(70,40,80,0)。"
+      },
+      {
+        "UniqueId": "rgb(61, 142, 134)",
+        "Title": "铜青",
+        "Subtitle": "RGB:61,142,134",
+        "Content": "CMYK:75,30,50,0",
+        "Color": "#FF3D8E86",
+        "Description": "铜青：传统中国青色系，十六进制值 #3D8E86，RGB(61,142,134)，CMYK(75,30,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(93, 114, 89)",
+        "Title": "油绿",
+        "Subtitle": "RGB:93,114,89",
+        "Content": "CMYK:70,50,70,5",
+        "Color": "#FF5D7259",
+        "Description": "油绿：传统中国青色系，十六进制值 #5D7259，RGB(93,114,89)，CMYK(70,50,70,5)。"
+      },
+      {
+        "UniqueId": "rgb(76, 128, 69)",
+        "Title": "翠微",
+        "Subtitle": "RGB:76,128,69",
+        "Content": "CMYK:75,40,90,0",
+        "Color": "#FF4C8045",
+        "Description": "翠微：传统中国青色系，十六进制值 #4C8045，RGB(76,128,69)，CMYK(75,40,90,0)。"
+      },
+      {
+        "UniqueId": "rgb(79, 121, 74)",
+        "Title": "芰荷",
+        "Subtitle": "RGB:79,121,74",
+        "Content": "CMYK:75,45,85,0",
+        "Color": "#FF4F794A",
+        "Description": "芰荷：传统中国青色系，十六进制值 #4F794A，RGB(79,121,74)，CMYK(75,45,85,0)。"
+      },
+      {
+        "UniqueId": "rgb(79, 111, 70)",
+        "Title": "青青",
+        "Subtitle": "RGB:79,111,70",
+        "Content": "CMYK:75,50,85,5",
+        "Color": "#FF4F6F46",
+        "Description": "青青：传统中国青色系，十六进制值 #4F6F46，RGB(79,111,70)，CMYK(75,50,85,5)。"
+      },
+      {
+        "UniqueId": "rgb(85, 95, 77)",
+        "Title": "结绿",
+        "Subtitle": "RGB:85,95,77",
+        "Content": "CMYK:70,55,70,20",
+        "Color": "#FF555F4D",
+        "Description": "结绿：传统中国青色系，十六进制值 #555F4D，RGB(85,95,77)，CMYK(70,55,70,20)。"
+      },
+      {
+        "UniqueId": "rgb(78, 101, 72)",
+        "Title": "莓莓",
+        "Subtitle": "RGB:78,101,72",
+        "Content": "CMYK:75,55,80,10",
+        "Color": "#FF4E6548",
+        "Description": "莓莓：传统中国青色系，十六进制值 #4E6548，RGB(78,101,72)，CMYK(75,55,80,10)。"
+      },
+      {
+        "UniqueId": "rgb(68, 106, 55)",
+        "Title": "翠虬",
+        "Subtitle": "RGB:68,106,55",
+        "Content": "CMYK:80,55,100,0",
+        "Color": "#FF446A37",
+        "Description": "翠虬：传统中国青色系，十六进制值 #446A37，RGB(68,106,55)，CMYK(80,55,100,0)。"
+      },
+      {
+        "UniqueId": "rgb(42, 110, 63)",
+        "Title": "官绿",
+        "Subtitle": "RGB:42,110,63",
+        "Content": "CMYK:85,50,95,0",
+        "Color": "#FF2A6E3F",
+        "Description": "官绿：传统中国青色系，十六进制值 #2A6E3F，RGB(42,110,63)，CMYK(85,50,95,0)。"
+      },
+      {
+        "UniqueId": "rgb(63, 80, 59)",
+        "Title": "螺青",
+        "Subtitle": "RGB:63,80,59",
+        "Content": "CMYK:80,65,85,20",
+        "Color": "#FF3F503B",
+        "Description": "螺青：传统中国青色系，十六进制值 #3F503B，RGB(63,80,59)，CMYK(80,65,85,20)。"
+      },
+      {
+        "UniqueId": "rgb(34, 107, 104)",
+        "Title": "䌦色",
+        "Subtitle": "RGB:34,107,104",
+        "Content": "CMYK:85,50,60,5",
+        "Color": "#FF226B68",
+        "Description": "䌦色：传统中国青色系，十六进制值 #226B68，RGB(34,107,104)，CMYK(85,50,60,5)。"
+      },
+      {
+        "UniqueId": "rgb(32, 104, 100)",
+        "Title": "石绿",
+        "Subtitle": "RGB:32,104,100",
+        "Content": "CMYK:85,50,60,10",
+        "Color": "#FF206864",
+        "Description": "石绿：传统中国青色系，十六进制值 #206864，RGB(32,104,100)，CMYK(85,50,60,10)。"
+      }
+    ],
+    "musicScale": [
+      "E",
+      "G",
+      "A",
+      "C",
+      "D"
+    ],
+    "musicTempo": "中速",
+    "musicStyle": "清新舒缓"
+  },
+  {
+    "wuxing": "火",
+    "color": "赤",
+    "yinYue": "徵",
+    "zangFu": "心",
+    "direction": "南",
+    "season": "夏",
+    "description": "赤色代表热情、活力与温暖，对应南方与夏季。",
+    "colors": [
+      {
+        "UniqueId": "rgb(245, 243, 242)",
+        "Title": "山矾",
+        "Subtitle": "RGB:245,243,242",
+        "Content": "CMYK:5,5,5,0",
+        "Color": "#FFF5F3F2",
+        "Description": "山矾：传统中国赤色系，十六进制值 #F5F3F2，RGB(245,243,242)，CMYK(5,5,5,0)。"
+      },
+      {
+        "UniqueId": "rgb(234, 229, 227)",
+        "Title": "玉頩",
+        "Subtitle": "RGB:234,229,227",
+        "Content": "CMYK:10,10,10,0",
+        "Color": "#FFEAE5E3",
+        "Description": "玉頩：传统中国赤色系，十六进制值 #EAE5E3，RGB(234,229,227)，CMYK(10,10,10,0)。"
+      },
+      {
+        "UniqueId": "rgb(246, 190, 200)",
+        "Title": "桃夭",
+        "Subtitle": "RGB:246,190,200",
+        "Content": "CMYK:0,35,10,0",
+        "Color": "#FFF6BEC8",
+        "Description": "桃夭：传统中国赤色系，十六进制值 #F6BEC8，RGB(246,190,200)，CMYK(0,35,10,0)。"
+      },
+      {
+        "UniqueId": "rgb(248, 198, 181)",
+        "Title": "十样锦",
+        "Subtitle": "RGB:248,198,181",
+        "Content": "CMYK:0,30,25,0",
+        "Color": "#FFF8C6B5",
+        "Description": "十样锦：传统中国赤色系，十六进制值 #F8C6B5，RGB(248,198,181)，CMYK(0,30,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(239, 196, 206)",
+        "Title": "粉米",
+        "Subtitle": "RGB:239,196,206",
+        "Content": "CMYK:5,30,10,0",
+        "Color": "#FFEFC4CE",
+        "Description": "粉米：传统中国赤色系，十六进制值 #EFC4CE，RGB(239,196,206)，CMYK(5,30,10,0)。"
+      },
+      {
+        "UniqueId": "rgb(231, 202, 211)",
+        "Title": "银红",
+        "Subtitle": "RGB:231,202,211",
+        "Content": "CMYK:10,25,10,0",
+        "Color": "#FFE7CAD3",
+        "Description": "银红：传统中国赤色系，十六进制值 #E7CAD3，RGB(231,202,211)，CMYK(10,25,10,0)。"
+      },
+      {
+        "UniqueId": "rgb(236, 176, 193)",
+        "Title": "水红",
+        "Subtitle": "RGB:236,176,193",
+        "Content": "CMYK:5,40,10,0",
+        "Color": "#FFECB0C1",
+        "Description": "水红：传统中国赤色系，十六进制值 #ECB0C1，RGB(236,176,193)，CMYK(5,40,10,0)。"
+      },
+      {
+        "UniqueId": "rgb(243, 166, 148)",
+        "Title": "海天霞",
+        "Subtitle": "RGB:243,166,148",
+        "Content": "CMYK:0,45,35,0",
+        "Color": "#FFF3A694",
+        "Description": "海天霞：传统中国赤色系，十六进制值 #F3A694，RGB(243,166,148)，CMYK(0,45,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(240, 145, 160)",
+        "Title": "杨妃",
+        "Subtitle": "RGB:240,145,160",
+        "Content": "CMYK:0,55,20,0",
+        "Color": "#FFF091A0",
+        "Description": "杨妃：传统中国赤色系，十六进制值 #F091A0，RGB(240,145,160)，CMYK(0,55,20,0)。"
+      },
+      {
+        "UniqueId": "rgb(227, 173, 185)",
+        "Title": "夕岚",
+        "Subtitle": "RGB:227,173,185",
+        "Content": "CMYK:10,40,15,0",
+        "Color": "#FFE3ADB9",
+        "Description": "夕岚：传统中国赤色系，十六进制值 #E3ADB9，RGB(227,173,185)，CMYK(10,40,15,0)。"
+      },
+      {
+        "UniqueId": "rgb(226, 162, 172)",
+        "Title": "彤管",
+        "Subtitle": "RGB:226,162,172",
+        "Content": "CMYK:10,45,20,0",
+        "Color": "#FFE2A2AC",
+        "Description": "彤管：传统中国赤色系，十六进制值 #E2A2AC，RGB(226,162,172)，CMYK(10,45,20,0)。"
+      },
+      {
+        "UniqueId": "rgb(242, 154, 118)",
+        "Title": "朱颜酡",
+        "Subtitle": "RGB:242,154,118",
+        "Content": "CMYK:0,50,50,0",
+        "Color": "#FFF29A76",
+        "Description": "朱颜酡：传统中国赤色系，十六进制值 #F29A76，RGB(242,154,118)，CMYK(0,50,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(218, 169, 169)",
+        "Title": "咸池",
+        "Subtitle": "RGB:218,169,169",
+        "Content": "CMYK:15,40,25,0",
+        "Color": "#FFDAA9A9",
+        "Description": "咸池：传统中国赤色系，十六进制值 #DAA9A9，RGB(218,169,169)，CMYK(15,40,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(217, 160, 179)",
+        "Title": "莲红",
+        "Subtitle": "RGB:217,160,179",
+        "Content": "CMYK:15,45,15,0",
+        "Color": "#FFD9A0B3",
+        "Description": "莲红：传统中国赤色系，十六进制值 #D9A0B3，RGB(217,160,179)，CMYK(15,45,15,0)。"
+      },
+      {
+        "UniqueId": "rgb(241, 143, 96)",
+        "Title": "赪霞",
+        "Subtitle": "RGB:241,143,96",
+        "Content": "CMYK:0,55,60,0",
+        "Color": "#FFF18F60",
+        "Description": "赪霞：传统中国赤色系，十六进制值 #F18F60，RGB(241,143,96)，CMYK(0,55,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(200, 182, 187)",
+        "Title": "石英",
+        "Subtitle": "RGB:200,182,187",
+        "Content": "CMYK:25,30,20,0",
+        "Color": "#FFC8B6BB",
+        "Description": "石英：传统中国赤色系，十六进制值 #C8B6BB，RGB(200,182,187)，CMYK(25,30,20,0)。"
+      },
+      {
+        "UniqueId": "rgb(239, 132, 93)",
+        "Title": "赪尾",
+        "Subtitle": "RGB:239,132,93",
+        "Content": "CMYK:0,60,60,0",
+        "Color": "#FFEF845D",
+        "Description": "赪尾：传统中国赤色系，十六进制值 #EF845D，RGB(239,132,93)，CMYK(0,60,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(200, 181, 179)",
+        "Title": "苍烟落照",
+        "Subtitle": "RGB:200,181,179",
+        "Content": "CMYK:25,30,25,0",
+        "Color": "#FFC8B5B3",
+        "Description": "苍烟落照：传统中国赤色系，十六进制值 #C8B5B3，RGB(200,181,179)，CMYK(25,30,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(218, 158, 140)",
+        "Title": "檀唇",
+        "Subtitle": "RGB:218,158,140",
+        "Content": "CMYK:15,45,40,0",
+        "Color": "#FFDA9E8C",
+        "Description": "檀唇：传统中国赤色系，十六进制值 #DA9E8C，RGB(218,158,140)，CMYK(15,45,40,0)。"
+      },
+      {
+        "UniqueId": "rgb(238, 121, 89)",
+        "Title": "缙云",
+        "Subtitle": "RGB:238,121,89",
+        "Content": "CMYK:0,65,60,0",
+        "Color": "#FFEE7959",
+        "Description": "缙云：传统中国赤色系，十六进制值 #EE7959，RGB(238,121,89)，CMYK(0,65,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(230, 119, 98)",
+        "Title": "小红",
+        "Subtitle": "RGB:230,119,98",
+        "Content": "CMYK:5,65,55,0",
+        "Color": "#FFE67762",
+        "Description": "小红：传统中国赤色系，十六进制值 #E67762，RGB(230,119,98)，CMYK(5,65,55,0)。"
+      },
+      {
+        "UniqueId": "rgb(221, 118, 148)",
+        "Title": "苏梅",
+        "Subtitle": "RGB:221,118,148",
+        "Content": "CMYK:10,65,20,0",
+        "Color": "#FFDD7694",
+        "Description": "苏梅：传统中国赤色系，十六进制值 #DD7694，RGB(221,118,148)，CMYK(10,65,20,0)。"
+      },
+      {
+        "UniqueId": "rgb(189, 178, 178)",
+        "Title": "甘石",
+        "Subtitle": "RGB:189,178,178",
+        "Content": "CMYK:30,30,25,0",
+        "Color": "#FFBDB2B2",
+        "Description": "甘石：传统中国赤色系，十六进制值 #BDB2B2，RGB(189,178,178)，CMYK(30,30,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(207, 146, 158)",
+        "Title": "雌霓",
+        "Subtitle": "RGB:207,146,158",
+        "Content": "CMYK:20,50,25,0",
+        "Color": "#FFCF929E",
+        "Description": "雌霓：传统中国赤色系，十六进制值 #CF929E，RGB(207,146,158)，CMYK(20,50,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(237, 109, 70)",
+        "Title": "朱柿",
+        "Subtitle": "RGB:237,109,70",
+        "Content": "CMYK:0,70,70,0",
+        "Color": "#FFED6D46",
+        "Description": "朱柿：传统中国赤色系，十六进制值 #ED6D46，RGB(237,109,70)，CMYK(0,70,70,0)。"
+      },
+      {
+        "UniqueId": "rgb(221, 107, 123)",
+        "Title": "渥赭",
+        "Subtitle": "RGB:221,107,123",
+        "Content": "CMYK:10,70,35,0",
+        "Color": "#FFDD6B7B",
+        "Description": "渥赭：传统中国赤色系，十六进制值 #DD6B7B，RGB(221,107,123)，CMYK(10,70,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(220, 107, 130)",
+        "Title": "长春",
+        "Subtitle": "RGB:220,107,130",
+        "Content": "CMYK:10,70,30,0",
+        "Color": "#FFDC6B82",
+        "Description": "长春：传统中国赤色系，十六进制值 #DC6B82，RGB(220,107,130)，CMYK(10,70,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(237, 109, 61)",
+        "Title": "苕荣",
+        "Subtitle": "RGB:237,109,61",
+        "Content": "CMYK:0,70,75,0",
+        "Color": "#FFED6D3D",
+        "Description": "苕荣：传统中国赤色系，十六进制值 #ED6D3D，RGB(237,109,61)，CMYK(0,70,75,0)。"
+      },
+      {
+        "UniqueId": "rgb(206, 136, 146)",
+        "Title": "縓缘",
+        "Subtitle": "RGB:206,136,146",
+        "Content": "CMYK:20,55,30,0",
+        "Color": "#FFCE8892",
+        "Description": "縓缘：传统中国赤色系，十六进制值 #CE8892，RGB(206,136,146)，CMYK(20,55,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(190, 168, 157)",
+        "Title": "珠子褐",
+        "Subtitle": "RGB:190,168,157",
+        "Content": "CMYK:30,35,35,0",
+        "Color": "#FFBEA89D",
+        "Description": "珠子褐：传统中国赤色系，十六进制值 #BEA89D，RGB(190,168,157)，CMYK(30,35,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(215, 127, 102)",
+        "Title": "琼琚",
+        "Subtitle": "RGB:215,127,102",
+        "Content": "CMYK:15,60,55,0",
+        "Color": "#FFD77F66",
+        "Description": "琼琚：传统中国赤色系，十六进制值 #D77F66，RGB(215,127,102)，CMYK(15,60,55,0)。"
+      },
+      {
+        "UniqueId": "rgb(221, 107, 79)",
+        "Title": "岱赭",
+        "Subtitle": "RGB:221,107,79",
+        "Content": "CMYK:10,70,65,0",
+        "Color": "#FFDD6B4F",
+        "Description": "岱赭：传统中国赤色系，十六进制值 #DD6B4F，RGB(221,107,79)，CMYK(10,70,65,0)。"
+      },
+      {
+        "UniqueId": "rgb(205, 115, 114)",
+        "Title": "红䵂",
+        "Subtitle": "RGB:205,115,114",
+        "Content": "CMYK:20,65,45,0",
+        "Color": "#FFCD7372",
+        "Description": "红䵂：传统中国赤色系，十六进制值 #CD7372，RGB(205,115,114)，CMYK(20,65,45,0)。"
+      },
+      {
+        "UniqueId": "rgb(233, 72, 41)",
+        "Title": "檎丹",
+        "Subtitle": "RGB:233,72,41",
+        "Content": "CMYK:0,85,85,0",
+        "Color": "#FFE94829",
+        "Description": "檎丹：传统中国赤色系，十六进制值 #E94829，RGB(233,72,41)，CMYK(0,85,85,0)。"
+      },
+      {
+        "UniqueId": "rgb(189, 150, 131)",
+        "Title": "丁香褐",
+        "Subtitle": "RGB:189,150,131",
+        "Content": "CMYK:30,45,45,0",
+        "Color": "#FFBD9683",
+        "Description": "丁香褐：传统中国赤色系，十六进制值 #BD9683，RGB(189,150,131)，CMYK(30,45,45,0)。"
+      },
+      {
+        "UniqueId": "rgb(234, 85, 20)",
+        "Title": "黄丹",
+        "Subtitle": "RGB:234,85,20",
+        "Content": "CMYK:0,80,95,0",
+        "Color": "#FFEA5514",
+        "Description": "黄丹：传统中国赤色系，十六进制值 #EA5514，RGB(234,85,20)，CMYK(0,80,95,0)。"
+      },
+      {
+        "UniqueId": "rgb(187, 122, 140)",
+        "Title": "紫梅",
+        "Subtitle": "RGB:187,122,140",
+        "Content": "CMYK:30,60,30,0",
+        "Color": "#FFBB7A8C",
+        "Description": "紫梅：传统中国赤色系，十六进制值 #BB7A8C，RGB(187,122,140)，CMYK(30,60,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(188, 131, 107)",
+        "Title": "紫磨金",
+        "Subtitle": "RGB:188,131,107",
+        "Content": "CMYK:30,55,55,0",
+        "Color": "#FFBC836B",
+        "Description": "紫磨金：传统中国赤色系，十六进制值 #BC836B，RGB(188,131,107)，CMYK(30,55,55,0)。"
+      },
+      {
+        "UniqueId": "rgb(195, 92, 93)",
+        "Title": "牙绯",
+        "Subtitle": "RGB:195,92,93",
+        "Content": "CMYK:25,75,55,0",
+        "Color": "#FFC35C5D",
+        "Description": "牙绯：传统中国赤色系，十六进制值 #C35C5D，RGB(195,92,93)，CMYK(25,75,55,0)。"
+      },
+      {
+        "UniqueId": "rgb(195, 92, 106)",
+        "Title": "美人祭",
+        "Subtitle": "RGB:195,92,106",
+        "Content": "CMYK:25,75,45,0",
+        "Color": "#FFC35C6A",
+        "Description": "美人祭：传统中国赤色系，十六进制值 #C35C6A，RGB(195,92,106)，CMYK(25,75,45,0)。"
+      },
+      {
+        "UniqueId": "rgb(230, 0, 18)",
+        "Title": "丹罽",
+        "Subtitle": "RGB:230,0,18",
+        "Content": "CMYK:0,100,100,0",
+        "Color": "#FFE60012",
+        "Description": "丹罽：传统中国赤色系，十六进制值 #E60012，RGB(230,0,18)，CMYK(0,100,100,0)。"
+      },
+      {
+        "UniqueId": "rgb(168, 135, 135)",
+        "Title": "藕丝褐",
+        "Subtitle": "RGB:168,135,135",
+        "Content": "CMYK:40,50,40,0",
+        "Color": "#FFA88787",
+        "Description": "藕丝褐：传统中国赤色系，十六进制值 #A88787，RGB(168,135,135)，CMYK(40,50,40,0)。"
+      },
+      {
+        "UniqueId": "rgb(210, 71, 53)",
+        "Title": "鹤顶红",
+        "Subtitle": "RGB:210,71,53",
+        "Content": "CMYK:15,85,80,0",
+        "Color": "#FFD24735",
+        "Description": "鹤顶红：传统中国赤色系，十六进制值 #D24735，RGB(210,71,53)，CMYK(15,85,80,0)。"
+      },
+      {
+        "UniqueId": "rgb(178, 119, 119)",
+        "Title": "绛纱",
+        "Subtitle": "RGB:178,119,119",
+        "Content": "CMYK:35,60,45,0",
+        "Color": "#FFB27777",
+        "Description": "绛纱：传统中国赤色系，十六进制值 #B27777，RGB(178,119,119)，CMYK(35,60,45,0)。"
+      },
+      {
+        "UniqueId": "rgb(203, 82, 62)",
+        "Title": "赩炽",
+        "Subtitle": "RGB:203,82,62",
+        "Content": "CMYK:20,80,75,0",
+        "Color": "#FFCB523E",
+        "Description": "赩炽：传统中国赤色系，十六进制值 #CB523E，RGB(203,82,62)，CMYK(20,80,75,0)。"
+      },
+      {
+        "UniqueId": "rgb(194, 81, 96)",
+        "Title": "唇脂",
+        "Subtitle": "RGB:194,81,96",
+        "Content": "CMYK:25,80,50,0",
+        "Color": "#FFC25160",
+        "Description": "唇脂：传统中国赤色系，十六进制值 #C25160，RGB(194,81,96)，CMYK(25,80,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(209, 41, 32)",
+        "Title": "银朱",
+        "Subtitle": "RGB:209,41,32",
+        "Content": "CMYK:15,95,95,0",
+        "Color": "#FFD12920",
+        "Description": "银朱：传统中国赤色系，十六进制值 #D12920，RGB(209,41,32)，CMYK(15,95,95,0)。"
+      },
+      {
+        "UniqueId": "rgb(210, 57, 24)",
+        "Title": "洛神珠",
+        "Subtitle": "RGB:210,57,24",
+        "Content": "CMYK:15,90,100,0",
+        "Color": "#FFD23918",
+        "Description": "洛神珠：传统中国赤色系，十六进制值 #D23918，RGB(210,57,24)，CMYK(15,90,100,0)。"
+      },
+      {
+        "UniqueId": "rgb(178, 109, 93)",
+        "Title": "檀色",
+        "Subtitle": "RGB:178,109,93",
+        "Content": "CMYK:35,65,60,0",
+        "Color": "#FFB26D5D",
+        "Description": "檀色：传统中国赤色系，十六进制值 #B26D5D，RGB(178,109,93)，CMYK(35,65,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(186, 91, 73)",
+        "Title": "赤缇",
+        "Subtitle": "RGB:186,91,73",
+        "Content": "CMYK:30,75,70,0",
+        "Color": "#FFBA5B49",
+        "Description": "赤缇：传统中国赤色系，十六进制值 #BA5B49，RGB(186,91,73)，CMYK(30,75,70,0)。"
+      },
+      {
+        "UniqueId": "rgb(186, 81, 64)",
+        "Title": "纁黄",
+        "Subtitle": "RGB:186,81,64",
+        "Content": "CMYK:30,80,75,0",
+        "Color": "#FFBA5140",
+        "Description": "纁黄：传统中国赤色系，十六进制值 #BA5140，RGB(186,81,64)，CMYK(30,80,75,0)。"
+      },
+      {
+        "UniqueId": "rgb(158, 105, 109)",
+        "Title": "葡萄褐",
+        "Subtitle": "RGB:158,105,109",
+        "Content": "CMYK:45,65,50,0",
+        "Color": "#FF9E696D",
+        "Description": "葡萄褐：传统中国赤色系，十六进制值 #9E696D，RGB(158,105,109)，CMYK(45,65,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(200, 22, 29)",
+        "Title": "丹雘",
+        "Subtitle": "RGB:200,22,29",
+        "Content": "CMYK:20,100,100,0",
+        "Color": "#FFC8161D",
+        "Description": "丹雘：传统中国赤色系，十六进制值 #C8161D，RGB(200,22,29)，CMYK(20,100,100,0)。"
+      },
+      {
+        "UniqueId": "rgb(168, 88, 88)",
+        "Title": "蚩尤旗",
+        "Subtitle": "RGB:168,88,88",
+        "Content": "CMYK:40,75,60,0",
+        "Color": "#FFA85858",
+        "Description": "蚩尤旗：传统中国赤色系，十六进制值 #A85858，RGB(168,88,88)，CMYK(40,75,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(163, 95, 101)",
+        "Title": "茹藘",
+        "Subtitle": "RGB:163,95,101",
+        "Content": "CMYK:40,70,50,5",
+        "Color": "#FFA35F65",
+        "Description": "茹藘：传统中国赤色系，十六进制值 #A35F65，RGB(163,95,101)，CMYK(40,70,50,5)。"
+      },
+      {
+        "UniqueId": "rgb(176, 69, 82)",
+        "Title": "鞓红",
+        "Subtitle": "RGB:176,69,82",
+        "Content": "CMYK:35,85,60,0",
+        "Color": "#FFB04552",
+        "Description": "鞓红：传统中国赤色系，十六进制值 #B04552，RGB(176,69,82)，CMYK(35,85,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(177, 90, 67)",
+        "Title": "棠梨",
+        "Subtitle": "RGB:177,90,67",
+        "Content": "CMYK:35,75,75,0",
+        "Color": "#FFB15A43",
+        "Description": "棠梨：传统中国赤色系，十六进制值 #B15A43，RGB(177,90,67)，CMYK(35,75,75,0)。"
+      },
+      {
+        "UniqueId": "rgb(193, 44, 31)",
+        "Title": "珊瑚赫",
+        "Subtitle": "RGB:193,44,31",
+        "Content": "CMYK:25,95,100,0",
+        "Color": "#FFC12C1F",
+        "Description": "珊瑚赫：传统中国赤色系，十六进制值 #C12C1F，RGB(193,44,31)，CMYK(25,95,100,0)。"
+      },
+      {
+        "UniqueId": "rgb(185, 58, 38)",
+        "Title": "朱殷",
+        "Subtitle": "RGB:185,58,38",
+        "Content": "CMYK:30,90,95,0",
+        "Color": "#FFB93A26",
+        "Description": "朱殷：传统中国赤色系，十六进制值 #B93A26，RGB(185,58,38)，CMYK(30,90,95,0)。"
+      },
+      {
+        "UniqueId": "rgb(177, 59, 46)",
+        "Title": "石榴裙",
+        "Subtitle": "RGB:177,59,46",
+        "Content": "CMYK:35,90,90,0",
+        "Color": "#FFB13B2E",
+        "Description": "石榴裙：传统中国赤色系，十六进制值 #B13B2E，RGB(177,59,46)，CMYK(35,90,90,0)。"
+      },
+      {
+        "UniqueId": "rgb(154, 102, 85)",
+        "Title": "赭罗",
+        "Subtitle": "RGB:154,102,85",
+        "Content": "CMYK:45,65,65,5",
+        "Color": "#FF9A6655",
+        "Description": "赭罗：传统中国赤色系，十六进制值 #9A6655，RGB(154,102,85)，CMYK(45,65,65,5)。"
+      },
+      {
+        "UniqueId": "rgb(158, 78, 86)",
+        "Title": "紫矿",
+        "Subtitle": "RGB:158,78,86",
+        "Content": "CMYK:45,80,60,0",
+        "Color": "#FF9E4E56",
+        "Description": "紫矿：传统中国赤色系，十六进制值 #9E4E56，RGB(158,78,86)，CMYK(45,80,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(164, 98, 68)",
+        "Title": "老僧衣",
+        "Subtitle": "RGB:164,98,68",
+        "Content": "CMYK:40,70,75,5",
+        "Color": "#FFA46244",
+        "Description": "老僧衣：传统中国赤色系，十六进制值 #A46244，RGB(164,98,68)，CMYK(40,70,75,5)。"
+      },
+      {
+        "UniqueId": "rgb(184, 26, 53)",
+        "Title": "朱孔阳",
+        "Subtitle": "RGB:184,26,53",
+        "Content": "CMYK:30,100,80,0",
+        "Color": "#FFB81A35",
+        "Description": "朱孔阳：传统中国赤色系，十六进制值 #B81A35，RGB(184,26,53)，CMYK(30,100,80,0)。"
+      },
+      {
+        "UniqueId": "rgb(143, 109, 95)",
+        "Title": "鹰背褐",
+        "Subtitle": "RGB:143,109,95",
+        "Content": "CMYK:50,60,60,5",
+        "Color": "#FF8F6D5F",
+        "Description": "鹰背褐：传统中国赤色系，十六进制值 #8F6D5F，RGB(143,109,95)，CMYK(50,60,60,5)。"
+      },
+      {
+        "UniqueId": "rgb(166, 64, 54)",
+        "Title": "朱草",
+        "Subtitle": "RGB:166,64,54",
+        "Content": "CMYK:35,85,80,10",
+        "Color": "#FFA64036",
+        "Description": "朱草：传统中国赤色系，十六进制值 #A64036，RGB(166,64,54)，CMYK(35,85,80,10)。"
+      },
+      {
+        "UniqueId": "rgb(171, 29, 34)",
+        "Title": "胭脂虫",
+        "Subtitle": "RGB:171,29,34",
+        "Content": "CMYK:35,100,100,5",
+        "Color": "#FFAB1D22",
+        "Description": "胭脂虫：传统中国赤色系，十六进制值 #AB1D22，RGB(171,29,34)，CMYK(35,100,100,5)。"
+      },
+      {
+        "UniqueId": "rgb(149, 90, 66)",
+        "Title": "棠梨褐",
+        "Subtitle": "RGB:149,90,66",
+        "Content": "CMYK:45,70,75,10",
+        "Color": "#FF955A42",
+        "Description": "棠梨褐：传统中国赤色系，十六进制值 #955A42，RGB(149,90,66)，CMYK(45,70,75,10)。"
+      },
+      {
+        "UniqueId": "rgb(167, 33, 38)",
+        "Title": "水华朱",
+        "Subtitle": "RGB:167,33,38",
+        "Content": "CMYK:40,100,100,0",
+        "Color": "#FFA72126",
+        "Description": "水华朱：传统中国赤色系，十六进制值 #A72126，RGB(167,33,38)，CMYK(40,100,100,0)。"
+      },
+      {
+        "UniqueId": "rgb(121, 104, 96)",
+        "Title": "濯绛",
+        "Subtitle": "RGB:121,104,96",
+        "Content": "CMYK:60,60,60,5",
+        "Color": "#FF796860",
+        "Description": "濯绛：传统中国赤色系，十六进制值 #796860，RGB(121,104,96)，CMYK(60,60,60,5)。"
+      },
+      {
+        "UniqueId": "rgb(152, 79, 49)",
+        "Title": "缊韨",
+        "Subtitle": "RGB:152,79,49",
+        "Content": "CMYK:40,75,85,15",
+        "Color": "#FF984F31",
+        "Description": "缊韨：传统中国赤色系，十六进制值 #984F31，RGB(152,79,49)，CMYK(40,75,85,15)。"
+      },
+      {
+        "UniqueId": "rgb(158, 42, 34)",
+        "Title": "綪茷",
+        "Subtitle": "RGB:158,42,34",
+        "Content": "CMYK:40,95,100,10",
+        "Color": "#FF9E2A22",
+        "Description": "綪茷：传统中国赤色系，十六进制值 #9E2A22，RGB(158,42,34)，CMYK(40,95,100,10)。"
+      },
+      {
+        "UniqueId": "rgb(144, 55, 84)",
+        "Title": "魏紫",
+        "Subtitle": "RGB:144,55,84",
+        "Content": "CMYK:50,90,55,5",
+        "Color": "#FF903754",
+        "Description": "魏紫：传统中国赤色系，十六进制值 #903754，RGB(144,55,84)，CMYK(50,90,55,5)。"
+      },
+      {
+        "UniqueId": "rgb(118, 85, 93)",
+        "Title": "紫诰",
+        "Subtitle": "RGB:118,85,93",
+        "Content": "CMYK:60,70,55,10",
+        "Color": "#FF76555D",
+        "Description": "紫诰：传统中国赤色系，十六进制值 #76555D，RGB(118,85,93)，CMYK(60,70,55,10)。"
+      },
+      {
+        "UniqueId": "rgb(149, 48, 46)",
+        "Title": "朱湛",
+        "Subtitle": "RGB:149,48,46",
+        "Content": "CMYK:50,95,95,0",
+        "Color": "#FF95302E",
+        "Description": "朱湛：传统中国赤色系，十六进制值 #95302E，RGB(149,48,46)，CMYK(50,95,95,0)。"
+      },
+      {
+        "UniqueId": "rgb(129, 71, 76)",
+        "Title": "苏方",
+        "Subtitle": "RGB:129,71,76",
+        "Content": "CMYK:55,80,65,10",
+        "Color": "#FF81474C",
+        "Description": "苏方：传统中国赤色系，十六进制值 #81474C，RGB(129,71,76)，CMYK(55,80,65,10)。"
+      },
+      {
+        "UniqueId": "rgb(149, 64, 36)",
+        "Title": "赤灵",
+        "Subtitle": "RGB:149,64,36",
+        "Content": "CMYK:45,85,100,10",
+        "Color": "#FF954024",
+        "Description": "赤灵：传统中国赤色系，十六进制值 #954024，RGB(149,64,36)，CMYK(45,85,100,10)。"
+      },
+      {
+        "UniqueId": "rgb(107, 84, 88)",
+        "Title": "玄天",
+        "Subtitle": "RGB:107,84,88",
+        "Content": "CMYK:65,70,60,10",
+        "Color": "#FF6B5458",
+        "Description": "玄天：传统中国赤色系，十六进制值 #6B5458，RGB(107,84,88)，CMYK(65,70,60,10)。"
+      },
+      {
+        "UniqueId": "rgb(143, 61, 44)",
+        "Title": "佛赤",
+        "Subtitle": "RGB:143,61,44",
+        "Content": "CMYK:45,85,90,15",
+        "Color": "#FF8F3D2C",
+        "Description": "佛赤：传统中国赤色系，十六进制值 #8F3D2C，RGB(143,61,44)，CMYK(45,85,90,15)。"
+      },
+      {
+        "UniqueId": "rgb(124, 68, 73)",
+        "Title": "霁红",
+        "Subtitle": "RGB:124,68,73",
+        "Content": "CMYK:55,80,65,15",
+        "Color": "#FF7C4449",
+        "Description": "霁红：传统中国赤色系，十六进制值 #7C4449，RGB(124,68,73)，CMYK(55,80,65,15)。"
+      },
+      {
+        "UniqueId": "rgb(143, 29, 34)",
+        "Title": "朱樱",
+        "Subtitle": "RGB:143,29,34",
+        "Content": "CMYK:45,100,100,15",
+        "Color": "#FF8F1D22",
+        "Description": "朱樱：传统中国赤色系，十六进制值 #8F1D22，RGB(143,29,34)，CMYK(45,100,100,15)。"
+      },
+      {
+        "UniqueId": "rgb(135, 52, 36)",
+        "Title": "丹秫",
+        "Subtitle": "RGB:135,52,36",
+        "Content": "CMYK:50,90,100,15",
+        "Color": "#FF873424",
+        "Description": "丹秫：传统中国赤色系，十六进制值 #873424，RGB(135,52,36)，CMYK(50,90,100,15)。"
+      },
+      {
+        "UniqueId": "rgb(114, 69, 58)",
+        "Title": "椒褐",
+        "Subtitle": "RGB:114,69,58",
+        "Content": "CMYK:55,75,75,25",
+        "Color": "#FF72453A",
+        "Description": "椒褐：传统中国赤色系，十六进制值 #72453A，RGB(114,69,58)，CMYK(55,75,75,25)。"
+      },
+      {
+        "UniqueId": "rgb(130, 35, 39)",
+        "Title": "大繎",
+        "Subtitle": "RGB:130,35,39",
+        "Content": "CMYK:55,100,100,10",
+        "Color": "#FF822327",
+        "Description": "大繎：传统中国赤色系，十六进制值 #822327，RGB(130,35,39)，CMYK(55,100,100,10)。"
+      },
+      {
+        "UniqueId": "rgb(104, 54, 50)",
+        "Title": "蜜褐",
+        "Subtitle": "RGB:104,54,50",
+        "Content": "CMYK:55,80,75,35",
+        "Color": "#FF683632",
+        "Description": "蜜褐：传统中国赤色系，十六进制值 #683632，RGB(104,54,50)，CMYK(55,80,75,35)。"
+      },
+      {
+        "UniqueId": "rgb(124, 25, 30)",
+        "Title": "顺圣",
+        "Subtitle": "RGB:124,25,30",
+        "Content": "CMYK:50,100,100,25",
+        "Color": "#FF7C191E",
+        "Description": "顺圣：传统中国赤色系，十六进制值 #7C191E，RGB(124,25,30)，CMYK(50,100,100,25)。"
+      },
+      {
+        "UniqueId": "rgb(102, 43, 47)",
+        "Title": "福色",
+        "Subtitle": "RGB:102,43,47",
+        "Content": "CMYK:60,90,80,30",
+        "Color": "#FF662B2F",
+        "Description": "福色：传统中国赤色系，十六进制值 #662B2F，RGB(102,43,47)，CMYK(60,90,80,30)。"
+      },
+      {
+        "UniqueId": "rgb(102, 43, 31)",
+        "Title": "木兰",
+        "Subtitle": "RGB:102,43,31",
+        "Content": "CMYK:60,90,100,30",
+        "Color": "#FF662B1F",
+        "Description": "木兰：传统中国赤色系，十六进制值 #662B1F，RGB(102,43,31)，CMYK(60,90,100,30)。"
+      },
+      {
+        "UniqueId": "rgb(91, 50, 34)",
+        "Title": "目童子",
+        "Subtitle": "RGB:91,50,34",
+        "Content": "CMYK:60,80,90,40",
+        "Color": "#FF5B3222",
+        "Description": "目童子：传统中国赤色系，十六进制值 #5B3222，RGB(91,50,34)，CMYK(60,80,90,40)。"
+      },
+      {
+        "UniqueId": "rgb(99, 18, 22)",
+        "Title": "爵头",
+        "Subtitle": "RGB:99,18,22",
+        "Content": "CMYK:55,100,100,40",
+        "Color": "#FF631216",
+        "Description": "爵头：传统中国赤色系，十六进制值 #631216，RGB(99,18,22)，CMYK(55,100,100,40)。"
+      },
+      {
+        "UniqueId": "rgb(76, 30, 26)",
+        "Title": "麒麟竭",
+        "Subtitle": "RGB:76,30,26",
+        "Content": "CMYK:70,95,100,40",
+        "Color": "#FF4C1E1A",
+        "Description": "麒麟竭：传统中国赤色系，十六进制值 #4C1E1A，RGB(76,30,26)，CMYK(70,95,100,40)。"
+      },
+      {
+        "UniqueId": "rgb(66, 37, 23)",
+        "Title": "青骊",
+        "Subtitle": "RGB:66,37,23",
+        "Content": "CMYK:65,80,90,55",
+        "Color": "#FF422517",
+        "Description": "青骊：传统中国赤色系，十六进制值 #422517，RGB(66,37,23)，CMYK(65,80,90,55)。"
+      }
+    ],
+    "musicScale": [
+      "G",
+      "A",
+      "C",
+      "D",
+      "F"
+    ],
+    "musicTempo": "快速",
+    "musicStyle": "热情奔放"
+  },
+  {
+    "wuxing": "土",
+    "color": "黄",
+    "yinYue": "宫",
+    "zangFu": "脾",
+    "direction": "中",
+    "season": "四季交替",
+    "description": "黄色代表稳重、包容与厚实，对应中央与四季交替时期。",
+    "colors": [
+      {
+        "UniqueId": "rgb(245, 242, 233)",
+        "Title": "凝脂",
+        "Subtitle": "RGB:245,242,233",
+        "Content": "CMYK:5,5,10,0",
+        "Color": "#FFF5F2E9",
+        "Description": "凝脂：传统中国黄色系，十六进制值 #F5F2E9，RGB(245,242,233)，CMYK(5,5,10,0)。"
+      },
+      {
+        "UniqueId": "rgb(238, 234, 217)",
+        "Title": "米汤娇",
+        "Subtitle": "RGB:238,234,217",
+        "Content": "CMYK:5,5,15,5",
+        "Color": "#FFEEEAD9",
+        "Description": "米汤娇：传统中国黄色系，十六进制值 #EEEAD9，RGB(238,234,217)，CMYK(5,5,15,5)。"
+      },
+      {
+        "UniqueId": "rgb(234, 228, 209)",
+        "Title": "玉色",
+        "Subtitle": "RGB:234,228,209",
+        "Content": "CMYK:10,10,20,0",
+        "Color": "#FFEAE4D1",
+        "Description": "玉色：传统中国黄色系，十六进制值 #EAE4D1，RGB(234,228,209)，CMYK(10,10,20,0)。"
+      },
+      {
+        "UniqueId": "rgb(236, 217, 199)",
+        "Title": "弗肯红",
+        "Subtitle": "RGB:236,217,199",
+        "Content": "CMYK:5,15,20,5",
+        "Color": "#FFECD9C7",
+        "Description": "弗肯红：传统中国黄色系，十六进制值 #ECD9C7，RGB(236,217,199)，CMYK(5,15,20,5)。"
+      },
+      {
+        "UniqueId": "rgb(235, 227, 199)",
+        "Title": "骨缥",
+        "Subtitle": "RGB:235,227,199",
+        "Content": "CMYK:10,10,25,0",
+        "Color": "#FFEBE3C7",
+        "Description": "骨缥：传统中国黄色系，十六进制值 #EBE3C7，RGB(235,227,199)，CMYK(10,10,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(240, 194, 162)",
+        "Title": "扶光",
+        "Subtitle": "RGB:240,194,162",
+        "Content": "CMYK:5,30,35,0",
+        "Color": "#FFF0C2A2",
+        "Description": "扶光：传统中国黄色系，十六进制值 #F0C2A2，RGB(240,194,162)，CMYK(5,30,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(223, 215, 194)",
+        "Title": "蜜合",
+        "Subtitle": "RGB:223,215,194",
+        "Content": "CMYK:15,15,25,0",
+        "Color": "#FFDFD7C2",
+        "Description": "蜜合：传统中国黄色系，十六进制值 #DFD7C2，RGB(223,215,194)，CMYK(15,15,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(255, 238, 111)",
+        "Title": "松花",
+        "Subtitle": "RGB:255,238,111",
+        "Content": "CMYK:0,5,65,0",
+        "Color": "#FFFFEE6F",
+        "Description": "松花：传统中国黄色系，十六进制值 #FFEE6F，RGB(255,238,111)，CMYK(0,5,65,0)。"
+      },
+      {
+        "UniqueId": "rgb(245, 176, 135)",
+        "Title": "骍刚",
+        "Subtitle": "RGB:245,176,135",
+        "Content": "CMYK:0,40,45,0",
+        "Color": "#FFF5B087",
+        "Description": "骍刚：传统中国黄色系，十六进制值 #F5B087，RGB(245,176,135)，CMYK(0,40,45,0)。"
+      },
+      {
+        "UniqueId": "rgb(223, 214, 184)",
+        "Title": "黄润",
+        "Subtitle": "RGB:223,214,184",
+        "Content": "CMYK:15,15,30,0",
+        "Color": "#FFDFD6B8",
+        "Description": "黄润：传统中国黄色系，十六进制值 #DFD6B8，RGB(223,214,184)，CMYK(15,15,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(216, 209, 197)",
+        "Title": "香皮",
+        "Subtitle": "RGB:216,209,197",
+        "Content": "CMYK:15,15,20,5",
+        "Color": "#FFD8D1C5",
+        "Description": "香皮：传统中国黄色系，十六进制值 #D8D1C5，RGB(216,209,197)，CMYK(15,15,20,5)。"
+      },
+      {
+        "UniqueId": "rgb(223, 206, 180)",
+        "Title": "地籁",
+        "Subtitle": "RGB:223,206,180",
+        "Content": "CMYK:15,20,30,0",
+        "Color": "#FFDFCEB4",
+        "Description": "地籁：传统中国黄色系，十六进制值 #DFCEB4，RGB(223,206,180)，CMYK(15,20,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(221, 197, 184)",
+        "Title": "肉红",
+        "Subtitle": "RGB:221,197,184",
+        "Content": "CMYK:15,25,25,0",
+        "Color": "#FFDDC5B8",
+        "Description": "肉红：传统中国黄色系，十六进制值 #DDC5B8，RGB(221,197,184)，CMYK(15,25,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(234, 216, 154)",
+        "Title": "桑蕾",
+        "Subtitle": "RGB:234,216,154",
+        "Content": "CMYK:10,15,45,0",
+        "Color": "#FFEAD89A",
+        "Description": "桑蕾：传统中国黄色系，十六进制值 #EAD89A，RGB(234,216,154)，CMYK(10,15,45,0)。"
+      },
+      {
+        "UniqueId": "rgb(211, 203, 197)",
+        "Title": "藕丝秋半",
+        "Subtitle": "RGB:211,203,197",
+        "Content": "CMYK:20,20,20,0",
+        "Color": "#FFD3CBC5",
+        "Description": "藕丝秋半：传统中国黄色系，十六进制值 #D3CBC5，RGB(211,203,197)，CMYK(20,20,20,0)。"
+      },
+      {
+        "UniqueId": "rgb(254, 220, 94)",
+        "Title": "黄栗留",
+        "Subtitle": "RGB:254,220,94",
+        "Content": "CMYK:0,15,70,0",
+        "Color": "#FFFEDC5E",
+        "Description": "黄栗留：传统中国黄色系，十六进制值 #FEDC5E，RGB(254,220,94)，CMYK(0,15,70,0)。"
+      },
+      {
+        "UniqueId": "rgb(225, 193, 153)",
+        "Title": "赤璋",
+        "Subtitle": "RGB:225,193,153",
+        "Content": "CMYK:10,25,40,5",
+        "Color": "#FFE1C199",
+        "Description": "赤璋：传统中国黄色系，十六进制值 #E1C199，RGB(225,193,153)，CMYK(10,25,40,5)。"
+      },
+      {
+        "UniqueId": "rgb(242, 200, 103)",
+        "Title": "嫩鹅黄",
+        "Subtitle": "RGB:242,200,103",
+        "Content": "CMYK:5,25,65,0",
+        "Color": "#FFF2C867",
+        "Description": "嫩鹅黄：传统中国黄色系，十六进制值 #F2C867，RGB(242,200,103)，CMYK(5,25,65,0)。"
+      },
+      {
+        "UniqueId": "rgb(221, 187, 153)",
+        "Title": "如梦令",
+        "Subtitle": "RGB:221,187,153",
+        "Content": "CMYK:15,30,40,0",
+        "Color": "#FFDDBB99",
+        "Description": "如梦令：传统中国黄色系，十六进制值 #DDBB99，RGB(221,187,153)，CMYK(15,30,40,0)。"
+      },
+      {
+        "UniqueId": "rgb(212, 201, 170)",
+        "Title": "仙米",
+        "Subtitle": "RGB:212,201,170",
+        "Content": "CMYK:20,20,35,0",
+        "Color": "#FFD4C9AA",
+        "Description": "仙米：传统中国黄色系，十六进制值 #D4C9AA，RGB(212,201,170)，CMYK(20,20,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(212, 193, 166)",
+        "Title": "假山南",
+        "Subtitle": "RGB:212,193,166",
+        "Content": "CMYK:20,25,35,0",
+        "Color": "#FFD4C1A6",
+        "Description": "假山南：传统中国黄色系，十六进制值 #D4C1A6，RGB(212,193,166)，CMYK(20,25,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(213, 200, 160)",
+        "Title": "缣缃",
+        "Subtitle": "RGB:213,200,160",
+        "Content": "CMYK:20,20,40,0",
+        "Color": "#FFD5C8A0",
+        "Description": "缣缃：传统中国黄色系，十六进制值 #D5C8A0，RGB(213,200,160)，CMYK(20,20,40,0)。"
+      },
+      {
+        "UniqueId": "rgb(225, 211, 132)",
+        "Title": "田赤",
+        "Subtitle": "RGB:225,211,132",
+        "Content": "CMYK:15,15,55,0",
+        "Color": "#FFE1D384",
+        "Description": "田赤：传统中国黄色系，十六进制值 #E1D384，RGB(225,211,132)，CMYK(15,15,55,0)。"
+      },
+      {
+        "UniqueId": "rgb(250, 192, 61)",
+        "Title": "栀子",
+        "Subtitle": "RGB:250,192,61",
+        "Content": "CMYK:0,30,80,0",
+        "Color": "#FFFAC03D",
+        "Description": "栀子：传统中国黄色系，十六进制值 #FAC03D，RGB(250,192,61)，CMYK(0,30,80,0)。"
+      },
+      {
+        "UniqueId": "rgb(210, 175, 157)",
+        "Title": "夏籥",
+        "Subtitle": "RGB:210,175,157",
+        "Content": "CMYK:20,35,35,0",
+        "Color": "#FFD2AF9D",
+        "Description": "夏籥：传统中国黄色系，十六进制值 #D2AF9D，RGB(210,175,157)，CMYK(20,35,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(198, 190, 177)",
+        "Title": "云母",
+        "Subtitle": "RGB:198,190,177",
+        "Content": "CMYK:20,20,25,10",
+        "Color": "#FFC6BEB1",
+        "Description": "云母：传统中国黄色系，十六进制值 #C6BEB1，RGB(198,190,177)，CMYK(20,20,25,10)。"
+      },
+      {
+        "UniqueId": "rgb(225, 210, 121)",
+        "Title": "禹余粮",
+        "Subtitle": "RGB:225,210,121",
+        "Content": "CMYK:15,15,60,0",
+        "Color": "#FFE1D279",
+        "Description": "禹余粮：传统中国黄色系，十六进制值 #E1D279，RGB(225,210,121)，CMYK(15,15,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(236, 212, 82)",
+        "Title": "缃叶",
+        "Subtitle": "RGB:236,212,82",
+        "Content": "CMYK:10,15,75,5",
+        "Color": "#FFECD452",
+        "Description": "缃叶：传统中国黄色系，十六进制值 #ECD452，RGB(236,212,82)，CMYK(10,15,75,5)。"
+      },
+      {
+        "UniqueId": "rgb(221, 176, 120)",
+        "Title": "九斤黄",
+        "Subtitle": "RGB:221,176,120",
+        "Content": "CMYK:15,35,55,0",
+        "Color": "#FFDDB078",
+        "Description": "九斤黄：传统中国黄色系，十六进制值 #DDB078，RGB(221,176,120)，CMYK(15,35,55,0)。"
+      },
+      {
+        "UniqueId": "rgb(212, 191, 137)",
+        "Title": "石蜜",
+        "Subtitle": "RGB:212,191,137",
+        "Content": "CMYK:20,25,50,0",
+        "Color": "#FFD4BF89",
+        "Description": "石蜜：传统中国黄色系，十六进制值 #D4BF89，RGB(212,191,137)，CMYK(20,25,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(190, 177, 170)",
+        "Title": "葭灰",
+        "Subtitle": "RGB:190,177,170",
+        "Content": "CMYK:30,30,30,0",
+        "Color": "#FFBEB1AA",
+        "Description": "葭灰：传统中国黄色系，十六进制值 #BEB1AA，RGB(190,177,170)，CMYK(30,30,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(196, 183, 152)",
+        "Title": "黄粱",
+        "Subtitle": "RGB:196,183,152",
+        "Content": "CMYK:25,25,40,5",
+        "Color": "#FFC4B798",
+        "Description": "黄粱：传统中国黄色系，十六进制值 #C4B798，RGB(196,183,152)，CMYK(25,25,40,5)。"
+      },
+      {
+        "UniqueId": "rgb(229, 168, 75)",
+        "Title": "黄河琉璃",
+        "Subtitle": "RGB:229,168,75",
+        "Content": "CMYK:10,40,75,0",
+        "Color": "#FFE5A84B",
+        "Description": "黄河琉璃：传统中国黄色系，十六进制值 #E5A84B，RGB(229,168,75)，CMYK(10,40,75,0)。"
+      },
+      {
+        "UniqueId": "rgb(191, 185, 156)",
+        "Title": "行香子",
+        "Subtitle": "RGB:191,185,156",
+        "Content": "CMYK:30,25,40,0",
+        "Color": "#FFBFB99C",
+        "Description": "行香子：传统中国黄色系，十六进制值 #BFB99C，RGB(191,185,156)，CMYK(30,25,40,0)。"
+      },
+      {
+        "UniqueId": "rgb(219, 156, 94)",
+        "Title": "椒房",
+        "Subtitle": "RGB:219,156,94",
+        "Content": "CMYK:15,45,65,0",
+        "Color": "#FFDB9C5E",
+        "Description": "椒房：传统中国黄色系，十六进制值 #DB9C5E，RGB(219,156,94)，CMYK(15,45,65,0)。"
+      },
+      {
+        "UniqueId": "rgb(210, 163, 108)",
+        "Title": "芸黄",
+        "Subtitle": "RGB:210,163,108",
+        "Content": "CMYK:20,40,60,0",
+        "Color": "#FFD2A36C",
+        "Description": "芸黄：传统中国黄色系，十六进制值 #D2A36C，RGB(210,163,108)，CMYK(20,40,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(214, 197, 96)",
+        "Title": "姜黄",
+        "Subtitle": "RGB:214,197,96",
+        "Content": "CMYK:20,20,70,0",
+        "Color": "#FFD6C560",
+        "Description": "姜黄：传统中国黄色系，十六进制值 #D6C560，RGB(214,197,96)，CMYK(20,20,70,0)。"
+      },
+      {
+        "UniqueId": "rgb(213, 180, 92)",
+        "Title": "太一余粮",
+        "Subtitle": "RGB:213,180,92",
+        "Content": "CMYK:20,30,70,0",
+        "Color": "#FFD5B45C",
+        "Description": "太一余粮：传统中国黄色系，十六进制值 #D5B45C，RGB(213,180,92)，CMYK(20,30,70,0)。"
+      },
+      {
+        "UniqueId": "rgb(190, 167, 139)",
+        "Title": "紫花布",
+        "Subtitle": "RGB:190,167,139",
+        "Content": "CMYK:30,35,45,0",
+        "Color": "#FFBEA78B",
+        "Description": "紫花布：传统中国黄色系，十六进制值 #BEA78B，RGB(190,167,139)，CMYK(30,35,45,0)。"
+      },
+      {
+        "UniqueId": "rgb(202, 178, 114)",
+        "Title": "黄封",
+        "Subtitle": "RGB:202,178,114",
+        "Content": "CMYK:25,30,60,0",
+        "Color": "#FFCAB272",
+        "Description": "黄封：传统中国黄色系，十六进制值 #CAB272，RGB(202,178,114)，CMYK(25,30,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(225, 138, 59)",
+        "Title": "库金",
+        "Subtitle": "RGB:225,138,59",
+        "Content": "CMYK:10,55,80,0",
+        "Color": "#FFE18A3B",
+        "Description": "库金：传统中国黄色系，十六进制值 #E18A3B，RGB(225,138,59)，CMYK(10,55,80,0)。"
+      },
+      {
+        "UniqueId": "rgb(191, 167, 130)",
+        "Title": "大块",
+        "Subtitle": "RGB:191,167,130",
+        "Content": "CMYK:30,35,50,0",
+        "Color": "#FFBFA782",
+        "Description": "大块：传统中国黄色系，十六进制值 #BFA782，RGB(191,167,130)，CMYK(30,35,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(168, 161, 156)",
+        "Title": "绍衣",
+        "Subtitle": "RGB:168,161,156",
+        "Content": "CMYK:40,35,35,0",
+        "Color": "#FFA8A19C",
+        "Description": "绍衣：传统中国黄色系，十六进制值 #A8A19C，RGB(168,161,156)，CMYK(40,35,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(214, 188, 70)",
+        "Title": "姚黄",
+        "Subtitle": "RGB:214,188,70",
+        "Content": "CMYK:20,25,80,0",
+        "Color": "#FFD6BC46",
+        "Description": "姚黄：传统中国黄色系，十六进制值 #D6BC46，RGB(214,188,70)，CMYK(20,25,80,0)。"
+      },
+      {
+        "UniqueId": "rgb(217, 136, 61)",
+        "Title": "红友",
+        "Subtitle": "RGB:217,136,61",
+        "Content": "CMYK:15,55,80,0",
+        "Color": "#FFD9883D",
+        "Description": "红友：传统中国黄色系，十六进制值 #D9883D，RGB(217,136,61)，CMYK(15,55,80,0)。"
+      },
+      {
+        "UniqueId": "rgb(198, 162, 104)",
+        "Title": "茧色",
+        "Subtitle": "RGB:198,162,104",
+        "Content": "CMYK:20,35,60,10",
+        "Color": "#FFC6A268",
+        "Description": "茧色：传统中国黄色系，十六进制值 #C6A268，RGB(198,162,104)，CMYK(20,35,60,10)。"
+      },
+      {
+        "UniqueId": "rgb(219, 155, 52)",
+        "Title": "黄不老",
+        "Subtitle": "RGB:219,155,52",
+        "Content": "CMYK:15,45,85,0",
+        "Color": "#FFDB9B34",
+        "Description": "黄不老：传统中国黄色系，十六进制值 #DB9B34，RGB(219,155,52)，CMYK(15,45,85,0)。"
+      },
+      {
+        "UniqueId": "rgb(218, 146, 51)",
+        "Title": "杏子",
+        "Subtitle": "RGB:218,146,51",
+        "Content": "CMYK:15,50,85,0",
+        "Color": "#FFDA9233",
+        "Description": "杏子：传统中国黄色系，十六进制值 #DA9233，RGB(218,146,51)，CMYK(15,50,85,0)。"
+      },
+      {
+        "UniqueId": "rgb(191, 166, 112)",
+        "Title": "沙饧",
+        "Subtitle": "RGB:191,166,112",
+        "Content": "CMYK:30,35,60,0",
+        "Color": "#FFBFA670",
+        "Description": "沙饧：传统中国黄色系，十六进制值 #BFA670，RGB(191,166,112)，CMYK(30,35,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(180, 155, 127)",
+        "Title": "养生主",
+        "Subtitle": "RGB:180,155,127",
+        "Content": "CMYK:35,40,50,0",
+        "Color": "#FFB49B7F",
+        "Description": "养生主：传统中国黄色系，十六进制值 #B49B7F，RGB(180,155,127)，CMYK(35,40,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(172, 159, 138)",
+        "Title": "佩玖",
+        "Subtitle": "RGB:172,159,138",
+        "Content": "CMYK:30,30,40,15",
+        "Color": "#FFAC9F8A",
+        "Description": "佩玖：传统中国黄色系，十六进制值 #AC9F8A，RGB(172,159,138)，CMYK(30,30,40,15)。"
+      },
+      {
+        "UniqueId": "rgb(180, 163, 121)",
+        "Title": "黄螺",
+        "Subtitle": "RGB:180,163,121",
+        "Content": "CMYK:35,35,55,0",
+        "Color": "#FFB4A379",
+        "Description": "黄螺：传统中国黄色系，十六进制值 #B4A379，RGB(180,163,121)，CMYK(35,35,55,0)。"
+      },
+      {
+        "UniqueId": "rgb(211, 162, 55)",
+        "Title": "鞠衣",
+        "Subtitle": "RGB:211,162,55",
+        "Content": "CMYK:20,40,85,0",
+        "Color": "#FFD3A237",
+        "Description": "鞠衣：传统中国黄色系，十六进制值 #D3A237，RGB(211,162,55)，CMYK(20,40,85,0)。"
+      },
+      {
+        "UniqueId": "rgb(169, 168, 134)",
+        "Title": "琬琰",
+        "Subtitle": "RGB:169,168,134",
+        "Content": "CMYK:40,30,50,0",
+        "Color": "#FFA9A886",
+        "Description": "琬琰：传统中国黄色系，十六进制值 #A9A886，RGB(169,168,134)，CMYK(40,30,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(192, 173, 94)",
+        "Title": "栾华",
+        "Subtitle": "RGB:192,173,94",
+        "Content": "CMYK:30,30,70,0",
+        "Color": "#FFC0AD5E",
+        "Description": "栾华：传统中国黄色系，十六进制值 #C0AD5E，RGB(192,173,94)，CMYK(30,30,70,0)。"
+      },
+      {
+        "UniqueId": "rgb(180, 146, 115)",
+        "Title": "黄埃",
+        "Subtitle": "RGB:180,146,115",
+        "Content": "CMYK:35,45,55,0",
+        "Color": "#FFB49273",
+        "Description": "黄埃：传统中国黄色系，十六进制值 #B49273，RGB(180,146,115)，CMYK(35,45,55,0)。"
+      },
+      {
+        "UniqueId": "rgb(169, 160, 130)",
+        "Title": "玄校",
+        "Subtitle": "RGB:169,160,130",
+        "Content": "CMYK:40,35,50,0",
+        "Color": "#FFA9A082",
+        "Description": "玄校：传统中国黄色系，十六进制值 #A9A082，RGB(169,160,130)，CMYK(40,35,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(208, 134, 53)",
+        "Title": "郁金裙",
+        "Subtitle": "RGB:208,134,53",
+        "Content": "CMYK:20,55,85,0",
+        "Color": "#FFD08635",
+        "Description": "郁金裙：传统中国黄色系，十六进制值 #D08635，RGB(208,134,53)，CMYK(20,55,85,0)。"
+      },
+      {
+        "UniqueId": "rgb(190, 148, 87)",
+        "Title": "金埒",
+        "Subtitle": "RGB:190,148,87",
+        "Content": "CMYK:30,45,70,0",
+        "Color": "#FFBE9457",
+        "Description": "金埒：传统中国黄色系，十六进制值 #BE9457，RGB(190,148,87)，CMYK(30,45,70,0)。"
+      },
+      {
+        "UniqueId": "rgb(189, 130, 83)",
+        "Title": "露褐",
+        "Subtitle": "RGB:189,130,83",
+        "Content": "CMYK:30,55,70,0",
+        "Color": "#FFBD8253",
+        "Description": "露褐：传统中国黄色系，十六进制值 #BD8253，RGB(189,130,83)，CMYK(30,55,70,0)。"
+      },
+      {
+        "UniqueId": "rgb(169, 167, 115)",
+        "Title": "出岫",
+        "Subtitle": "RGB:169,167,115",
+        "Content": "CMYK:40,30,60,0",
+        "Color": "#FFA9A773",
+        "Description": "出岫：传统中国黄色系，十六进制值 #A9A773，RGB(169,167,115)，CMYK(40,30,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(169, 159, 112)",
+        "Title": "王刍",
+        "Subtitle": "RGB:169,159,112",
+        "Content": "CMYK:40,35,60,0",
+        "Color": "#FFA99F70",
+        "Description": "王刍：传统中国黄色系，十六进制值 #A99F70，RGB(169,159,112)，CMYK(40,35,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(191, 156, 70)",
+        "Title": "秋香",
+        "Subtitle": "RGB:191,156,70",
+        "Content": "CMYK:30,40,80,0",
+        "Color": "#FFBF9C46",
+        "Description": "秋香：传统中国黄色系，十六进制值 #BF9C46，RGB(191,156,70)，CMYK(30,40,80,0)。"
+      },
+      {
+        "UniqueId": "rgb(204, 93, 32)",
+        "Title": "光明砂",
+        "Subtitle": "RGB:204,93,32",
+        "Content": "CMYK:20,75,95,0",
+        "Color": "#FFCC5D20",
+        "Description": "光明砂：传统中国黄色系，十六进制值 #CC5D20，RGB(204,93,32)，CMYK(20,75,95,0)。"
+      },
+      {
+        "UniqueId": "rgb(180, 136, 77)",
+        "Title": "雌黄",
+        "Subtitle": "RGB:180,136,77",
+        "Content": "CMYK:35,50,75,0",
+        "Color": "#FFB4884D",
+        "Description": "雌黄：传统中国黄色系，十六进制值 #B4884D，RGB(180,136,77)，CMYK(35,50,75,0)。"
+      },
+      {
+        "UniqueId": "rgb(179, 147, 75)",
+        "Title": "密陀僧",
+        "Subtitle": "RGB:179,147,75",
+        "Content": "CMYK:30,40,75,10",
+        "Color": "#FFB3934B",
+        "Description": "密陀僧：传统中国黄色系，十六进制值 #B3934B，RGB(179,147,75)，CMYK(30,40,75,10)。"
+      },
+      {
+        "UniqueId": "rgb(146, 137, 123)",
+        "Title": "石莲褐",
+        "Subtitle": "RGB:146,137,123",
+        "Content": "CMYK:50,45,50,0",
+        "Color": "#FF92897B",
+        "Description": "石莲褐：传统中国黄色系，十六进制值 #92897B，RGB(146,137,123)，CMYK(50,45,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(188, 110, 55)",
+        "Title": "媚蝶",
+        "Subtitle": "RGB:188,110,55",
+        "Content": "CMYK:30,65,85,0",
+        "Color": "#FFBC6E37",
+        "Description": "媚蝶：传统中国黄色系，十六进制值 #BC6E37，RGB(188,110,55)，CMYK(30,65,85,0)。"
+      },
+      {
+        "UniqueId": "rgb(170, 142, 89)",
+        "Title": "巨吕",
+        "Subtitle": "RGB:170,142,89",
+        "Content": "CMYK:40,45,70,0",
+        "Color": "#FFAA8E59",
+        "Description": "巨吕：传统中国黄色系，十六进制值 #AA8E59，RGB(170,142,89)，CMYK(40,45,70,0)。"
+      },
+      {
+        "UniqueId": "rgb(158, 140, 107)",
+        "Title": "黄琮",
+        "Subtitle": "RGB:158,140,107",
+        "Content": "CMYK:45,45,60,0",
+        "Color": "#FF9E8C6B",
+        "Description": "黄琮：传统中国黄色系，十六进制值 #9E8C6B，RGB(158,140,107)，CMYK(45,45,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(165, 138, 95)",
+        "Title": "蒸栗",
+        "Subtitle": "RGB:165,138,95",
+        "Content": "CMYK:40,45,65,5",
+        "Color": "#FFA58A5F",
+        "Description": "蒸栗：传统中国黄色系，十六进制值 #A58A5F，RGB(165,138,95)，CMYK(40,45,65,5)。"
+      },
+      {
+        "UniqueId": "rgb(190, 138, 47)",
+        "Title": "蛾黄",
+        "Subtitle": "RGB:190,138,47",
+        "Content": "CMYK:30,50,90,0",
+        "Color": "#FFBE8A2F",
+        "Description": "蛾黄：传统中国黄色系，十六进制值 #BE8A2F，RGB(190,138,47)，CMYK(30,50,90,0)。"
+      },
+      {
+        "UniqueId": "rgb(158, 131, 104)",
+        "Title": "明茶褐",
+        "Subtitle": "RGB:158,131,104",
+        "Content": "CMYK:45,50,60,0",
+        "Color": "#FF9E8368",
+        "Description": "明茶褐：传统中国黄色系，十六进制值 #9E8368，RGB(158,131,104)，CMYK(45,50,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(153, 128, 108)",
+        "Title": "沉香",
+        "Subtitle": "RGB:153,128,108",
+        "Content": "CMYK:45,50,55,5",
+        "Color": "#FF99806C",
+        "Description": "沉香：传统中国黄色系，十六进制值 #99806C，RGB(153,128,108)，CMYK(45,50,55,5)。"
+      },
+      {
+        "UniqueId": "rgb(198, 121, 21)",
+        "Title": "柘黄",
+        "Subtitle": "RGB:198,121,21",
+        "Content": "CMYK:25,60,100,0",
+        "Color": "#FFC67915",
+        "Description": "柘黄：传统中国黄色系，十六进制值 #C67915，RGB(198,121,21)，CMYK(25,60,100,0)。"
+      },
+      {
+        "UniqueId": "rgb(170, 150, 73)",
+        "Title": "大赤",
+        "Subtitle": "RGB:170,150,73",
+        "Content": "CMYK:40,40,80,0",
+        "Color": "#FFAA9649",
+        "Description": "大赤：传统中国黄色系，十六进制值 #AA9649，RGB(170,150,73)，CMYK(40,40,80,0)。"
+      },
+      {
+        "UniqueId": "rgb(146, 137, 107)",
+        "Title": "绿豆褐",
+        "Subtitle": "RGB:146,137,107",
+        "Content": "CMYK:50,45,60,0",
+        "Color": "#FF92896B",
+        "Description": "绿豆褐：传统中国黄色系，十六进制值 #92896B，RGB(146,137,107)，CMYK(50,45,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(158, 131, 88)",
+        "Title": "降真香",
+        "Subtitle": "RGB:158,131,88",
+        "Content": "CMYK:45,50,70,0",
+        "Color": "#FF9E8358",
+        "Description": "降真香：传统中国黄色系，十六进制值 #9E8358，RGB(158,131,88)，CMYK(45,50,70,0)。"
+      },
+      {
+        "UniqueId": "rgb(146, 144, 93)",
+        "Title": "青圭",
+        "Subtitle": "RGB:146,144,93",
+        "Content": "CMYK:50,40,70,0",
+        "Color": "#FF92905D",
+        "Description": "青圭：传统中国黄色系，十六进制值 #92905D，RGB(146,144,93)，CMYK(50,40,70,0)。"
+      },
+      {
+        "UniqueId": "rgb(170, 133, 52)",
+        "Title": "老茯神",
+        "Subtitle": "RGB:170,133,52",
+        "Content": "CMYK:40,50,90,0",
+        "Color": "#FFAA8534",
+        "Description": "老茯神：传统中国黄色系，十六进制值 #AA8534，RGB(170,133,52)，CMYK(40,50,90,0)。"
+      },
+      {
+        "UniqueId": "rgb(182, 160, 20)",
+        "Title": "苍黄",
+        "Subtitle": "RGB:182,160,20",
+        "Content": "CMYK:35,35,100,0",
+        "Color": "#FFB6A014",
+        "Description": "苍黄：传统中国黄色系，十六进制值 #B6A014，RGB(182,160,20)，CMYK(35,35,100,0)。"
+      },
+      {
+        "UniqueId": "rgb(148, 120, 79)",
+        "Title": "大云",
+        "Subtitle": "RGB:148,120,79",
+        "Content": "CMYK:50,55,75,0",
+        "Color": "#FF94784F",
+        "Description": "大云：传统中国黄色系，十六进制值 #94784F，RGB(148,120,79)，CMYK(50,55,75,0)。"
+      },
+      {
+        "UniqueId": "rgb(147, 143, 76)",
+        "Title": "绿沈",
+        "Subtitle": "RGB:147,143,76",
+        "Content": "CMYK:50,40,80,0",
+        "Color": "#FF938F4C",
+        "Description": "绿沈：传统中国黄色系，十六进制值 #938F4C，RGB(147,143,76)，CMYK(50,40,80,0)。"
+      },
+      {
+        "UniqueId": "rgb(136, 118, 87)",
+        "Title": "茶色",
+        "Subtitle": "RGB:136,118,87",
+        "Content": "CMYK:55,55,70,0",
+        "Color": "#FF887657",
+        "Description": "茶色：传统中国黄色系，十六进制值 #887657，RGB(136,118,87)，CMYK(55,55,70,0)。"
+      },
+      {
+        "UniqueId": "rgb(144, 108, 74)",
+        "Title": "荆褐",
+        "Subtitle": "RGB:144,108,74",
+        "Content": "CMYK:50,60,75,5",
+        "Color": "#FF906C4A",
+        "Description": "荆褐：传统中国黄色系，十六进制值 #906C4A，RGB(144,108,74)，CMYK(50,60,75,5)。"
+      },
+      {
+        "UniqueId": "rgb(135, 125, 82)",
+        "Title": "荩箧",
+        "Subtitle": "RGB:135,125,82",
+        "Content": "CMYK:55,50,75,0",
+        "Color": "#FF877D52",
+        "Description": "荩箧：传统中国黄色系，十六进制值 #877D52，RGB(135,125,82)，CMYK(55,50,75,0)。"
+      },
+      {
+        "UniqueId": "rgb(159, 96, 39)",
+        "Title": "黄流",
+        "Subtitle": "RGB:159,96,39",
+        "Content": "CMYK:45,70,100,0",
+        "Color": "#FF9F6027",
+        "Description": "黄流：传统中国黄色系，十六进制值 #9F6027，RGB(159,96,39)，CMYK(45,70,100,0)。"
+      },
+      {
+        "UniqueId": "rgb(137, 109, 71)",
+        "Title": "吉金",
+        "Subtitle": "RGB:137,109,71",
+        "Content": "CMYK:55,60,80,0",
+        "Color": "#FF896D47",
+        "Description": "吉金：传统中国黄色系，十六进制值 #896D47，RGB(137,109,71)，CMYK(55,60,80,0)。"
+      },
+      {
+        "UniqueId": "rgb(112, 105, 93)",
+        "Title": "黑朱",
+        "Subtitle": "RGB:112,105,93",
+        "Content": "CMYK:65,60,65,0",
+        "Color": "#FF70695D",
+        "Description": "黑朱：传统中国黄色系，十六进制值 #70695D，RGB(112,105,93)，CMYK(65,60,65,0)。"
+      },
+      {
+        "UniqueId": "rgb(148, 86, 53)",
+        "Title": "檀褐",
+        "Subtitle": "RGB:148,86,53",
+        "Content": "CMYK:50,75,90,0",
+        "Color": "#FF945635",
+        "Description": "檀褐：传统中国黄色系，十六进制值 #945635，RGB(148,86,53)，CMYK(50,75,90,0)。"
+      },
+      {
+        "UniqueId": "rgb(139, 112, 66)",
+        "Title": "流黄",
+        "Subtitle": "RGB:139,112,66",
+        "Content": "CMYK:50,55,80,10",
+        "Color": "#FF8B7042",
+        "Description": "流黄：传统中国黄色系，十六进制值 #8B7042，RGB(139,112,66)，CMYK(50,55,80,10)。"
+      },
+      {
+        "UniqueId": "rgb(159, 82, 33)",
+        "Title": "韎韐",
+        "Subtitle": "RGB:159,82,33",
+        "Content": "CMYK:40,75,100,10",
+        "Color": "#FF9F5221",
+        "Description": "韎韐：传统中国黄色系，十六进制值 #9F5221，RGB(159,82,33)，CMYK(40,75,100,10)。"
+      },
+      {
+        "UniqueId": "rgb(127, 117, 76)",
+        "Title": "绞衣",
+        "Subtitle": "RGB:127,117,76",
+        "Content": "CMYK:55,50,75,10",
+        "Color": "#FF7F754C",
+        "Description": "绞衣：传统中国黄色系，十六进制值 #7F754C，RGB(127,117,76)，CMYK(55,50,75,10)。"
+      },
+      {
+        "UniqueId": "rgb(117, 108, 75)",
+        "Title": "綟绶",
+        "Subtitle": "RGB:117,108,75",
+        "Content": "CMYK:60,55,75,10",
+        "Color": "#FF756C4B",
+        "Description": "綟绶：传统中国黄色系，十六进制值 #756C4B，RGB(117,108,75)，CMYK(60,55,75,10)。"
+      },
+      {
+        "UniqueId": "rgb(129, 102, 59)",
+        "Title": "远志",
+        "Subtitle": "RGB:129,102,59",
+        "Content": "CMYK:55,60,85,10",
+        "Color": "#FF81663B",
+        "Description": "远志：传统中国黄色系，十六进制值 #81663B，RGB(129,102,59)，CMYK(55,60,85,10)。"
+      },
+      {
+        "UniqueId": "rgb(124, 98, 63)",
+        "Title": "射干",
+        "Subtitle": "RGB:124,98,63",
+        "Content": "CMYK:55,60,80,15",
+        "Color": "#FF7C623F",
+        "Description": "射干：传统中国黄色系，十六进制值 #7C623F，RGB(124,98,63)，CMYK(55,60,80,15)。"
+      },
+      {
+        "UniqueId": "rgb(124, 91, 62)",
+        "Title": "驼褐",
+        "Subtitle": "RGB:124,91,62",
+        "Content": "CMYK:55,65,80,15",
+        "Color": "#FF7C5B3E",
+        "Description": "驼褐：传统中国黄色系，十六进制值 #7C5B3E，RGB(124,91,62)，CMYK(55,65,80,15)。"
+      },
+      {
+        "UniqueId": "rgb(102, 95, 77)",
+        "Title": "冥色",
+        "Subtitle": "RGB:102,95,77",
+        "Content": "CMYK:65,60,70,15",
+        "Color": "#FF665F4D",
+        "Description": "冥色：传统中国黄色系，十六进制值 #665F4D，RGB(102,95,77)，CMYK(65,60,70,15)。"
+      },
+      {
+        "UniqueId": "rgb(119, 80, 57)",
+        "Title": "栗壳",
+        "Subtitle": "RGB:119,80,57",
+        "Content": "CMYK:55,70,80,20",
+        "Color": "#FF775039",
+        "Description": "栗壳：传统中国黄色系，十六进制值 #775039，RGB(119,80,57)，CMYK(55,70,80,20)。"
+      },
+      {
+        "UniqueId": "rgb(128, 76, 46)",
+        "Title": "緅絺",
+        "Subtitle": "RGB:128,76,46",
+        "Content": "CMYK:60,80,100,0",
+        "Color": "#FF804C2E",
+        "Description": "緅絺：传统中国黄色系，十六进制值 #804C2E，RGB(128,76,46)，CMYK(60,80,100,0)。"
+      },
+      {
+        "UniqueId": "rgb(129, 73, 44)",
+        "Title": "朱石栗",
+        "Subtitle": "RGB:129,73,44",
+        "Content": "CMYK:50,75,90,20",
+        "Color": "#FF81492C",
+        "Description": "朱石栗：传统中国黄色系，十六进制值 #81492C，RGB(129,73,44)，CMYK(50,75,90,20)。"
+      },
+      {
+        "UniqueId": "rgb(109, 92, 61)",
+        "Title": "伽罗",
+        "Subtitle": "RGB:109,92,61",
+        "Content": "CMYK:60,50,80,20",
+        "Color": "#FF6D5C3D",
+        "Description": "伽罗：传统中国黄色系，十六进制值 #6D5C3D，RGB(109,92,61)，CMYK(60,50,80,20)。"
+      },
+      {
+        "UniqueId": "rgb(88, 82, 72)",
+        "Title": "墨黪",
+        "Subtitle": "RGB:88,82,72",
+        "Content": "CMYK:70,65,70,20",
+        "Color": "#FF585248",
+        "Description": "墨黪：传统中国黄色系，十六进制值 #585248，RGB(88,82,72)，CMYK(70,65,70,20)。"
+      },
+      {
+        "UniqueId": "rgb(105, 75, 60)",
+        "Title": "麝香褐",
+        "Subtitle": "RGB:105,75,60",
+        "Content": "CMYK:60,70,75,25",
+        "Color": "#FF694B3C",
+        "Description": "麝香褐：传统中国黄色系，十六进制值 #694B3C，RGB(105,75,60)，CMYK(60,70,75,25)。"
+      },
+      {
+        "UniqueId": "rgb(124, 70, 30)",
+        "Title": "紫瓯",
+        "Subtitle": "RGB:124,70,30",
+        "Content": "CMYK:50,75,100,25",
+        "Color": "#FF7C461E",
+        "Description": "紫瓯：传统中国黄色系，十六进制值 #7C461E，RGB(124,70,30)，CMYK(50,75,100,25)。"
+      },
+      {
+        "UniqueId": "rgb(90, 75, 59)",
+        "Title": "苍艾",
+        "Subtitle": "RGB:90,75,59",
+        "Content": "CMYK:65,65,75,30",
+        "Color": "#FF5A4B3B",
+        "Description": "苍艾：传统中国黄色系，十六进制值 #5A4B3B，RGB(90,75,59)，CMYK(65,65,75,30)。"
+      },
+      {
+        "UniqueId": "rgb(100, 77, 49)",
+        "Title": "油葫芦",
+        "Subtitle": "RGB:100,77,49",
+        "Content": "CMYK:65,70,90,20",
+        "Color": "#FF644D31",
+        "Description": "油葫芦：传统中国黄色系，十六进制值 #644D31，RGB(100,77,49)，CMYK(65,70,90,20)。"
+      },
+      {
+        "UniqueId": "rgb(70, 67, 59)",
+        "Title": "驖骊",
+        "Subtitle": "RGB:70,67,59",
+        "Content": "CMYK:75,70,75,30",
+        "Color": "#FF46433B",
+        "Description": "驖骊：传统中国黄色系，十六进制值 #46433B，RGB(70,67,59)，CMYK(75,70,75,30)。"
+      },
+      {
+        "UniqueId": "rgb(104, 54, 26)",
+        "Title": "枣褐",
+        "Subtitle": "RGB:104,54,26",
+        "Content": "CMYK:55,80,100,35",
+        "Color": "#FF68361A",
+        "Description": "枣褐：传统中国黄色系，十六进制值 #68361A，RGB(104,54,26)，CMYK(55,80,100,35)。"
+      },
+      {
+        "UniqueId": "rgb(95, 67, 33)",
+        "Title": "龙战",
+        "Subtitle": "RGB:95,67,33",
+        "Content": "CMYK:60,70,95,35",
+        "Color": "#FF5F4321",
+        "Description": "龙战：传统中国黄色系，十六进制值 #5F4321，RGB(95,67,33)，CMYK(60,70,95,35)。"
+      }
+    ],
+    "musicScale": [
+      "C",
+      "D",
+      "E",
+      "G",
+      "A"
+    ],
+    "musicTempo": "中速",
+    "musicStyle": "稳重大气"
+  },
+  {
+    "wuxing": "金",
+    "color": "白",
+    "yinYue": "商",
+    "zangFu": "肺",
+    "direction": "西",
+    "season": "秋",
+    "description": "白色代表纯洁、高贵与坚韧，对应西方与秋季。",
+    "colors": [
+      {
+        "UniqueId": "rgb(246, 249, 228)",
+        "Title": "酂白",
+        "Subtitle": "RGB:246,249,228",
+        "Content": "CMYK:5,0,15,0",
+        "Color": "#FFF6F9E4",
+        "Description": "酂白：传统中国白色系，十六进制值 #F6F9E4，RGB(246,249,228)，CMYK(5,0,15,0)。"
+      },
+      {
+        "UniqueId": "rgb(239, 239, 239)",
+        "Title": "缟羽",
+        "Subtitle": "RGB:239,239,239",
+        "Content": "CMYK:0,0,0,10",
+        "Color": "#FFEFEFEF",
+        "Description": "缟羽：传统中国白色系，十六进制值 #EFEFEF，RGB(239,239,239)，CMYK(0,0,0,10)。"
+      },
+      {
+        "UniqueId": "rgb(234, 238, 241)",
+        "Title": "浅云",
+        "Subtitle": "RGB:234,238,241",
+        "Content": "CMYK:10,5,5,0",
+        "Color": "#FFEAEEF1",
+        "Description": "浅云：传统中国白色系，十六进制值 #EAEEF1，RGB(234,238,241)，CMYK(10,5,5,0)。"
+      },
+      {
+        "UniqueId": "rgb(255, 251, 199)",
+        "Title": "半见",
+        "Subtitle": "RGB:255,251,199",
+        "Content": "CMYK:0,0,30,0",
+        "Color": "#FFFFFBC7",
+        "Description": "半见：传统中国白色系，十六进制值 #FFFBC7，RGB(255,251,199)，CMYK(0,0,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(249, 211, 227)",
+        "Title": "盈盈",
+        "Subtitle": "RGB:249,211,227",
+        "Content": "CMYK:0,25,0,0",
+        "Color": "#FFF9D3E3",
+        "Description": "盈盈：传统中国白色系，十六进制值 #F9D3E3，RGB(249,211,227)，CMYK(0,25,0,0)。"
+      },
+      {
+        "UniqueId": "rgb(235, 237, 223)",
+        "Title": "吉量",
+        "Subtitle": "RGB:235,237,223",
+        "Content": "CMYK:10,5,15,0",
+        "Color": "#FFEBEDDF",
+        "Description": "吉量：传统中国白色系，十六进制值 #EBEDDF，RGB(235,237,223)，CMYK(10,5,15,0)。"
+      },
+      {
+        "UniqueId": "rgb(212, 229, 239)",
+        "Title": "月白",
+        "Subtitle": "RGB:212,229,239",
+        "Content": "CMYK:20,5,5,0",
+        "Color": "#FFD4E5EF",
+        "Description": "月白：传统中国白色系，十六进制值 #D4E5EF，RGB(212,229,239)，CMYK(20,5,5,0)。"
+      },
+      {
+        "UniqueId": "rgb(240, 207, 227)",
+        "Title": "退红",
+        "Subtitle": "RGB:240,207,227",
+        "Content": "CMYK:5,25,0,0",
+        "Color": "#FFF0CFE3",
+        "Description": "退红：传统中国白色系，十六进制值 #F0CFE3，RGB(240,207,227)，CMYK(5,25,0,0)。"
+      },
+      {
+        "UniqueId": "rgb(255, 247, 153)",
+        "Title": "黄白游",
+        "Subtitle": "RGB:255,247,153",
+        "Content": "CMYK:0,0,50,0",
+        "Color": "#FFFFF799",
+        "Description": "黄白游：传统中国白色系，十六进制值 #FFF799，RGB(255,247,153)，CMYK(0,0,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(247, 238, 173)",
+        "Title": "女贞黄",
+        "Subtitle": "RGB:247,238,173",
+        "Content": "CMYK:5,5,40,0",
+        "Color": "#FFF7EEAD",
+        "Description": "女贞黄：传统中国白色系，十六进制值 #F7EEAD，RGB(247,238,173)，CMYK(5,5,40,0)。"
+      },
+      {
+        "UniqueId": "rgb(237, 241, 187)",
+        "Title": "葱青",
+        "Subtitle": "RGB:237,241,187",
+        "Content": "CMYK:10,0,35,0",
+        "Color": "#FFEDF1BB",
+        "Description": "葱青：传统中国白色系，十六进制值 #EDF1BB，RGB(237,241,187)，CMYK(10,0,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(236, 235, 194)",
+        "Title": "断肠",
+        "Subtitle": "RGB:236,235,194",
+        "Content": "CMYK:10,5,30,0",
+        "Color": "#FFECEBC2",
+        "Description": "断肠：传统中国白色系，十六进制值 #ECEBC2，RGB(236,235,194)，CMYK(10,5,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(223, 224, 217)",
+        "Title": "二目鱼",
+        "Subtitle": "RGB:223,224,217",
+        "Content": "CMYK:15,10,15,0",
+        "Color": "#FFDFE0D9",
+        "Description": "二目鱼：传统中国白色系，十六进制值 #DFE0D9，RGB(223,224,217)，CMYK(15,10,15,0)。"
+      },
+      {
+        "UniqueId": "rgb(212, 221, 225)",
+        "Title": "素采",
+        "Subtitle": "RGB:212,221,225",
+        "Content": "CMYK:20,10,10,0",
+        "Color": "#FFD4DDE1",
+        "Description": "素采：传统中国白色系，十六进制值 #D4DDE1，RGB(212,221,225)，CMYK(20,10,10,0)。"
+      },
+      {
+        "UniqueId": "rgb(224, 224, 208)",
+        "Title": "韶粉",
+        "Subtitle": "RGB:224,224,208",
+        "Content": "CMYK:15,10,20,0",
+        "Color": "#FFE0E0D0",
+        "Description": "韶粉：传统中国白色系，十六进制值 #E0E0D0，RGB(224,224,208)，CMYK(15,10,20,0)。"
+      },
+      {
+        "UniqueId": "rgb(174, 208, 238)",
+        "Title": "碧落",
+        "Subtitle": "RGB:174,208,238",
+        "Content": "CMYK:35,10,0,0",
+        "Color": "#FFAED0EE",
+        "Description": "碧落：传统中国白色系，十六进制值 #AED0EE，RGB(174,208,238)，CMYK(35,10,0,0)。"
+      },
+      {
+        "UniqueId": "rgb(188, 212, 231)",
+        "Title": "星郎",
+        "Subtitle": "RGB:188,212,231",
+        "Content": "CMYK:30,10,5,0",
+        "Color": "#FFBCD4E7",
+        "Description": "星郎：传统中国白色系，十六进制值 #BCD4E7，RGB(188,212,231)，CMYK(30,10,5,0)。"
+      },
+      {
+        "UniqueId": "rgb(220, 199, 225)",
+        "Title": "昌荣",
+        "Subtitle": "RGB:220,199,225",
+        "Content": "CMYK:15,25,0,0",
+        "Color": "#FFDCC7E1",
+        "Description": "昌荣：传统中国白色系，十六进制值 #DCC7E1，RGB(220,199,225)，CMYK(15,25,0,0)。"
+      },
+      {
+        "UniqueId": "rgb(224, 223, 198)",
+        "Title": "天球",
+        "Subtitle": "RGB:224,223,198",
+        "Content": "CMYK:15,10,25,0",
+        "Color": "#FFE0DFC6",
+        "Description": "天球：传统中国白色系，十六进制值 #E0DFC6，RGB(224,223,198)，CMYK(15,10,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(235, 225, 169)",
+        "Title": "莺儿",
+        "Subtitle": "RGB:235,225,169",
+        "Content": "CMYK:10,10,40,0",
+        "Color": "#FFEBE1A9",
+        "Description": "莺儿：传统中国白色系，十六进制值 #EBE1A9，RGB(235,225,169)，CMYK(10,10,40,0)。"
+      },
+      {
+        "UniqueId": "rgb(228, 184, 213)",
+        "Title": "樱花",
+        "Subtitle": "RGB:228,184,213",
+        "Content": "CMYK:10,35,0,0",
+        "Color": "#FFE4B8D5",
+        "Description": "樱花：传统中国白色系，十六进制值 #E4B8D5，RGB(228,184,213)，CMYK(10,35,0,0)。"
+      },
+      {
+        "UniqueId": "rgb(211, 204, 214)",
+        "Title": "香炉紫烟",
+        "Subtitle": "RGB:211,204,214",
+        "Content": "CMYK:20,20,10,0",
+        "Color": "#FFD3CCD6",
+        "Description": "香炉紫烟：传统中国白色系，十六进制值 #D3CCD6，RGB(211,204,214)，CMYK(20,20,10,0)。"
+      },
+      {
+        "UniqueId": "rgb(212, 211, 202)",
+        "Title": "明月珰",
+        "Subtitle": "RGB:212,211,202",
+        "Content": "CMYK:20,15,20,0",
+        "Color": "#FFD4D3CA",
+        "Description": "明月珰：传统中国白色系，十六进制值 #D4D3CA，RGB(212,211,202)，CMYK(20,15,20,0)。"
+      },
+      {
+        "UniqueId": "rgb(227, 235, 152)",
+        "Title": "少艾",
+        "Subtitle": "RGB:227,235,152",
+        "Content": "CMYK:15,0,50,0",
+        "Color": "#FFE3EB98",
+        "Description": "少艾：传统中国白色系，十六进制值 #E3EB98，RGB(227,235,152)，CMYK(15,0,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(236, 224, 147)",
+        "Title": "绢纨",
+        "Subtitle": "RGB:236,224,147",
+        "Content": "CMYK:10,10,50,0",
+        "Color": "#FFECE093",
+        "Description": "绢纨：传统中国白色系，十六进制值 #ECE093，RGB(236,224,147)，CMYK(10,10,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(162, 210, 226)",
+        "Title": "云门",
+        "Subtitle": "RGB:162,210,226",
+        "Content": "CMYK:40,5,10,0",
+        "Color": "#FFA2D2E2",
+        "Description": "云门：传统中国白色系，十六进制值 #A2D2E2，RGB(162,210,226)，CMYK(40,5,10,0)。"
+      },
+      {
+        "UniqueId": "rgb(189, 203, 210)",
+        "Title": "影青",
+        "Subtitle": "RGB:189,203,210",
+        "Content": "CMYK:30,15,15,0",
+        "Color": "#FFBDCBD2",
+        "Description": "影青：传统中国白色系，十六进制值 #BDCBD2，RGB(189,203,210)，CMYK(30,15,15,0)。"
+      },
+      {
+        "UniqueId": "rgb(201, 207, 193)",
+        "Title": "余白",
+        "Subtitle": "RGB:201,207,193",
+        "Content": "CMYK:25,15,25,0",
+        "Color": "#FFC9CFC1",
+        "Description": "余白：传统中国白色系，十六进制值 #C9CFC1，RGB(201,207,193)，CMYK(25,15,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(163, 187, 219)",
+        "Title": "晴山",
+        "Subtitle": "RGB:163,187,219",
+        "Content": "CMYK:40,20,5,0",
+        "Color": "#FFA3BBDB",
+        "Description": "晴山：传统中国白色系，十六进制值 #A3BBDB，RGB(163,187,219)，CMYK(40,20,5,0)。"
+      },
+      {
+        "UniqueId": "rgb(213, 209, 174)",
+        "Title": "筠雾",
+        "Subtitle": "RGB:213,209,174",
+        "Content": "CMYK:20,15,35,0",
+        "Color": "#FFD5D1AE",
+        "Description": "筠雾：传统中国白色系，十六进制值 #D5D1AE，RGB(213,209,174)，CMYK(20,15,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(164, 171, 214)",
+        "Title": "暮山紫",
+        "Subtitle": "RGB:164,171,214",
+        "Content": "CMYK:40,30,0,0",
+        "Color": "#FFA4ABD6",
+        "Description": "暮山紫：传统中国白色系，十六进制值 #A4ABD6，RGB(164,171,214)，CMYK(40,30,0,0)。"
+      },
+      {
+        "UniqueId": "rgb(216, 222, 138)",
+        "Title": "绮钱",
+        "Subtitle": "RGB:216,222,138",
+        "Content": "CMYK:20,5,55,0",
+        "Color": "#FFD8DE8A",
+        "Description": "绮钱：传统中国白色系，十六进制值 #D8DE8A，RGB(216,222,138)，CMYK(20,5,55,0)。"
+      },
+      {
+        "UniqueId": "rgb(199, 198, 182)",
+        "Title": "霜地",
+        "Subtitle": "RGB:199,198,182",
+        "Content": "CMYK:20,15,25,10",
+        "Color": "#FFC7C6B6",
+        "Description": "霜地：传统中国白色系，十六进制值 #C7C6B6，RGB(199,198,182)，CMYK(20,15,25,10)。"
+      },
+      {
+        "UniqueId": "rgb(192, 214, 149)",
+        "Title": "欧碧",
+        "Subtitle": "RGB:192,214,149",
+        "Content": "CMYK:30,5,50,0",
+        "Color": "#FFC0D695",
+        "Description": "欧碧：传统中国白色系，十六进制值 #C0D695，RGB(192,214,149)，CMYK(30,5,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(192, 208, 157)",
+        "Title": "麹尘",
+        "Subtitle": "RGB:192,208,157",
+        "Content": "CMYK:30,10,45,0",
+        "Color": "#FFC0D09D",
+        "Description": "麹尘：传统中国白色系，十六进制值 #C0D09D，RGB(192,208,157)，CMYK(30,10,45,0)。"
+      },
+      {
+        "UniqueId": "rgb(136, 171, 218)",
+        "Title": "窃蓝",
+        "Subtitle": "RGB:136,171,218",
+        "Content": "CMYK:50,25,0,0",
+        "Color": "#FF88ABDA",
+        "Description": "窃蓝：传统中国白色系，十六进制值 #88ABDA，RGB(136,171,218)，CMYK(50,25,0,0)。"
+      },
+      {
+        "UniqueId": "rgb(164, 201, 204)",
+        "Title": "井天",
+        "Subtitle": "RGB:164,201,204",
+        "Content": "CMYK:40,10,20,0",
+        "Color": "#FFA4C9CC",
+        "Description": "井天：传统中国白色系，十六进制值 #A4C9CC，RGB(164,201,204)，CMYK(40,10,20,0)。"
+      },
+      {
+        "UniqueId": "rgb(178, 191, 195)",
+        "Title": "逍遥游",
+        "Subtitle": "RGB:178,191,195",
+        "Content": "CMYK:35,20,20,0",
+        "Color": "#FFB2BFC3",
+        "Description": "逍遥游：传统中国白色系，十六进制值 #B2BFC3，RGB(178,191,195)，CMYK(35,20,20,0)。"
+      },
+      {
+        "UniqueId": "rgb(190, 194, 179)",
+        "Title": "冻缥",
+        "Subtitle": "RGB:190,194,179",
+        "Content": "CMYK:30,20,30,0",
+        "Color": "#FFBEC2B3",
+        "Description": "冻缥：传统中国白色系，十六进制值 #BEC2B3，RGB(190,194,179)，CMYK(30,20,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(187, 161, 203)",
+        "Title": "紫薄汗",
+        "Subtitle": "RGB:187,161,203",
+        "Content": "CMYK:30,40,0,0",
+        "Color": "#FFBBA1CB",
+        "Description": "紫薄汗：传统中国白色系，十六进制值 #BBA1CB，RGB(187,161,203)，CMYK(30,40,0,0)。"
+      },
+      {
+        "UniqueId": "rgb(202, 197, 160)",
+        "Title": "青白玉",
+        "Subtitle": "RGB:202,197,160",
+        "Content": "CMYK:25,20,40,0",
+        "Color": "#FFCAC5A0",
+        "Description": "青白玉：传统中国白色系，十六进制值 #CAC5A0，RGB(202,197,160)，CMYK(25,20,40,0)。"
+      },
+      {
+        "UniqueId": "rgb(206, 147, 191)",
+        "Title": "丁香",
+        "Subtitle": "RGB:206,147,191",
+        "Content": "CMYK:20,50,0,0",
+        "Color": "#FFCE93BF",
+        "Description": "丁香：传统中国白色系，十六进制值 #CE93BF，RGB(206,147,191)，CMYK(20,50,0,0)。"
+      },
+      {
+        "UniqueId": "rgb(191, 193, 169)",
+        "Title": "草白",
+        "Subtitle": "RGB:191,193,169",
+        "Content": "CMYK:30,25,35,0",
+        "Color": "#FFBFC1A9",
+        "Description": "草白：传统中国白色系，十六进制值 #BFC1A9，RGB(191,193,169)，CMYK(30,25,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(178, 182, 182)",
+        "Title": "月魄",
+        "Subtitle": "RGB:178,182,182",
+        "Content": "CMYK:35,25,25,0",
+        "Color": "#FFB2B6B6",
+        "Description": "月魄：传统中国白色系，十六进制值 #B2B6B6，RGB(178,182,182)，CMYK(35,25,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(138, 171, 204)",
+        "Title": "品月",
+        "Subtitle": "RGB:138,171,204",
+        "Content": "CMYK:50,25,10,0",
+        "Color": "#FF8AABCC",
+        "Description": "品月：传统中国白色系，十六进制值 #8AABCC，RGB(138,171,204)，CMYK(50,25,10,0)。"
+      },
+      {
+        "UniqueId": "rgb(152, 182, 194)",
+        "Title": "白青",
+        "Subtitle": "RGB:152,182,194",
+        "Content": "CMYK:45,20,20,0",
+        "Color": "#FF98B6C2",
+        "Description": "白青：传统中国白色系，十六进制值 #98B6C2，RGB(152,182,194)，CMYK(45,20,20,0)。"
+      },
+      {
+        "UniqueId": "rgb(135, 192, 202)",
+        "Title": "西子",
+        "Subtitle": "RGB:135,192,202",
+        "Content": "CMYK:50,10,20,0",
+        "Color": "#FF87C0CA",
+        "Description": "西子：传统中国白色系，十六进制值 #87C0CA，RGB(135,192,202)，CMYK(50,10,20,0)。"
+      },
+      {
+        "UniqueId": "rgb(139, 163, 199)",
+        "Title": "东方既白",
+        "Subtitle": "RGB:139,163,199",
+        "Content": "CMYK:50,30,10,0",
+        "Color": "#FF8BA3C7",
+        "Description": "东方既白：传统中国白色系，十六进制值 #8BA3C7，RGB(139,163,199)，CMYK(50,30,10,0)。"
+      },
+      {
+        "UniqueId": "rgb(191, 192, 150)",
+        "Title": "瓷秘",
+        "Subtitle": "RGB:191,192,150",
+        "Content": "CMYK:30,20,45,0",
+        "Color": "#FFBFC096",
+        "Description": "瓷秘：传统中国白色系，十六进制值 #BFC096，RGB(191,192,150)，CMYK(30,20,45,0)。"
+      },
+      {
+        "UniqueId": "rgb(168, 191, 143)",
+        "Title": "苍葭",
+        "Subtitle": "RGB:168,191,143",
+        "Content": "CMYK:40,15,50,0",
+        "Color": "#FFA8BF8F",
+        "Description": "苍葭：传统中国白色系，十六进制值 #A8BF8F，RGB(168,191,143)，CMYK(40,15,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(179, 181, 156)",
+        "Title": "鸣珂",
+        "Subtitle": "RGB:179,181,156",
+        "Content": "CMYK:35,25,40,0",
+        "Color": "#FFB3B59C",
+        "Description": "鸣珂：传统中国白色系，十六进制值 #B3B59C，RGB(179,181,156)，CMYK(35,25,40,0)。"
+      },
+      {
+        "UniqueId": "rgb(154, 167, 177)",
+        "Title": "青鸾",
+        "Subtitle": "RGB:154,167,177",
+        "Content": "CMYK:45,30,25,0",
+        "Color": "#FF9AA7B1",
+        "Description": "青鸾：传统中国白色系，十六进制值 #9AA7B1，RGB(154,167,177)，CMYK(45,30,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(167, 170, 161)",
+        "Title": "不皂",
+        "Subtitle": "RGB:167,170,161",
+        "Content": "CMYK:40,30,35,0",
+        "Color": "#FFA7AAA1",
+        "Description": "不皂：传统中国白色系，十六进制值 #A7AAA1，RGB(167,170,161)，CMYK(40,30,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(168, 183, 140)",
+        "Title": "兰苕",
+        "Subtitle": "RGB:168,183,140",
+        "Content": "CMYK:40,20,50,0",
+        "Color": "#FFA8B78C",
+        "Description": "兰苕：传统中国白色系，十六进制值 #A8B78C，RGB(168,183,140)，CMYK(40,20,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(169, 190, 123)",
+        "Title": "春辰",
+        "Subtitle": "RGB:169,190,123",
+        "Content": "CMYK:40,15,60,0",
+        "Color": "#FFA9BE7B",
+        "Description": "春辰：传统中国白色系，十六进制值 #A9BE7B，RGB(169,190,123)，CMYK(40,15,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(186, 121, 177)",
+        "Title": "木槿",
+        "Subtitle": "RGB:186,121,177",
+        "Content": "CMYK:30,60,0,0",
+        "Color": "#FFBA79B1",
+        "Description": "木槿：传统中国白色系，十六进制值 #BA79B1，RGB(186,121,177)，CMYK(30,60,0,0)。"
+      },
+      {
+        "UniqueId": "rgb(166, 126, 183)",
+        "Title": "茈藐",
+        "Subtitle": "RGB:166,126,183",
+        "Content": "CMYK:40,55,0,0",
+        "Color": "#FFA67EB7",
+        "Description": "茈藐：传统中国白色系，十六进制值 #A67EB7，RGB(166,126,183)，CMYK(40,55,0,0)。"
+      },
+      {
+        "UniqueId": "rgb(117, 124, 187)",
+        "Title": "紫苑",
+        "Subtitle": "RGB:117,124,187",
+        "Content": "CMYK:60,50,0,0",
+        "Color": "#FF757CBB",
+        "Description": "紫苑：传统中国白色系，十六进制值 #757CBB，RGB(117,124,187)，CMYK(60,50,0,0)。"
+      }
+    ],
+    "musicScale": [
+      "D",
+      "E",
+      "G",
+      "A",
+      "C"
+    ],
+    "musicTempo": "中慢速",
+    "musicStyle": "清澈高雅"
+  },
+  {
+    "wuxing": "水",
+    "color": "黑",
+    "yinYue": "羽",
+    "zangFu": "肾",
+    "direction": "北",
+    "season": "冬",
+    "description": "黑色代表智慧、深邃与包容，对应北方与冬季。",
+    "colors": [
+      {
+        "UniqueId": "rgb(222, 130, 167)",
+        "Title": "龙膏烛",
+        "Subtitle": "RGB:222,130,167",
+        "Content": "CMYK:10,60,10,0",
+        "Color": "#FFDE82A7",
+        "Description": "龙膏烛：传统中国黑色系，十六进制值 #DE82A7，RGB(222,130,167)，CMYK(10,60,10,0)。"
+      },
+      {
+        "UniqueId": "rgb(205, 209, 113)",
+        "Title": "翠樽",
+        "Subtitle": "RGB:205,209,113",
+        "Content": "CMYK:25,10,65,0",
+        "Color": "#FFCDD171",
+        "Description": "翠樽：传统中国黑色系，十六进制值 #CDD171，RGB(205,209,113)，CMYK(25,10,65,0)。"
+      },
+      {
+        "UniqueId": "rgb(204, 115, 160)",
+        "Title": "黪紫",
+        "Subtitle": "RGB:204,115,160",
+        "Content": "CMYK:20,65,10,0",
+        "Color": "#FFCC73A0",
+        "Description": "黪紫：传统中国黑色系，十六进制值 #CC73A0，RGB(204,115,160)，CMYK(20,65,10,0)。"
+      },
+      {
+        "UniqueId": "rgb(111, 148, 205)",
+        "Title": "监德",
+        "Subtitle": "RGB:111,148,205",
+        "Content": "CMYK:60,35,0,0",
+        "Color": "#FF6F94CD",
+        "Description": "监德：传统中国黑色系，十六进制值 #6F94CD，RGB(111,148,205)，CMYK(60,35,0,0)。"
+      },
+      {
+        "UniqueId": "rgb(110, 155, 197)",
+        "Title": "挼蓝",
+        "Subtitle": "RGB:110,155,197",
+        "Content": "CMYK:60,30,10,0",
+        "Color": "#FF6E9BC5",
+        "Description": "挼蓝：传统中国黑色系，十六进制值 #6E9BC5，RGB(110,155,197)，CMYK(60,30,10,0)。"
+      },
+      {
+        "UniqueId": "rgb(168, 176, 146)",
+        "Title": "青玉案",
+        "Subtitle": "RGB:168,176,146",
+        "Content": "CMYK:40,25,45,0",
+        "Color": "#FFA8B092",
+        "Description": "青玉案：传统中国黑色系，十六进制值 #A8B092，RGB(168,176,146)，CMYK(40,25,45,0)。"
+      },
+      {
+        "UniqueId": "rgb(203, 92, 131)",
+        "Title": "琅玕紫",
+        "Subtitle": "RGB:203,92,131",
+        "Content": "CMYK:20,75,25,0",
+        "Color": "#FFCB5C83",
+        "Description": "琅玕紫：传统中国黑色系，十六进制值 #CB5C83，RGB(203,92,131)，CMYK(20,75,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(155, 142, 169)",
+        "Title": "紫菂",
+        "Subtitle": "RGB:155,142,169",
+        "Content": "CMYK:45,45,20,0",
+        "Color": "#FF9B8EA9",
+        "Description": "紫菂：传统中国黑色系，十六进制值 #9B8EA9，RGB(155,142,169)，CMYK(45,45,20,0)。"
+      },
+      {
+        "UniqueId": "rgb(127, 159, 175)",
+        "Title": "竹月",
+        "Subtitle": "RGB:127,159,175",
+        "Content": "CMYK:55,30,25,0",
+        "Color": "#FF7F9FAF",
+        "Description": "竹月：传统中国黑色系，十六进制值 #7F9FAF，RGB(127,159,175)，CMYK(55,30,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(156, 141, 155)",
+        "Title": "银褐",
+        "Subtitle": "RGB:156,141,155",
+        "Content": "CMYK:45,45,30,0",
+        "Color": "#FF9C8D9B",
+        "Description": "银褐：传统中国黑色系，十六进制值 #9C8D9B，RGB(156,141,155)，CMYK(45,45,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(73, 148, 196)",
+        "Title": "孔雀蓝",
+        "Subtitle": "RGB:73,148,196",
+        "Content": "CMYK:70,30,10,0",
+        "Color": "#FF4994C4",
+        "Description": "孔雀蓝：传统中国黑色系，十六进制值 #4994C4，RGB(73,148,196)，CMYK(70,30,10,0)。"
+      },
+      {
+        "UniqueId": "rgb(89, 118, 186)",
+        "Title": "苍苍",
+        "Subtitle": "RGB:89,118,186",
+        "Content": "CMYK:70,50,0,0",
+        "Color": "#FF5976BA",
+        "Description": "苍苍：传统中国黑色系，十六进制值 #5976BA，RGB(89,118,186)，CMYK(70,50,0,0)。"
+      },
+      {
+        "UniqueId": "rgb(185, 90, 137)",
+        "Title": "胭脂水",
+        "Subtitle": "RGB:185,90,137",
+        "Content": "CMYK:30,75,20,0",
+        "Color": "#FFB95A89",
+        "Description": "胭脂水：传统中国黑色系，十六进制值 #B95A89，RGB(185,90,137)，CMYK(30,75,20,0)。"
+      },
+      {
+        "UniqueId": "rgb(108, 168, 175)",
+        "Title": "正青",
+        "Subtitle": "RGB:108,168,175",
+        "Content": "CMYK:60,20,30,0",
+        "Color": "#FF6CA8AF",
+        "Description": "正青：传统中国黑色系，十六进制值 #6CA8AF，RGB(108,168,175)，CMYK(60,20,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(157, 133, 143)",
+        "Title": "烟红",
+        "Subtitle": "RGB:157,133,143",
+        "Content": "CMYK:45,50,35,0",
+        "Color": "#FF9D858F",
+        "Description": "烟红：传统中国黑色系，十六进制值 #9D858F，RGB(157,133,143)，CMYK(45,50,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(157, 157, 130)",
+        "Title": "春碧",
+        "Subtitle": "RGB:157,157,130",
+        "Content": "CMYK:45,35,50,0",
+        "Color": "#FF9D9D82",
+        "Description": "春碧：传统中国黑色系，十六进制值 #9D9D82，RGB(157,157,130)，CMYK(45,35,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(125, 146, 159)",
+        "Title": "秋蓝",
+        "Subtitle": "RGB:125,146,159",
+        "Content": "CMYK:55,35,30,5",
+        "Color": "#FF7D929F",
+        "Description": "秋蓝：传统中国黑色系，十六进制值 #7D929F，RGB(125,146,159)，CMYK(55,35,30,5)。"
+      },
+      {
+        "UniqueId": "rgb(146, 129, 135)",
+        "Title": "红藤杖",
+        "Subtitle": "RGB:146,129,135",
+        "Content": "CMYK:50,50,40,0",
+        "Color": "#FF928187",
+        "Description": "红藤杖：传统中国黑色系，十六进制值 #928187，RGB(146,129,135)，CMYK(50,50,40,0)。"
+      },
+      {
+        "UniqueId": "rgb(145, 130, 143)",
+        "Title": "迷楼灰",
+        "Subtitle": "RGB:145,130,143",
+        "Content": "CMYK:50,50,35,0",
+        "Color": "#FF91828F",
+        "Description": "迷楼灰：传统中国黑色系，十六进制值 #91828F，RGB(145,130,143)，CMYK(50,50,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(90, 164, 174)",
+        "Title": "天水碧",
+        "Subtitle": "RGB:90,164,174",
+        "Content": "CMYK:65,20,30,0",
+        "Color": "#FF5AA4AE",
+        "Description": "天水碧：传统中国黑色系，十六进制值 #5AA4AE，RGB(90,164,174)，CMYK(65,20,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(167, 98, 131)",
+        "Title": "紫茎屏风",
+        "Subtitle": "RGB:167,98,131",
+        "Content": "CMYK:40,70,30,0",
+        "Color": "#FFA76283",
+        "Description": "紫茎屏风：传统中国黑色系，十六进制值 #A76283，RGB(167,98,131)，CMYK(40,70,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(97, 94, 168)",
+        "Title": "优昙瑞",
+        "Subtitle": "RGB:97,94,168",
+        "Content": "CMYK:70,65,0,0",
+        "Color": "#FF615EA8",
+        "Description": "优昙瑞：传统中国黑色系，十六进制值 #615EA8，RGB(97,94,168)，CMYK(70,65,0,0)。"
+      },
+      {
+        "UniqueId": "rgb(145, 145, 119)",
+        "Title": "执大象",
+        "Subtitle": "RGB:145,145,119",
+        "Content": "CMYK:50,40,55,0",
+        "Color": "#FF919177",
+        "Description": "执大象：传统中国黑色系，十六进制值 #919177，RGB(145,145,119)，CMYK(50,40,55,0)。"
+      },
+      {
+        "UniqueId": "rgb(102, 136, 158)",
+        "Title": "空青",
+        "Subtitle": "RGB:102,136,158",
+        "Content": "CMYK:65,40,30,0",
+        "Color": "#FF66889E",
+        "Description": "空青：传统中国黑色系，十六进制值 #66889E，RGB(102,136,158)，CMYK(65,40,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(184, 53, 112)",
+        "Title": "红踯躅",
+        "Subtitle": "RGB:184,53,112",
+        "Content": "CMYK:30,90,30,0",
+        "Color": "#FFB83570",
+        "Description": "红踯躅：传统中国黑色系，十六进制值 #B83570，RGB(184,53,112)，CMYK(30,90,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(166, 85, 157)",
+        "Title": "紫蒲",
+        "Subtitle": "RGB:166,85,157",
+        "Content": "CMYK:40,75,0,0",
+        "Color": "#FFA6559D",
+        "Description": "紫蒲：传统中国黑色系，十六进制值 #A6559D，RGB(166,85,157)，CMYK(40,75,0,0)。"
+      },
+      {
+        "UniqueId": "rgb(176, 67, 111)",
+        "Title": "胭脂紫",
+        "Subtitle": "RGB:176,67,111",
+        "Content": "CMYK:35,85,35,0",
+        "Color": "#FFB0436F",
+        "Description": "胭脂紫：传统中国黑色系，十六进制值 #B0436F，RGB(176,67,111)，CMYK(35,85,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(107, 121, 142)",
+        "Title": "菘蓝",
+        "Subtitle": "RGB:107,121,142",
+        "Content": "CMYK:65,50,35,0",
+        "Color": "#FF6B798E",
+        "Description": "菘蓝：传统中国黑色系，十六进制值 #6B798E，RGB(107,121,142)，CMYK(65,50,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(153, 93, 127)",
+        "Title": "紫府",
+        "Subtitle": "RGB:153,93,127",
+        "Content": "CMYK:45,70,30,5",
+        "Color": "#FF995D7F",
+        "Description": "紫府：传统中国黑色系，十六进制值 #995D7F，RGB(153,93,127)，CMYK(45,70,30,5)。"
+      },
+      {
+        "UniqueId": "rgb(122, 123, 120)",
+        "Title": "雷雨垂",
+        "Subtitle": "RGB:122,123,120",
+        "Content": "CMYK:60,50,50,0",
+        "Color": "#FF7A7B78",
+        "Description": "雷雨垂：传统中国黑色系，十六进制值 #7A7B78，RGB(122,123,120)，CMYK(60,50,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(50, 113, 174)",
+        "Title": "青冥",
+        "Subtitle": "RGB:50,113,174",
+        "Content": "CMYK:80,50,10,0",
+        "Color": "#FF3271AE",
+        "Description": "青冥：传统中国黑色系，十六进制值 #3271AE，RGB(50,113,174)，CMYK(80,50,10,0)。"
+      },
+      {
+        "UniqueId": "rgb(65, 130, 164)",
+        "Title": "吐绶蓝",
+        "Subtitle": "RGB:65,130,164",
+        "Content": "CMYK:75,40,25,0",
+        "Color": "#FF4182A4",
+        "Description": "吐绶蓝：传统中国黑色系，十六进制值 #4182A4，RGB(65,130,164)，CMYK(75,40,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(121, 131, 108)",
+        "Title": "苔古",
+        "Subtitle": "RGB:121,131,108",
+        "Content": "CMYK:60,45,60,0",
+        "Color": "#FF79836C",
+        "Description": "苔古：传统中国黑色系，十六进制值 #79836C，RGB(121,131,108)，CMYK(60,45,60,0)。"
+      },
+      {
+        "UniqueId": "rgb(74, 75, 157)",
+        "Title": "延维",
+        "Subtitle": "RGB:74,75,157",
+        "Content": "CMYK:80,75,0,0",
+        "Color": "#FF4A4B9D",
+        "Description": "延维：传统中国黑色系，十六进制值 #4A4B9D，RGB(74,75,157)，CMYK(80,75,0,0)。"
+      },
+      {
+        "UniqueId": "rgb(167, 55, 102)",
+        "Title": "魏红",
+        "Subtitle": "RGB:167,55,102",
+        "Content": "CMYK:40,90,40,0",
+        "Color": "#FFA73766",
+        "Description": "魏红：传统中国黑色系，十六进制值 #A73766，RGB(167,55,102)，CMYK(40,90,40,0)。"
+      },
+      {
+        "UniqueId": "rgb(80, 146, 150)",
+        "Title": "扁青",
+        "Subtitle": "RGB:80,146,150",
+        "Content": "CMYK:70,30,40,0",
+        "Color": "#FF509296",
+        "Description": "扁青：传统中国黑色系，十六进制值 #509296，RGB(80,146,150)，CMYK(70,30,40,0)。"
+      },
+      {
+        "UniqueId": "rgb(46, 89, 167)",
+        "Title": "群青",
+        "Subtitle": "RGB:46,89,167",
+        "Content": "CMYK:85,65,0,0",
+        "Color": "#FF2E59A7",
+        "Description": "群青：传统中国黑色系，十六进制值 #2E59A7，RGB(46,89,167)，CMYK(85,65,0,0)。"
+      },
+      {
+        "UniqueId": "rgb(84, 118, 137)",
+        "Title": "太师青",
+        "Subtitle": "RGB:84,118,137",
+        "Content": "CMYK:70,45,35,10",
+        "Color": "#FF547689",
+        "Description": "太师青：传统中国黑色系，十六进制值 #547689，RGB(84,118,137)，CMYK(70,45,35,10)。"
+      },
+      {
+        "UniqueId": "rgb(134, 140, 78)",
+        "Title": "风入松",
+        "Subtitle": "RGB:134,140,78",
+        "Content": "CMYK:55,40,80,0",
+        "Color": "#FF868C4E",
+        "Description": "风入松：传统中国黑色系，十六进制值 #868C4E，RGB(134,140,78)，CMYK(55,40,80,0)。"
+      },
+      {
+        "UniqueId": "rgb(125, 82, 132)",
+        "Title": "紫紶",
+        "Subtitle": "RGB:125,82,132",
+        "Content": "CMYK:60,75,25,0",
+        "Color": "#FF7D5284",
+        "Description": "紫紶：传统中国黑色系，十六进制值 #7D5284，RGB(125,82,132)，CMYK(60,75,25,0)。"
+      },
+      {
+        "UniqueId": "rgb(126, 82, 127)",
+        "Title": "拂紫绵",
+        "Subtitle": "RGB:126,82,127",
+        "Content": "CMYK:60,75,30,0",
+        "Color": "#FF7E527F",
+        "Description": "拂紫绵：传统中国黑色系，十六进制值 #7E527F，RGB(126,82,127)，CMYK(60,75,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(106, 91, 109)",
+        "Title": "鸦雏",
+        "Subtitle": "RGB:106,91,109",
+        "Content": "CMYK:65,65,45,10",
+        "Color": "#FF6A5B6D",
+        "Description": "鸦雏：传统中国黑色系，十六进制值 #6A5B6D，RGB(106,91,109)，CMYK(65,65,45,10)。"
+      },
+      {
+        "UniqueId": "rgb(87, 100, 112)",
+        "Title": "育阳染",
+        "Subtitle": "RGB:87,100,112",
+        "Content": "CMYK:70,55,45,15",
+        "Color": "#FF576470",
+        "Description": "育阳染：传统中国黑色系，十六进制值 #576470，RGB(87,100,112)，CMYK(70,55,45,15)。"
+      },
+      {
+        "UniqueId": "rgb(129, 70, 98)",
+        "Title": "地血",
+        "Subtitle": "RGB:129,70,98",
+        "Content": "CMYK:55,80,45,10",
+        "Color": "#FF814662",
+        "Description": "地血：传统中国黑色系，十六进制值 #814662，RGB(129,70,98)，CMYK(55,80,45,10)。"
+      },
+      {
+        "UniqueId": "rgb(50, 120, 138)",
+        "Title": "鱼师青",
+        "Subtitle": "RGB:50,120,138",
+        "Content": "CMYK:80,45,40,0",
+        "Color": "#FF32788A",
+        "Description": "鱼师青：传统中国黑色系，十六进制值 #32788A，RGB(50,120,138)，CMYK(80,45,40,0)。"
+      },
+      {
+        "UniqueId": "rgb(83, 81, 100)",
+        "Title": "曾青",
+        "Subtitle": "RGB:83,81,100",
+        "Content": "CMYK:75,70,50,10",
+        "Color": "#FF535164",
+        "Description": "曾青：传统中国黑色系，十六进制值 #535164，RGB(83,81,100)，CMYK(75,70,50,10)。"
+      },
+      {
+        "UniqueId": "rgb(16, 104, 152)",
+        "Title": "柔蓝",
+        "Subtitle": "RGB:16,104,152",
+        "Content": "CMYK:85,50,20,10",
+        "Color": "#FF106898",
+        "Description": "柔蓝：传统中国黑色系，十六进制值 #106898，RGB(16,104,152)，CMYK(85,50,20,10)。"
+      },
+      {
+        "UniqueId": "rgb(16, 139, 150)",
+        "Title": "法翠",
+        "Subtitle": "RGB:16,139,150",
+        "Content": "CMYK:80,30,40,0",
+        "Color": "#FF108B96",
+        "Description": "法翠：传统中国黑色系，十六进制值 #108B96，RGB(16,139,150)，CMYK(80,30,40,0)。"
+      },
+      {
+        "UniqueId": "rgb(92, 79, 85)",
+        "Title": "烟墨",
+        "Subtitle": "RGB:92,79,85",
+        "Content": "CMYK:70,70,60,15",
+        "Color": "#FF5C4F55",
+        "Description": "烟墨：传统中国黑色系，十六进制值 #5C4F55，RGB(92,79,85)，CMYK(70,70,60,15)。"
+      },
+      {
+        "UniqueId": "rgb(102, 61, 116)",
+        "Title": "三公子",
+        "Subtitle": "RGB:102,61,116",
+        "Content": "CMYK:70,85,30,5",
+        "Color": "#FF663D74",
+        "Description": "三公子：传统中国黑色系，十六进制值 #663D74，RGB(102,61,116)，CMYK(70,85,30,5)。"
+      },
+      {
+        "UniqueId": "rgb(89, 76, 87)",
+        "Title": "紫鼠",
+        "Subtitle": "RGB:89,76,87",
+        "Content": "CMYK:65,65,50,30",
+        "Color": "#FF594C57",
+        "Description": "紫鼠：传统中国黑色系，十六进制值 #594C57，RGB(89,76,87)，CMYK(65,65,50,30)。"
+      },
+      {
+        "UniqueId": "rgb(138, 24, 116)",
+        "Title": "赪紫",
+        "Subtitle": "RGB:138,24,116",
+        "Content": "CMYK:55,100,20,0",
+        "Color": "#FF8A1874",
+        "Description": "赪紫：传统中国黑色系，十六进制值 #8A1874，RGB(138,24,116)，CMYK(55,100,20,0)。"
+      },
+      {
+        "UniqueId": "rgb(69, 70, 94)",
+        "Title": "青黛",
+        "Subtitle": "RGB:69,70,94",
+        "Content": "CMYK:80,75,50,15",
+        "Color": "#FF45465E",
+        "Description": "青黛：传统中国黑色系，十六进制值 #45465E，RGB(69,70,94)，CMYK(80,75,50,15)。"
+      },
+      {
+        "UniqueId": "rgb(69, 70, 89)",
+        "Title": "䒌靘",
+        "Subtitle": "RGB:69,70,89",
+        "Content": "CMYK:80,75,55,15",
+        "Color": "#FF454659",
+        "Description": "䒌靘：传统中国黑色系，十六进制值 #454659，RGB(69,70,89)，CMYK(80,75,55,15)。"
+      },
+      {
+        "UniqueId": "rgb(53, 78, 107)",
+        "Title": "青雀头黛",
+        "Subtitle": "RGB:53,78,107",
+        "Content": "CMYK:85,70,45,10",
+        "Color": "#FF354E6B",
+        "Description": "青雀头黛：传统中国黑色系，十六进制值 #354E6B，RGB(53,78,107)，CMYK(85,70,45,10)。"
+      },
+      {
+        "UniqueId": "rgb(60, 70, 84)",
+        "Title": "霁蓝",
+        "Subtitle": "RGB:60,70,84",
+        "Content": "CMYK:80,70,55,25",
+        "Color": "#FF3C4654",
+        "Description": "霁蓝：传统中国黑色系，十六进制值 #3C4654，RGB(60,70,84)，CMYK(80,70,55,25)。"
+      },
+      {
+        "UniqueId": "rgb(69, 73, 61)",
+        "Title": "绿云",
+        "Subtitle": "RGB:69,73,61",
+        "Content": "CMYK:75,65,75,30",
+        "Color": "#FF45493D",
+        "Description": "绿云：传统中国黑色系，十六进制值 #45493D，RGB(69,73,61)，CMYK(75,65,75,30)。"
+      },
+      {
+        "UniqueId": "rgb(0, 109, 135)",
+        "Title": "软翠",
+        "Subtitle": "RGB:0,109,135",
+        "Content": "CMYK:90,50,40,0",
+        "Color": "#FF006D87",
+        "Description": "软翠：传统中国黑色系，十六进制值 #006D87，RGB(0,109,135)，CMYK(90,50,40,0)。"
+      },
+      {
+        "UniqueId": "rgb(18, 80, 123)",
+        "Title": "碧城",
+        "Subtitle": "RGB:18,80,123",
+        "Content": "CMYK:90,65,30,15",
+        "Color": "#FF12507B",
+        "Description": "碧城：传统中国黑色系，十六进制值 #12507B，RGB(18,80,123)，CMYK(90,65,30,15)。"
+      },
+      {
+        "UniqueId": "rgb(89, 83, 51)",
+        "Title": "素綦",
+        "Subtitle": "RGB:89,83,51",
+        "Content": "CMYK:70,65,90,20",
+        "Color": "#FF595333",
+        "Description": "素綦：传统中国黑色系，十六进制值 #595333，RGB(89,83,51)，CMYK(70,65,90,20)。"
+      },
+      {
+        "UniqueId": "rgb(108, 33, 109)",
+        "Title": "齐紫",
+        "Subtitle": "RGB:108,33,109",
+        "Content": "CMYK:70,100,30,0",
+        "Color": "#FF6C216D",
+        "Description": "齐紫：传统中国黑色系，十六进制值 #6C216D，RGB(108,33,109)，CMYK(70,100,30,0)。"
+      },
+      {
+        "UniqueId": "rgb(96, 38, 65)",
+        "Title": "芥拾紫",
+        "Subtitle": "RGB:96,38,65",
+        "Content": "CMYK:60,90,55,35",
+        "Color": "#FF602641",
+        "Description": "芥拾紫：传统中国黑色系，十六进制值 #602641，RGB(96,38,65)，CMYK(60,90,55,35)。"
+      },
+      {
+        "UniqueId": "rgb(52, 48, 65)",
+        "Title": "璆琳",
+        "Subtitle": "RGB:52,48,65",
+        "Content": "CMYK:85,85,65,30",
+        "Color": "#FF343041",
+        "Description": "璆琳：传统中国黑色系，十六进制值 #343041，RGB(52,48,65)，CMYK(85,85,65,30)。"
+      },
+      {
+        "UniqueId": "rgb(40, 72, 82)",
+        "Title": "青緺",
+        "Subtitle": "RGB:40,72,82",
+        "Content": "CMYK:90,75,65,10",
+        "Color": "#FF284852",
+        "Description": "青緺：传统中国黑色系，十六进制值 #284852，RGB(40,72,82)，CMYK(90,75,65,10)。"
+      },
+      {
+        "UniqueId": "rgb(49, 50, 44)",
+        "Title": "京元",
+        "Subtitle": "RGB:49,50,44",
+        "Content": "CMYK:80,75,80,45",
+        "Color": "#FF31322C",
+        "Description": "京元：传统中国黑色系，十六进制值 #31322C，RGB(49,50,44)，CMYK(80,75,80,45)。"
+      },
+      {
+        "UniqueId": "rgb(0, 113, 117)",
+        "Title": "青雘",
+        "Subtitle": "RGB:0,113,117",
+        "Content": "CMYK:95,45,55,0",
+        "Color": "#FF007175",
+        "Description": "青雘：传统中国黑色系，十六进制值 #007175，RGB(0,113,117)，CMYK(95,45,55,0)。"
+      },
+      {
+        "UniqueId": "rgb(66, 34, 86)",
+        "Title": "凝夜紫",
+        "Subtitle": "RGB:66,34,86",
+        "Content": "CMYK:85,100,45,15",
+        "Color": "#FF422256",
+        "Description": "凝夜紫：传统中国黑色系，十六进制值 #422256，RGB(66,34,86)，CMYK(85,100,45,15)。"
+      },
+      {
+        "UniqueId": "rgb(44, 47, 59)",
+        "Title": "绀蝶",
+        "Subtitle": "RGB:44,47,59",
+        "Content": "CMYK:85,80,65,40",
+        "Color": "#FF2C2F3B",
+        "Description": "绀蝶：传统中国黑色系，十六进制值 #2C2F3B，RGB(44,47,59)，CMYK(85,80,65,40)。"
+      },
+      {
+        "UniqueId": "rgb(0, 61, 116)",
+        "Title": "绀宇",
+        "Subtitle": "RGB:0,61,116",
+        "Content": "CMYK:100,86,35,0",
+        "Color": "#FF003D74",
+        "Description": "绀宇：传统中国黑色系，十六进制值 #003D74，RGB(0,61,116)，CMYK(100,86,35,0)。"
+      },
+      {
+        "UniqueId": "rgb(6, 67, 111)",
+        "Title": "蓝采和",
+        "Subtitle": "RGB:6,67,111",
+        "Content": "CMYK:95,75,35,15",
+        "Color": "#FF06436F",
+        "Description": "蓝采和：传统中国黑色系，十六进制值 #06436F，RGB(6,67,111)，CMYK(95,75,35,15)。"
+      },
+      {
+        "UniqueId": "rgb(25, 50, 95)",
+        "Title": "佛头青",
+        "Subtitle": "RGB:25,50,95",
+        "Content": "CMYK:100,95,50,0",
+        "Color": "#FF19325F",
+        "Description": "佛头青：传统中国黑色系，十六进制值 #19325F，RGB(25,50,95)，CMYK(100,95,50,0)。"
+      },
+      {
+        "UniqueId": "rgb(26, 40, 71)",
+        "Title": "花青",
+        "Subtitle": "RGB:26,40,71",
+        "Content": "CMYK:100,100,65,15",
+        "Color": "#FF1A2847",
+        "Description": "花青：传统中国黑色系，十六进制值 #1A2847，RGB(26,40,71)，CMYK(100,100,65,15)。"
+      },
+      {
+        "UniqueId": "rgb(18, 38, 79)",
+        "Title": "骐驎",
+        "Subtitle": "RGB:18,38,79",
+        "Content": "CMYK:100,95,50,25",
+        "Color": "#FF12264F",
+        "Description": "骐驎：传统中国黑色系，十六进制值 #12264F，RGB(18,38,79)，CMYK(100,95,50,25)。"
+      },
+      {
+        "UniqueId": "rgb(0, 52, 96)",
+        "Title": "帝释青",
+        "Subtitle": "RGB:0,52,96",
+        "Content": "CMYK:100,85,40,20",
+        "Color": "#FF003460",
+        "Description": "帝释青：传统中国黑色系，十六进制值 #003460，RGB(0,52,96)，CMYK(100,85,40,20)。"
+      },
+      {
+        "UniqueId": "rgb(30, 39, 50)",
+        "Title": "瑾瑜",
+        "Subtitle": "RGB:30,39,50",
+        "Content": "CMYK:90,85,70,45",
+        "Color": "#FF1E2732",
+        "Description": "瑾瑜：传统中国黑色系，十六进制值 #1E2732，RGB(30,39,50)，CMYK(90,85,70,45)。"
+      },
+      {
+        "UniqueId": "rgb(19, 57, 62)",
+        "Title": "螺子黛",
+        "Subtitle": "RGB:19,57,62",
+        "Content": "CMYK:95,80,75,25",
+        "Color": "#FF13393E",
+        "Description": "螺子黛：传统中国黑色系，十六进制值 #13393E，RGB(19,57,62)，CMYK(95,80,75,25)。"
+      },
+      {
+        "UniqueId": "rgb(21, 29, 41)",
+        "Title": "獭见",
+        "Subtitle": "RGB:21,29,41",
+        "Content": "CMYK:85,75,60,65",
+        "Color": "#FF151D29",
+        "Description": "獭见：传统中国黑色系，十六进制值 #151D29，RGB(21,29,41)，CMYK(85,75,60,65)。"
+      },
+      {
+        "UniqueId": "rgb(66, 11, 47)",
+        "Title": "油紫",
+        "Subtitle": "RGB:66,11,47",
+        "Content": "CMYK:70,100,60,50",
+        "Color": "#FF420B2F",
+        "Description": "油紫：传统中国黑色系，十六进制值 #420B2F，RGB(66,11,47)，CMYK(70,100,60,50)。"
+      }
+    ],
+    "musicScale": [
+      "A",
+      "C",
+      "D",
+      "E",
+      "G"
+    ],
+    "musicTempo": "慢速",
+    "musicStyle": "深沉内敛"
+  }
+]

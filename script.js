@@ -1,99 +1,227 @@
-fetch('data/ColorData.json')
+// 全局变量，存储五行数据
+let wuxingData = [];
+let currentWuxing = null;
+
+// 加载五行颜色数据
+fetch('data/WuxingColorData.json')
     .then(response => response.json())
     .then(data => {
-        const colorGrid = document.getElementById('color-grid');
+        // 保存五行数据到全局变量
+        wuxingData = data;
         
-        // 遍历颜色数据并创建颜色选项
-        data.forEach(color => {
-            const colorColumn = document.createElement('div');
-            colorColumn.className = 'color-column';
+        const colorGrid = document.getElementById('color-grid');
+        colorGrid.innerHTML = ''; // 清空现有内容
+        
+        // 为每个五行元素创建一个分组
+        data.forEach(wuxingGroup => {
+            // 创建五行分组标题
+            const wuxingHeader = document.createElement('div');
+            wuxingHeader.className = 'wuxing-group-header';
+            wuxingHeader.innerHTML = `
+                <div class="wuxing-group-title">${wuxingGroup.color}色 - ${wuxingGroup.wuxing}</div>
+                <div class="wuxing-group-subtitle">${wuxingGroup.direction}方 | ${wuxingGroup.season} | ${wuxingGroup.yinYue}音</div>
+            `;
+            colorGrid.appendChild(wuxingHeader);
             
-            const colorOption = document.createElement('div');
-            colorOption.className = 'color-option';
+            // 创建颜色容器
+            const colorsContainer = document.createElement('div');
+            colorsContainer.className = 'colors-container';
             
-            // 从UniqueId中提取RGB值
-            let rgbValues = color.UniqueId.match(/\d+/g);
-            const r = parseInt(rgbValues[0]);
-            const g = parseInt(rgbValues[1]);
-            const b = parseInt(rgbValues[2]);
+            // 确保所有颜色都能完整显示
+            // 如果颜色太多，可以分成多行显示
+            const maxColorsPerRow = 8; // 增加每行显示的颜色数量
+            const totalColors = wuxingGroup.colors.length;
+            const rows = Math.ceil(totalColors / maxColorsPerRow);
             
-            colorOption.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            console.log(`加载 ${wuxingGroup.wuxing}(${wuxingGroup.color}) 的颜色：${totalColors}种`);
             
-            // 如果背景色太深，文字颜色设为白色
-            const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-            colorOption.style.color = brightness < 128 ? 'white' : 'black';
+            // 添加颜色总数显示
+            const colorCountInfo = document.createElement('div');
+            colorCountInfo.className = 'color-count-info';
+            colorCountInfo.textContent = `共${totalColors}种颜色`;
+            wuxingHeader.appendChild(colorCountInfo);
             
-            const colorName = document.createElement('div');
-            colorName.className = 'color-name';
-            colorName.textContent = color.Title; // 使用Title字段作为颜色名称
-            
-            // 点击事件处理
-            colorOption.addEventListener('click', () => {
-                // 移除其他选项的选中状态
-                document.querySelectorAll('.color-option.selected').forEach(el => {
-                    el.classList.remove('selected');
+            // 遍历该五行元素下的所有颜色
+            wuxingGroup.colors.forEach((color, index) => {
+                const colorColumn = document.createElement('div');
+                colorColumn.className = 'color-column';
+                
+                const colorOption = document.createElement('div');
+                colorOption.className = 'color-option';
+                colorOption.dataset.wuxing = wuxingGroup.wuxing; // 添加五行属性
+                
+                // 从UniqueId中提取RGB值
+                let rgbValues = color.UniqueId.match(/\d+/g);
+                const r = parseInt(rgbValues[0]);
+                const g = parseInt(rgbValues[1]);
+                const b = parseInt(rgbValues[2]);
+                
+                colorOption.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+                
+                // 如果背景色太深，文字颜色设为白色
+                const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+                colorOption.style.color = brightness < 128 ? 'white' : 'black';
+                
+                const colorName = document.createElement('div');
+                colorName.className = 'color-name';
+                colorName.textContent = color.Title; // 使用Title字段作为颜色名称
+                
+                // 点击事件处理
+                colorOption.addEventListener('click', () => {
+                    // 移除其他选项的选中状态
+                    document.querySelectorAll('.color-option.selected').forEach(el => {
+                        el.classList.remove('selected');
+                    });
+                    
+                    // 添加选中状态
+                    colorOption.classList.add('selected');
+                    
+                    // 获取当前背景颜色
+                    const currentBgColor = getComputedStyle(document.body).backgroundColor;
+                    const rgbMatch = currentBgColor.match(/\d+/g);
+                    const currentR = parseInt(rgbMatch[0]);
+                    const currentG = parseInt(rgbMatch[1]);
+                    const currentB = parseInt(rgbMatch[2]);
+                    
+                    // 平滑过渡背景颜色
+                    animateBackgroundColor(currentR, currentG, currentB, r, g, b);
+                    
+                    // 计算并更新五行颜色占比
+                    const wuxingPercentages = calculateWuxingPercentages(r, g, b);
+                    
+                    // 平滑更新五行颜色占比值显示
+                    animateRGBValue('qing-value', parseInt(document.getElementById('qing-value').textContent || 0), wuxingPercentages.qing);
+                    animateRGBValue('bai-value', parseInt(document.getElementById('bai-value').textContent || 0), wuxingPercentages.bai);
+                    animateRGBValue('chi-value', parseInt(document.getElementById('chi-value').textContent || 0), wuxingPercentages.chi);
+                    animateRGBValue('hei-value', parseInt(document.getElementById('hei-value').textContent || 0), wuxingPercentages.hei);
+                    animateRGBValue('huang-value', parseInt(document.getElementById('huang-value').textContent || 0), wuxingPercentages.huang);
+                    
+                    // 更新五行元素关联
+                    updateWuxingElements(wuxingGroup.wuxing, wuxingGroup.color, wuxingGroup.description);
+                    
+                    // 保存当前选中的五行
+                    currentWuxing = wuxingGroup.wuxing;
+                    
+                    // 更新当前选中的颜色名称
+                    document.getElementById('selected-color-name').textContent = color.Title;
+                    
+                    // 更新颜色描述
+                    const descriptionElement = document.getElementById('color-description');
+                    if (descriptionElement) {
+                        descriptionElement.textContent = color.Description || '暂无描述';
+                    }
+                    
+                    // 更新五行信息显示
+                    updateWuxingInfo(wuxingGroup);
                 });
                 
-                // 添加选中状态
-                colorOption.classList.add('selected');
-                
-                // 获取当前背景颜色
-                const currentBgColor = getComputedStyle(document.body).backgroundColor;
-                const rgbMatch = currentBgColor.match(/\d+/g);
-                const currentR = parseInt(rgbMatch[0]);
-                const currentG = parseInt(rgbMatch[1]);
-                const currentB = parseInt(rgbMatch[2]);
-                
-                // 平滑过渡背景颜色
-                animateBackgroundColor(currentR, currentG, currentB, r, g, b);
-                
-                // 平滑更新RGB值显示
-                animateRGBValue('r-value', parseInt(document.getElementById('r-value').textContent), r);
-                animateRGBValue('g-value', parseInt(document.getElementById('g-value').textContent), g);
-                animateRGBValue('b-value', parseInt(document.getElementById('b-value').textContent), b);
-                
-                // 更新五行元素关联
-                updateWuxingElements(r, g, b);
-                
-                // 更新当前选中的颜色名称
-                document.getElementById('selected-color-name').textContent = color.Title;
-                
-                // 更新颜色描述
-                const descriptionElement = document.getElementById('color-description');
-                if (descriptionElement) {
-                    descriptionElement.textContent = color.Description || '暂无描述';
-                }
+                colorColumn.appendChild(colorOption);
+                colorColumn.appendChild(colorName);
+                colorsContainer.appendChild(colorColumn);
             });
             
-            colorColumn.appendChild(colorOption);
-            colorColumn.appendChild(colorName);
-            colorGrid.appendChild(colorColumn);
+            colorGrid.appendChild(colorsContainer);
         });
+        
+        // 默认选中第一个颜色组的第一个颜色
+        if (data.length > 0 && data[0].colors.length > 0) {
+            const firstColorOption = document.querySelector('.color-option');
+            if (firstColorOption) {
+                firstColorOption.click();
+            }
+        }
     })
     .catch(error => {
-        console.error('加载颜色数据失败:', error);
-        document.getElementById('color-grid').innerHTML = '<p>加载颜色数据失败，请检查数据文件路径。</p>';
+        console.error('加载五行颜色数据失败:', error);
+        document.getElementById('color-grid').innerHTML = '<p>加载五行颜色数据失败，请检查数据文件路径。</p>';
     });
+
+// 更新五行信息显示
+function updateWuxingInfo(wuxingGroup) {
+    const wuxingTitle = document.querySelector('.wuxing-title');
+    const wuxingDescription = document.querySelector('.wuxing-description');
+    
+    if (wuxingTitle) {
+        wuxingTitle.textContent = `五行相生 - ${wuxingGroup.wuxing}(${wuxingGroup.color})`;
+        wuxingTitle.style.color = getWuxingColor(wuxingGroup.wuxing);
+    }
+    
+    if (wuxingDescription) {
+        wuxingDescription.innerHTML = `
+            ${wuxingGroup.description}<br>
+            五音：${wuxingGroup.yinYue} | 五脏：${wuxingGroup.zangFu} | 方位：${wuxingGroup.direction} | 季节：${wuxingGroup.season}
+        `;
+        wuxingDescription.style.color = getWuxingColor(wuxingGroup.wuxing);
+    }
+}
     
 // 生成音乐按钮点击事件
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('generate-btn').addEventListener('click', function() {
         const selectedColor = document.querySelector('.color-option.selected');
         
-        if (selectedColor) {
-            // 获取选中的颜色
+        if (selectedColor && currentWuxing) {
+            // 获取选中的颜色和五行属性
             const bgColor = selectedColor.style.backgroundColor;
-            document.getElementById('music-output').innerHTML = `正在根据颜色 ${bgColor} 生成音乐...`;
+            const wuxingElement = currentWuxing;
             
-            // 这里可以添加实际的音乐生成逻辑
-            setTimeout(() => {
-                document.getElementById('music-output').innerHTML = `音乐生成完成！<br><audio controls><source src="#" type="audio/mpeg">您的浏览器不支持音频元素。</audio>`;
-            }, 2000);
+            // 显示生成中的状态
+            document.getElementById('music-output').innerHTML = `
+                <div class="generating-music">
+                    <div class="music-loading">正在根据 ${wuxingElement} 五行元素生成音乐...</div>
+                </div>
+            `;
+            
+            // 使用五行音乐生成器生成音乐
+            try {
+                // 查找当前五行的完整数据
+                const wuxingData = findWuxingData(wuxingElement);
+                if (!wuxingData) {
+                    throw new Error('未找到对应的五行数据');
+                }
+                
+                // 生成音乐（使用wuxing_music.js中的函数）
+                const musicInfo = window.WuxingMusic.generateMusic(wuxingElement, 30); // 生成30秒的音乐
+                
+                // 更新音乐输出区域
+                setTimeout(() => {
+                    document.getElementById('music-output').innerHTML = `
+                        <div class="music-info">
+                            <div class="music-title">五行音乐 - ${wuxingElement}(${wuxingData.color})</div>
+                            <div class="music-style">风格: ${musicInfo.style} | 速度: ${musicInfo.tempo}拍/分钟</div>
+                            <div class="music-scale">音阶: ${wuxingData.musicScale.join(' ')}</div>
+                            <div class="music-controls">
+                                <button id="stop-music-btn" class="control-btn">停止</button>
+                                <button id="replay-music-btn" class="control-btn">重播</button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // 添加停止和重播按钮的事件监听
+                    document.getElementById('stop-music-btn').addEventListener('click', function() {
+                        window.WuxingMusic.stopMusic();
+                    });
+                    
+                    document.getElementById('replay-music-btn').addEventListener('click', function() {
+                        window.WuxingMusic.stopMusic();
+                        window.WuxingMusic.generateMusic(wuxingElement, 30);
+                    });
+                }, 1000);
+                
+            } catch (error) {
+                console.error('生成音乐时出错:', error);
+                document.getElementById('music-output').innerHTML = `生成音乐时出错: ${error.message}`;
+            }
         } else {
             document.getElementById('music-output').innerHTML = '请先选择一个颜色！';
         }
     });
 });
+
+// 查找五行数据
+function findWuxingData(wuxingName) {
+    return wuxingData.find(item => item.wuxing === wuxingName);
+}
 
 // RGB值平滑过渡动画函数
 function animateRGBValue(elementId, startValue, endValue) {
@@ -183,83 +311,53 @@ function animateBackgroundColor(startR, startG, startB, endR, endG, endB) {
 
 // 添加在文件末尾
 // 更新五行元素关联
-function updateWuxingElements(r, g, b) {
-    // 计算颜色的五行属性
-    // 根据RGB值判断颜色属于哪个五行元素
-    // 金(白)、木(青/绿)、水(黑/蓝)、火(红)、土(黄/棕)
-    
-    // 简化的颜色分类算法
-    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-    const max = Math.max(r, g, b);
-    const min = Math.min(r, g, b);
-    const delta = max - min;
-    
-    let wuxingElement = '';
-    let elementColor = '';
-    let description = '';
-    
-    // 判断是否为白色系 (金)
-    if (brightness > 200 && delta < 30) {
-        wuxingElement = '金';
-        elementColor = '#BDBDBD';
-        description = '金代表白色系，象征着纯洁、高贵与坚韧，对应西方与秋季。';
-    }
-    // 判断是否为绿色系 (木)
-    else if (g > r && g > b) {
-        wuxingElement = '木';
-        elementColor = '#33691E';
-        description = '木代表绿色系，象征着生长、希望与活力，对应东方与春季。';
-    }
-    // 判断是否为蓝黑色系 (水)
-    else if (b > r && b > g) {
-        wuxingElement = '水';
-        elementColor = '#0D47A1';
-        description = '水代表蓝黑色系，象征着智慧、深邃与包容，对应北方与冬季。';
-    }
-    // 判断是否为红色系 (火)
-    else if (r > g && r > b && r > 150) {
-        wuxingElement = '火';
-        elementColor = '#BF360C';
-        description = '火代表红色系，象征着热情、活力与温暖，对应南方与夏季。';
-    }
-    // 判断是否为黄棕色系 (土)
-    else {
-        wuxingElement = '土';
-        elementColor = '#5D4037';
-        description = '土代表黄棕色系，象征着稳重、包容与厚实，对应中央与四季交替时期。';
-    }
+function updateWuxingElements(wuxingElement, colorName, description) {
+    // 根据五行元素获取对应的颜色
+    const elementColor = getWuxingColor(wuxingElement);
     
     // 高亮对应的五行元素
     highlightWuxingElement(wuxingElement, elementColor, description);
 }
 
-// 高亮五行元素函数
+// 获取五行元素对应的颜色
+function getWuxingColor(wuxingElement) {
+    // 五行元素对应的颜色
+    const wuxingColors = {
+        '木': '#33691E', // 青色
+        '火': '#BF360C', // 赤色
+        '土': '#B6A014', // 黄色
+        '金': '#BDBDBD', // 白色
+        '水': '#0D47A1'  // 黑色
+    };
+    
+    return wuxingColors[wuxingElement] || '#333333';
+}
+
+// 更新五行属性文本框函数
 function highlightWuxingElement(element, color, description) {
-    // 获取五行图像
-    const wuxingImage = document.querySelector('.wuxing-image');
-    if (!wuxingImage) return;
+    // 更新五行属性
+    const attributeElement = document.getElementById('wuxing-attribute');
+    if (attributeElement) {
+        attributeElement.textContent = `此颜色属于${element}行，${description}`;
+        attributeElement.style.color = color;
+    }
     
-    // 添加高亮效果
-    wuxingImage.classList.add('wuxing-highlight');
+    // 查找五行数据
+    const wuxingGroupData = findWuxingData(element);
     
-    // 更新五行描述
-    const descriptionElement = document.querySelector('.wuxing-description');
-    if (descriptionElement) {
-        descriptionElement.textContent = description;
-        descriptionElement.style.color = color;
+    // 更新五行详细信息
+    const detailsElement = document.getElementById('wuxing-details');
+    if (detailsElement && wuxingGroupData) {
+        detailsElement.innerHTML = `五音：${wuxingGroupData.yinYue} | 五脏：${wuxingGroupData.zangFu} | 方位：${wuxingGroupData.direction} | 季节：${wuxingGroupData.season}`;
+        detailsElement.style.color = color;
     }
     
     // 更新五行标题
     const titleElement = document.querySelector('.wuxing-title');
     if (titleElement) {
-        titleElement.textContent = `五行相生 - ${element}`;  
+        titleElement.textContent = `五行属性 - ${element}(${wuxingGroupData ? wuxingGroupData.color : ''})`;
         titleElement.style.color = color;
     }
-    
-    // 添加动画效果
-    setTimeout(() => {
-        wuxingImage.classList.remove('wuxing-highlight');
-    }, 1000);
 }
 
 // 圆形进度条动画函数
@@ -318,16 +416,57 @@ function updateCircleProgress(elementId, percent, color) {
     circle.style.stroke = color;
 }
 
+// 计算五行颜色占比函数
+function calculateWuxingPercentages(r, g, b) {
+    // 基于RGB值计算五行颜色的占比
+    // 青色(木)：绿色成分高
+    // 赤色(火)：红色成分高
+    // 黄色(土)：红绿混合
+    // 白色(金)：RGB都高
+    // 黑色(水)：RGB都低
+    
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    const sum = r + g + b;
+    
+    // 归一化到0-100范围
+    const normalize = (value) => Math.round(value * 100);
+    
+    // 计算各个五行颜色的占比
+    let qing = normalize(g / 255); // 青色(木)主要由绿色决定
+    let chi = normalize(r / 255); // 赤色(火)主要由红色决定
+    let huang = normalize((r + g) / (2 * 255)); // 黄色(土)由红绿混合决定
+    let bai = normalize((r + g + b) / (3 * 255)); // 白色(金)由RGB平均值决定
+    let hei = normalize(1 - (r + g + b) / (3 * 255)); // 黑色(水)由RGB平均值的反向决定
+    
+    // 确保总和为100
+    const total = qing + chi + huang + bai + hei;
+    const factor = 100 / total;
+    
+    return {
+        qing: Math.round(qing * factor),
+        chi: Math.round(chi * factor),
+        huang: Math.round(huang * factor),
+        bai: Math.round(bai * factor),
+        hei: Math.round(hei * factor)
+    };
+}
+
 // 初始化页面
 document.addEventListener('DOMContentLoaded', function() {
     // 显示加载指示器
     const colorGrid = document.getElementById('color-grid');
     colorGrid.innerHTML = '<div class="loading-indicator">正在加载颜色数据...</div>';
     
-    // 设置默认RGB值
-    document.getElementById('r-value').textContent = '192';
-    document.getElementById('g-value').textContent = '72';
-    document.getElementById('b-value').textContent = '81';
+    // 设置默认五行颜色占比值
+    const defaultR = 192, defaultG = 72, defaultB = 81;
+    const defaultPercentages = calculateWuxingPercentages(defaultR, defaultG, defaultB);
+    
+    document.getElementById('qing-value').textContent = defaultPercentages.qing;
+    document.getElementById('bai-value').textContent = defaultPercentages.bai;
+    document.getElementById('chi-value').textContent = defaultPercentages.chi;
+    document.getElementById('hei-value').textContent = defaultPercentages.hei;
+    document.getElementById('huang-value').textContent = defaultPercentages.huang;
     
     // 设置默认颜色名称和描述
     document.getElementById('selected-color-name').textContent = '中国红';
@@ -339,8 +478,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // 设置默认五行元素
-    const defaultR = 192, defaultG = 72, defaultB = 81;
-    updateWuxingElements(defaultR, defaultG, defaultB);
+    updateWuxingElements('火', '赤', '赤色代表热情、活力与温暖，对应南方与夏季。');
     
     // 生成音乐按钮点击事件
     document.getElementById('generate-btn').addEventListener('click', function() {
@@ -416,10 +554,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     // 平滑过渡背景颜色
                     animateBackgroundColor(currentR, currentG, currentB, r, g, b);
                     
-                    // 平滑更新RGB值显示
-                    animateRGBValue('r-value', parseInt(document.getElementById('r-value').textContent), r);
-                    animateRGBValue('g-value', parseInt(document.getElementById('g-value').textContent), g);
-                    animateRGBValue('b-value', parseInt(document.getElementById('b-value').textContent), b);
+                    // 计算并更新五行颜色占比
+                    const wuxingPercentages = calculateWuxingPercentages(r, g, b);
+                    
+                    // 平滑更新五行颜色占比值显示
+                    animateRGBValue('qing-value', parseInt(document.getElementById('qing-value').textContent || 0), wuxingPercentages.qing);
+                    animateRGBValue('bai-value', parseInt(document.getElementById('bai-value').textContent || 0), wuxingPercentages.bai);
+                    animateRGBValue('chi-value', parseInt(document.getElementById('chi-value').textContent || 0), wuxingPercentages.chi);
+                    animateRGBValue('hei-value', parseInt(document.getElementById('hei-value').textContent || 0), wuxingPercentages.hei);
+                    animateRGBValue('huang-value', parseInt(document.getElementById('huang-value').textContent || 0), wuxingPercentages.huang);
                     
                     // 更新CMYK圆形进度条
                     updateCMYKCircles(r, g, b);

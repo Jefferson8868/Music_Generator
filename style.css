@@ -132,15 +132,63 @@ body {
 
 .color-grid {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-direction: column;
     width: 45%;
     padding: 20px;
     background-color: transparent;
     border-radius: 8px;
-    max-height: 70vh;
+    max-height: 80vh;
     overflow-y: auto;
     transition: background-color 0.8s ease;
+    /* 增加滚动条样式，使其更明显 */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.5) rgba(0, 0, 0, 0.1);
+}
+
+/* 五行分组标题 */
+.wuxing-group-header {
+    margin: 15px 0 10px 0;
+    padding: 8px 15px;
+    border-left: 3px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0 4px 4px 0;
+}
+
+.wuxing-group-title {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "KaiTi", "楷体", serif;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.wuxing-group-subtitle {
+    font-size: 14px;
+    margin-top: 5px;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "FangSong", "仿宋", serif;
+}
+
+.color-count-info {
+    font-size: 12px;
+    margin-top: 3px;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: "FangSong", "仿宋", serif;
+    text-align: right;
+}
+
+/* 颜色容器 */
+.colors-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 15px;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.05);
+    /* 确保容器能容纳更多颜色 */
+    width: 100%;
 }
 
 .color-column {
@@ -150,7 +198,8 @@ body {
     margin: 0 5px 15px 5px;
     transition: transform 0.3s ease;
     cursor: pointer;
-    width: 70px; /* 固定宽度 */
+    width: 60px; /* 减小宽度以显示更多颜色 */
+    min-height: 80px; /* 确保高度足够 */
 }
 
 .color-column:hover {
@@ -299,24 +348,35 @@ body {
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
-.indicator-red {
+.indicator-qing {
     background-color: white;
-    color: #7c1823;
+    color: #33691E;
 }
 
-.indicator-green {
+.indicator-bai {
     background-color: white;
-    color: #2a6e3f;
+    color: #BDBDBD;
 }
 
-.indicator-blue {
+.indicator-chi {
     background-color: white;
-    color: #2775b6;
+    color: #BF360C;
 }
 
-.rgb-value {
+.indicator-hei {
+    background-color: white;
+    color: #0D47A1;
+}
+
+.indicator-huang {
+    background-color: white;
+    color: #B6A014;
+}
+
+.wuxing-value {
     margin: 5px 0;
     font-size: 18px;
+    font-weight: bold;
 }
 
 .vertical-text {
@@ -402,6 +462,90 @@ body {
     text-align: center;
 }
 
+/* 音乐生成中的加载动画 */
+.generating-music {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.music-loading {
+    position: relative;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 15px;
+    padding-left: 24px;
+}
+
+.music-loading:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-top-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* 音乐信息显示 */
+.music-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.music-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: "KaiTi", "楷体", serif;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.music-style, .music-scale {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.music-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+.control-btn {
+    padding: 8px 15px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "FangSong", "仿宋", serif;
+}
+
+.control-btn:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
 footer {
     text-align: center;
     padding: 20px 0;
@@ -465,6 +609,18 @@ footer {
     transform: none;
     /* 水墨风格效果 */
     filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.3));
+}
+
+.color-option:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .color-option:before {
@@ -553,48 +709,41 @@ footer {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-.wuxing-circle-container {
+.wuxing-text-container {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     margin: 10px 0;
     position: relative;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.wuxing-image {
-    width: 100%;
-    max-width: 220px;
-    height: auto;
-    transition: all 0.5s ease;
+.wuxing-attribute {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+    font-family: "KaiTi", "楷体", serif;
+    letter-spacing: 2px;
+    line-height: 1.5;
 }
 
-.wuxing-image:hover {
-    transform: rotate(72deg);
-}
-
-.wuxing-highlight {
-    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
-    transform: scale(1.05);
-}
-
-@keyframes wuxing-pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-.wuxing-image {
-    animation: wuxing-pulse 3s infinite ease-in-out;
-}
-
-.wuxing-description {
+.wuxing-details {
     font-size: 14px;
     text-align: center;
-    margin-top: 15px;
     color: #555;
     font-family: "FangSong", "仿宋", serif;
     line-height: 1.5;
-    padding: 0 10px;
+    padding: 5px 0;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin-top: 10px;
 }
 
 /* 添加分隔线 */

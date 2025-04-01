@@ -3,8 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中国传统色彩音乐生成器</title>
+    <title>中国传统色彩音乐生成器 - DiffRhythm版</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* DiffRhythm版特有样式 */
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            margin: 15px auto;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #fff;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #ddd;
+        }
+        
+        .music-model {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #ddd;
+        }
+        
+        .music-color {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #ddd;
+        }
+        
+        .error-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #ff6b6b;
+        }
+        
+        .error-message {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+        }
+        
+        .music-message {
+            text-align: center;
+            padding: 15px;
+            color: #ddd;
+        }
+        
+        .diffrhythm-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+    </style>
 </head>
 <body>
     <div class="pattern-overlay"></div>
@@ -14,6 +78,7 @@
             <div class="title-container">
                 <div class="app-title">中国传统色彩音乐生成器</div>
                 <div class="app-subtitle">CHINESE COLORS MUSIC GENERATOR</div>
+                <div class="diffrhythm-badge">DiffRhythm版</div>
             </div>
         </header>
         
@@ -92,10 +157,11 @@
 
     <footer>
         <div class="footer-decoration"></div>
-        <p>© 2025 中国传统色彩音乐生成器</p>
+        <p>© 2025 中国传统色彩音乐生成器 - DiffRhythm版</p>
     </footer>
 
-    <script src="wuxing_music.js"></script>
+    <!-- 加载DiffRhythm版音乐生成器 -->
+    <script src="wuxing_diffrhythm.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
