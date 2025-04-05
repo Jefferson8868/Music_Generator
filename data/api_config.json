@@ -1,0 +1,16 @@
+{
+  "youtube": {
+    "api_key": "YOUR_YOUTUBE_API_KEY",
+    "base_url": "https://www.googleapis.com/youtube/v3/search",
+    "enabled": false,
+    "max_results": 5
+  },
+  "bilibili": {
+    "app_key": "YOUR_BILIBILI_APP_KEY",
+    "secret_key": "YOUR_BILIBILI_SECRET_KEY",
+    "base_url": "https://api.bilibili.com/x/web-interface/search/type",
+    "enabled": false,
+    "max_results": 5
+  },
+  "default_service": "mock"
+}

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="100" viewBox="0 0 300 100">
+  <!-- 中国传统水墨笔触 -->
+  <defs>
+    <filter id="inkBlot" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G" />
+      <feGaussianBlur stdDeviation="1.5" />
+    </filter>
+  </defs>
+  
+  <!-- 主要笔触 -->
+  <path d="M10,50 Q75,20 150,50 Q225,80 290,50" stroke="rgba(0,0,0,0.7)" stroke-width="15" fill="none" filter="url(#inkBlot)" />
+  
+  <!-- 次要笔触 -->
+  <path d="M20,60 Q90,40 160,60 Q230,80 280,60" stroke="rgba(0,0,0,0.5)" stroke-width="8" fill="none" filter="url(#inkBlot)" />
+  <path d="M30,40 Q100,20 170,40 Q240,60 270,40" stroke="rgba(0,0,0,0.3)" stroke-width="5" fill="none" filter="url(#inkBlot)" />
+  
+  <!-- 墨点 -->
+  <circle cx="50" cy="50" r="5" fill="rgba(0,0,0,0.6)" filter="url(#inkBlot)" />
+  <circle cx="150" cy="50" r="3" fill="rgba(0,0,0,0.5)" filter="url(#inkBlot)" />
+  <circle cx="250" cy="50" r="4" fill="rgba(0,0,0,0.4)" filter="url(#inkBlot)" />
+</svg>

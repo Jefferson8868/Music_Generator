@@ -1,0 +1,180 @@
+{
+  "emotions": [
+    {
+      "name": "平静",
+      "english": "calm",
+      "keywords": ["宁静", "安详", "平和", "舒缓"],
+      "music_styles": ["轻音乐", "古典", "民谣"],
+      "color_ranges": [
+        {
+          "type": "木",
+          "min_brightness": 70,
+          "max_brightness": 100,
+          "min_saturation": 0,
+          "max_saturation": 30
+        },
+        {
+          "type": "金",
+          "min_brightness": 80,
+          "max_brightness": 100,
+          "min_saturation": 0,
+          "max_saturation": 20
+        },
+        {
+          "type": "水",
+          "min_brightness": 60,
+          "max_brightness": 90,
+          "min_saturation": 0,
+          "max_saturation": 20
+        }
+      ]
+    },
+    {
+      "name": "热情",
+      "english": "passion",
+      "keywords": ["激情", "活力", "奔放", "热烈"],
+      "music_styles": ["摇滚", "流行", "电子"],
+      "color_ranges": [
+        {
+          "type": "火",
+          "min_brightness": 50,
+          "max_brightness": 100,
+          "min_saturation": 70,
+          "max_saturation": 100
+        }
+      ]
+    },
+    {
+      "name": "忧郁",
+      "english": "melancholy",
+      "keywords": ["伤感", "思念", "孤独", "忧愁"],
+      "music_styles": ["民谣", "蓝调", "古典"],
+      "color_ranges": [
+        {
+          "type": "水",
+          "min_brightness": 20,
+          "max_brightness": 60,
+          "min_saturation": 20,
+          "max_saturation": 60
+        },
+        {
+          "type": "木",
+          "min_brightness": 30,
+          "max_brightness": 70,
+          "min_saturation": 30,
+          "max_saturation": 70
+        }
+      ]
+    },
+    {
+      "name": "欢乐",
+      "english": "joy",
+      "keywords": ["喜悦", "快乐", "愉悦", "轻松"],
+      "music_styles": ["流行", "舞曲", "电子"],
+      "color_ranges": [
+        {
+          "type": "火",
+          "min_brightness": 70,
+          "max_brightness": 100,
+          "min_saturation": 50,
+          "max_saturation": 90
+        },
+        {
+          "type": "土",
+          "min_brightness": 70,
+          "max_brightness": 100,
+          "min_saturation": 60,
+          "max_saturation": 100
+        }
+      ]
+    },
+    {
+      "name": "神秘",
+      "english": "mysterious",
+      "keywords": ["神秘", "奇幻", "未知", "深邃"],
+      "music_styles": ["电子", "世界音乐", "实验音乐"],
+      "color_ranges": [
+        {
+          "type": "水",
+          "min_brightness": 10,
+          "max_brightness": 40,
+          "min_saturation": 40,
+          "max_saturation": 80
+        },
+        {
+          "type": "木",
+          "min_brightness": 20,
+          "max_brightness": 50,
+          "min_saturation": 50,
+          "max_saturation": 90
+        }
+      ]
+    },
+    {
+      "name": "庄严",
+      "english": "solemn",
+      "keywords": ["肃穆", "庄重", "威严", "神圣"],
+      "music_styles": ["古典", "交响乐", "合唱"],
+      "color_ranges": [
+        {
+          "type": "金",
+          "min_brightness": 40,
+          "max_brightness": 80,
+          "min_saturation": 0,
+          "max_saturation": 30
+        },
+        {
+          "type": "水",
+          "min_brightness": 0,
+          "max_brightness": 30,
+          "min_saturation": 0,
+          "max_saturation": 30
+        }
+      ]
+    },
+    {
+      "name": "自然",
+      "english": "natural",
+      "keywords": ["清新", "自然", "生机", "和谐"],
+      "music_styles": ["民谣", "轻音乐", "世界音乐"],
+      "color_ranges": [
+        {
+          "type": "木",
+          "min_brightness": 50,
+          "max_brightness": 90,
+          "min_saturation": 40,
+          "max_saturation": 80
+        },
+        {
+          "type": "土",
+          "min_brightness": 50,
+          "max_brightness": 80,
+          "min_saturation": 30,
+          "max_saturation": 70
+        }
+      ]
+    },
+    {
+      "name": "典雅",
+      "english": "elegant",
+      "keywords": ["高雅", "优美", "精致", "古典"],
+      "music_styles": ["古典", "民乐", "室内乐"],
+      "color_ranges": [
+        {
+          "type": "金",
+          "min_brightness": 60,
+          "max_brightness": 90,
+          "min_saturation": 10,
+          "max_saturation": 40
+        },
+        {
+          "type": "土",
+          "min_brightness": 60,
+          "max_brightness": 90,
+          "min_saturation": 20,
+          "max_saturation": 50
+        }
+      ]
+    }
+  ]
+}
