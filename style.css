@@ -207,12 +207,33 @@ body {
 
 .main-content {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+.color-grid-container {
+    flex: 0 0 65%;
+    min-width: 300px;
+}
+
+.sidebar {
+    flex: 0 0 30%;
+    max-width: 300px;
+    margin-left: auto;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    flex: 1;
-    max-width: 100%;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
     position: relative;
+    transition: background-color 0.8s ease;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 2;
 }
 
 .color-grid {
@@ -233,7 +254,7 @@ body {
 .wuxing-container {
     margin-bottom: 20px;
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.85);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 15px;
     transition: all 0.3s ease;
@@ -338,28 +359,10 @@ body {
     position: relative;
 }
 
-
-
 .color-label {
     margin-top: 10px;
     font-size: 18px;
     letter-spacing: 1px;
-}
-
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 800px; /* 增加最大宽度，使AI音乐区域更宽 */
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    position: relative;
-    transition: background-color 0.8s ease;
-    margin: 0 auto;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    z-index: 2;
 }
 
 .logo-container {
@@ -567,36 +570,23 @@ body {
 /* 音乐生成中的加载动画 */
 .generating-music {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    padding: 20px 0;
+    align-items: center;
+    padding: 20px;
+    animation: pulse 1.5s infinite;
 }
 
 .music-loading {
-    position: relative;
     font-size: 16px;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 15px;
-    padding-left: 24px;
+    color: white;
+    text-align: center;
+    font-family: "KaiTi", "楷体", serif;
 }
 
-.music-loading:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 16px;
-    height: 16px;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    border-top-color: rgba(255, 255, 255, 0.9);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    to { transform: translateY(-50%) rotate(360deg); }
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
 }
 
 /* 音乐信息显示 */
@@ -697,12 +687,10 @@ footer {
 }
 
 /* 五行相生区域 */
-
-/* 五行相生区域 */
 .wuxing-area {
     padding: 20px;
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
@@ -766,7 +754,6 @@ footer {
         height: 150px;
     }
 }
-
 
 /* 添加颜色选项样式 */
 .color-option {
@@ -881,9 +868,6 @@ footer {
     height: 1px;
     background-color: rgba(0, 0, 0, 0.2);
 }
-
-
-
 
 /* 加载指示器样式 */
 .loading-indicator {
@@ -1130,15 +1114,194 @@ footer {
     align-items: center;
 }
 
-/* 加载音乐样式 */
-.loading-music {
+/* 相似音乐显示样式 */
+.similar-music-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-family: "KaiTi", "楷体", serif;
+}
+
+.similar-music-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 5px;
+}
+
+.similar-music-item {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.similar-music-item:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.music-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.music-yin {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.yin-description {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+.similarity-score {
+    font-size: 12px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 3px 8px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.similar-music-item audio {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 20px;
+    outline: none;
+}
+
+.similar-music-item audio::-webkit-media-controls-panel {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.similar-music-item audio::-webkit-media-controls-play-button {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+}
+
+/* 相似音乐容器 */
+#related-music-container {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 五行颜色值显示 */
+.color-values-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    flex-wrap: wrap;
+}
+
+.color-value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+}
+
+.color-indicator {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
-    margin: 20px 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: white;
+    position: relative;
 }
 
+.indicator-qing {
+    background-color: var(--qing-color);
+}
+
+.indicator-chi {
+    background-color: var(--chi-color);
+}
+
+.indicator-huang {
+    background-color: var(--huang-color);
+}
+
+.indicator-bai {
+    background-color: var(--bai-color);
+}
+
+.indicator-hei {
+    background-color: var(--hei-color);
+}
+
+.wuxing-value {
+    font-size: 14px;
+    color: white;
+}
+
+/* 五行标签样式 */
+.wuxing-label {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: 10px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: white;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+    font-weight: bold;
+    font-family: "KaiTi", "楷体", serif;
+}
+
+.wuxing-label-木 {
+    background-color: var(--qing-color);
+    color: white;
+}
+
+.wuxing-label-火 {
+    background-color: var(--chi-color);
+    color: white;
+}
+
+.wuxing-label-土 {
+    background-color: var(--huang-color);
+    color: white;
+}
+
+.wuxing-label-金 {
+    background-color: var(--bai-color);
+    color: #333;
+}
+
+.wuxing-label-水 {
+    background-color: var(--hei-color);
+    color: white;
+}
 
 /* 添加选中颜色名称样式 */
 .selected-color-container {
@@ -1352,28 +1515,6 @@ footer {
     border-radius: 50%;
 }
 
-/* 生成音乐中的加载效果 */
-.generating-music {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    animation: pulse 1.5s infinite;
-}
-
-.music-loading {
-    font-size: 16px;
-    color: white;
-    text-align: center;
-    font-family: "KaiTi", "楷体", serif;
-}
-
-@keyframes pulse {
-    0% { opacity: 0.6; }
-    50% { opacity: 1; }
-    100% { opacity: 0.6; }
-}
-
 /* 相似音乐容器 */
 #related-music-container {
     padding: 15px;
@@ -1484,3 +1625,4 @@ footer {
     background-color: var(--hei-color);
     color: white;
 }
+

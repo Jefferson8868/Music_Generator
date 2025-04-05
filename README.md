@@ -1,81 +1,96 @@
-# 基于ChatMusician的音乐生成器
+# 中国传统色彩音乐生成器 (Chinese Colors Music Generator)
 
 ## 项目概述
 
-这个项目基于ChatMusician大模型进行微调，目标是输入**乐器、音调、歌词**等条件，生成对应的音乐曲谱或符号化音乐表示。
+这是一个基于中国传统色彩理论与五行学说的创新音乐生成项目。通过将中国传统色彩与五行属性相结合，为用户提供一个独特的视听体验平台。
 
-## 技术选型
+## 核心功能
 
-- **核心模型**: [ChatMusician](https://huggingface.co/m-a-p/ChatMusician)（基于LLaMA的符号音乐生成模型，支持多模态输入）
-- **框架**: Hugging Face Transformers + PyTorch
-- **数据集要求**: 结构化数据（包含`乐器`、`音调`、`歌词`、`曲谱`的配对数据）
-- **训练工具**: Hugging Face Trainer, LoRA/P-Tuning微调
-- **音频生成**: Music21, MIDIUtil
+### 1. 色彩选择与展示
+- 交互式色彩网格，展示多种中国传统色彩
+- 动态色彩选择系统
+- 每个颜色都配有详细的文化背景描述
 
-## 项目目录结构
+### 2. 五行属性分析
+- 基于选中颜色实时计算五行属性值（青、赤、黄、白、黑）
+- 展示五行相生相克关系
+- 显示相关的五音、五脏、方位、季节等传统文化元素
+
+### 3. AI音乐生成
+- 基于选中颜色的五行属性生成相应的音乐
+- 音乐风格与色彩情感的智能匹配
+- 实时音乐生成与播放功能
+
+### 4. 数据分析与可视化
+- 色彩情感分析
+- 流行文化与传统色彩的关联展示
+- 数据驱动的音乐推荐系统
+
+## 技术实现
+
+### 前端技术
+- HTML5 + CSS3：响应式布局设计
+- 现代化UI设计：
+  - 磨砂玻璃效果（backdrop-filter）
+  - 动态背景层叠（多层overlay）
+  - 中国传统设计元素（水墨、云纹、印章等）
+- JavaScript：
+  - 动态颜色网格生成
+  - 实时五行属性计算
+  - 音乐生成与播放控制
+
+### 视觉设计特点
+1. 传统元素融合：
+   - 水墨画效果背景
+   - 云纹图案装饰
+   - 中国传统印章设计
+2. 现代UI组件：
+   - 磨砂玻璃效果侧边栏
+   - 动态色彩展示
+   - 响应式布局适配
+
+### 交互设计
+- 颜色选择即时反馈
+- 五行属性实时更新
+- 音乐生成进度展示
+- 相似音乐推荐系统
+
+## 项目结构
 
 ```
-music-generator/
-├── data/
-│   ├── midi/                  # MIDI格式的音乐数据
-│   ├── processed/            # 预处理后的文本训练数据（JSON/CSV）
-├── models/
-│   ├── checkpoints/         # 训练过程中的检查点
-│   └── final/               # 最终微调后的模型权重
-├── src/
-│   ├── data_preprocess.py    # 数据预处理（结构化→文本）
-│   ├── train.py              # 模型微调脚本
-│   ├── generate.py           # 条件音乐生成
-│   └── utils.py              # 工具函数（MIDI转换等）
-├── output/                   # 生成的曲谱/MIDI文件
-└── requirements.txt          # 项目依赖
+project/
+├── index.html          # 主页面结构
+├── style.css           # 样式定义
+├── scripts/
+│   ├── wuxing_music.js    # 五行音乐生成逻辑
+│   ├── music_api.js       # 音乐API接口
+│   ├── music_matcher.js   # 音乐匹配算法
+│   ├── script.js          # 主要业务逻辑
+│   └── grid_layout.js     # 颜色网格布局
+└── images/             # 视觉资源文件
 ```
 
-## 数据集准备
+## 创新特点
 
-### 数据集示例（CSV/JSON）
+1. **文化传承**：将中国传统色彩理论与现代技术相结合
+2. **跨学科融合**：整合色彩学、音乐理论和数据科学
+3. **智能交互**：基于AI的实时音乐生成系统
+4. **数据驱动**：使用数据分析提供个性化音乐推荐
 
-```json
-{
-  "instruments": "钢琴, 小提琴",
-  "key": "C大调",
-  "lyrics": "夏天的风，轻轻吹过",
-  "score": "C4 E4 G4 | C5 B4 G4 | ..."
-}
-```
+## 团队信息
 
-### 推荐开源数据集
+- 项目开发：DataHack @ UC San Diego
+- 联系方式：jeco68@ucsd.edu
+- 项目源码：[GitHub Repository](https://github.com/Jefferson8868/Music_Generator)
 
-1. [POP909](https://github.com/music-x-lab/POP909-Dataset)（包含钢琴曲谱和和弦）
-2. [LMD-Aligned Lyrics](https://colinraffel.com/projects/lmd/)（歌词与MIDI对齐数据）
-3. 自定义数据集：需将音乐信息按上述格式整理。
+## 未来展望
 
-## 环境配置
+1. 扩展色彩库和音乐生成算法
+2. 增加用户自定义音乐风格选项
+3. 引入机器学习优化音乐生成质量
+4. 开发移动端适配版本
+5. 加入社区分享功能
 
-```bash
-pip install -r requirements.txt
-```
+## 许可证
 
-## 使用流程
-
-1. **准备数据集**
-   - 将原始数据（CSV/JSON）放入 `data/raw/`
-   - 运行预处理脚本：
-     ```bash
-     python src/data_preprocess.py
-     ```
-
-2. **微调模型**
-   ```bash
-   python src/train.py
-   ```
-
-3. **生成音乐**
-   ```bash
-   python src/generate.py --prompt "乐器：吉他, 音调：G大调, 歌词：远方的你" --output output/demo.mid
-   ```
-
-## 注意事项
-
-1. **数据对齐**: 确保歌词与曲谱在时间轴上的对齐（可通过正则匹配或手动标注）。
-2. **模型限制**: ChatMusician主要生成符号音乐（如ABC Notation），若需生成音频需额外转换。
+本项目采用 MIT 许可证
