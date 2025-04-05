@@ -1,143 +1,133 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-cn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI音乐生成器 - 五色五音</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中国传统色彩音乐生成器</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>五色五音 AI音乐生成器</h1>
-            <p>选择一个颜色，让AI为你生成符合五行特性的音乐</p>
-        </header>
+  <!-- 背景覆盖层 -->
+  <div class="pattern-overlay"></div>
+  <div class="chinese-pattern-overlay"></div>
+  <div class="cloud-overlay"></div>
+  <div class="ink-wash-overlay"></div>
+
+  <div class="container">
+    <header class="app-header">
+      <div class="title-container">
+        <div class="app-title">中国传统色彩音乐生成器</div>
+        <div class="app-subtitle">CHINESE COLORS MUSIC GENERATOR</div>
+      </div>
+      <div class="header-decoration">
+        <div class="ink-brush-stroke"></div>
+      </div>
+    </header>
+    
+    <div class="main-content">
+      <!-- 中央：颜色网格容器 -->
+      <div class="color-grid" id="color-grid">
+        <!-- JavaScript 动态生成颜色选项 -->
+      </div>
+      
+      <!-- 侧边栏：AI音乐生成区域 -->
+      <div class="sidebar">
+        <!-- AI音乐标志 -->
+        <div class="logo-container">
+          <div class="logo">AI</div>
+          <div class="chinese-characters">音乐</div>
+          <div class="chinese-seal">
+            <img src="images/chinese_seal.svg" alt="中国传统印章" class="seal-image" />
+          </div>
+        </div>
         
-        <div class="grid-layout">
-            <div class="sidebar">
-                <div class="color-selector-container">
-                    <h2>选择颜色</h2>
-                    <div class="colors-container">
-                        <!-- 青色系（木） -->
-                        <div class="wuxing-header">青色系（木）</div>
-                        <div class="wuxing-group">
-                            <div class="color-circle" style="background-color: #00a896;" data-color="#00a896" data-name="青色"></div>
-                        </div>
-                        
-                        <!-- 赤色系（火） -->
-                        <div class="wuxing-header">赤色系（火）</div>
-                        <div class="wuxing-group">
-                            <div class="color-circle" style="background-color: #e63946;" data-color="#e63946" data-name="赤色"></div>
-                        </div>
-                        
-                        <!-- 黄色系（土） -->
-                        <div class="wuxing-header">黄色系（土）</div>
-                        <div class="wuxing-group">
-                            <div class="color-circle" style="background-color: #ffbe0b;" data-color="#ffbe0b" data-name="黄色"></div>
-                        </div>
-                        
-                        <!-- 白色系（金） -->
-                        <div class="wuxing-header">白色系（金）</div>
-                        <div class="wuxing-group">
-                            <div class="color-circle" style="background-color: #f8f9fa; border: 1px solid #ddd;" data-color="#f8f9fa" data-name="白色"></div>
-                        </div>
-                        
-                        <!-- 黑色系（水） -->
-                        <div class="wuxing-header">黑色系（水）</div>
-                        <div class="wuxing-group">
-                            <div class="color-circle" style="background-color: #272727;" data-color="#272727" data-name="黑色"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="color-description" id="colorDescription">
-                    <h3>颜色属性</h3>
-                    <p id="colorName">请选择一个颜色</p>
-                    <div id="colorAttributes">
-                        选择一个颜色来查看其五行属性
-                    </div>
-                </div>
+        <!-- 显示当前选中色彩 -->
+        <div class="selected-color-container">
+          <div class="selected-color-label">当前选中色彩</div>
+          <div id="selected-color-name" class="selected-color-name">中国红</div>
+        </div>
+        
+        <!-- 显示颜色描述 -->
+        <div class="color-description-container">
+          <div class="color-description-label">色彩描述</div>
+          <div id="color-description" class="color-description">
+            大红：正红色，三原色中的红，传统的中国红，又称绛色。
+          </div>
+        </div>
+        
+        <!-- 五行颜色值部分 -->
+        <div class="color-values-container">
+            <div class="color-value">
+                <div class="color-indicator indicator-qing">青</div>
+                <div class="wuxing-value" id="qing-value">0</div>
             </div>
-            
-            <div class="main-content">
-                <div class="ai-music-container">
-                    <h2>AI生成音乐</h2>
-                    <div class="selected-color-panel">
-                        <div class="selected-color-display" id="selectedColorDisplay"></div>
-                        <div class="selected-color-info">
-                            <h3 id="selectedColorName">尚未选择颜色</h3>
-                            
-                            <!-- 五行颜色值显示区域 -->
-                            <div class="wuxing-area">
-                                <div class="wuxing-title">五行颜色值</div>
-                                <div class="wuxing-text-container">
-                                    <div class="wuxing-attribute">
-                                        <div class="color-indicator qing-color"></div>
-                                        <span id="qingValue">0</span>%
-                                    </div>
-                                    <div class="wuxing-attribute">
-                                        <div class="color-indicator chi-color"></div>
-                                        <span id="chiValue">0</span>%
-                                    </div>
-                                    <div class="wuxing-attribute">
-                                        <div class="color-indicator huang-color"></div>
-                                        <span id="huangValue">0</span>%
-                                    </div>
-                                    <div class="wuxing-attribute">
-                                        <div class="color-indicator bai-color"></div>
-                                        <span id="baiValue">0</span>%
-                                    </div>
-                                    <div class="wuxing-attribute">
-                                        <div class="color-indicator hei-color"></div>
-                                        <span id="heiValue">0</span>%
-                                    </div>
-                                </div>
-                                <div class="wuxing-details">
-                                    基于RGB值提取的五行颜色占比
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="music-generation">
-                        <button id="generateMusicBtn" disabled>生成音乐</button>
-                        <div class="music-player" id="musicPlayer" style="display: none;">
-                            <div class="music-info">
-                                <h3 id="musicTitle">音乐标题</h3>
-                                <p id="musicDescription">音乐描述</p>
-                            </div>
-                            <audio id="audioPlayer" controls></audio>
-                            <div class="music-controls">
-                                <button id="downloadMusicBtn">下载音乐</button>
-                                <button id="regenerateMusicBtn">重新生成</button>
-                            </div>
-                        </div>
-                        <div id="generatingStatus" class="generating-status" style="display: none;">
-                            <div class="generating-music">
-                                <div class="generating-text">正在生成音乐...</div>
-                                <div class="generating-dots">
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                    <span class="dot"></span>
-                                </div>
-                            </div>
-                            <p>这可能需要几秒钟时间</p>
-                        </div>
-                    </div>
-                    
-                    <div class="related-music-container" id="relatedMusicContainer">
-                        <h3 class="similar-music-title">五音相似音乐</h3>
-                        <div class="similar-music-list" id="similarMusicList">
-                            <!-- 相似音乐项将在这里动态生成 -->
-                        </div>
-                    </div>
-                </div>
+            <div class="color-value">
+                <div class="color-indicator indicator-chi">赤</div>
+                <div class="wuxing-value" id="chi-value">0</div>
+            </div>
+            <div class="color-value">
+                <div class="color-indicator indicator-huang">黄</div>
+                <div class="wuxing-value" id="huang-value">0</div>
+            </div>
+            <div class="color-value">
+                <div class="color-indicator indicator-bai">白</div>
+                <div class="wuxing-value" id="bai-value">0</div>
+            </div>
+            <div class="color-value">
+                <div class="color-indicator indicator-hei">黑</div>
+                <div class="wuxing-value" id="hei-value">0</div>
             </div>
         </div>
+        
+        <!-- 按钮：生成音乐并搜索相关歌曲 -->
+        <button id="generate-btn">生成音乐与搜索歌曲</button>
+        <div id="music-output"></div>
+        
+        <!-- 相似音乐列表容器 -->
+        <div id="related-music-container"></div>
+      </div>
+      
+      <!-- 五行属性显示区域 -->
+      <div id="wuxing-container" class="wuxing-area">
+        <div class="wuxing-title">五行相生</div>
+        <div class="wuxing-text-container">
+          <div id="wuxing-attribute" class="wuxing-attribute">此颜色的五行属性将显示在这里</div>
+          <div id="wuxing-details" class="wuxing-details">
+            五音：角 | 五脏：肝 | 方位：东 | 季节：春
+          </div>
+        </div>
+      </div>
     </div>
-    
-    <script src="grid_layout.js"></script>
-    <script src="music_matcher.js"></script>
-    <script src="script.js"></script>
+
+    <!-- 流行文化与数据科学数据可视化部分 -->
+    <section id="pop-culture-section" class="pop-culture-section">
+      <div class="section-header">
+        <h2>流行文化与数据科学洞察</h2>
+        <div class="ink-decoration"></div>
+      </div>
+      <p>探索传统色彩与现代流行文化之间的联系，利用数据科学解读色彩背后的情感与趋势。通过分析色彩情绪，推荐与当前色彩氛围相匹配的流行音乐。</p>
+      <div class="visualization-container">
+        <!-- 数据可视化和相关歌曲由JavaScript动态生成 -->
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-decoration"></div>
+    <div class="footer-content">
+      <p>© 2025 中国传统色彩音乐生成器 | DataHack @ UC San Diego</p>
+      <div class="footer-links">
+        <a href="#">关于项目</a>
+        <a href="#">数据来源</a>
+        <a href="#">联系我们</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="wuxing_music.js"></script>
+  <script src="music_api.js"></script>
+  <script src="music_matcher.js"></script>
+  <script src="script.js"></script>
+  <script src="grid_layout.js"></script>
 </body>
 </html>

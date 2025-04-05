@@ -397,6 +397,7 @@ function reorganizeColorsIntoGrid() {
         colorsGrid.style.gridTemplateColumns = 'repeat(5, 1fr)'; // 固定每行5个颜色
         colorsGrid.style.gap = '15px';
         colorsGrid.style.justifyItems = 'center'; // 水平居中
+        colorsGrid.style.width = '100%'; // 确保网格占满容器宽度
         
         // 获取颜色选项
         const colorOptions = container.querySelectorAll('.color-option');
@@ -666,4 +667,4 @@ function addCustomStyles() {
 // 页面加载完成后初始化自定义样式
 document.addEventListener('DOMContentLoaded', function() {
     addCustomStyles();
-}); 
+});

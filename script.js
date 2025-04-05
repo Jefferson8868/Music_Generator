@@ -14,22 +14,45 @@ fetch('data/WuxingColorData.json')
         
         // 为每个五行元素创建一个分组
         data.forEach(wuxingGroup => {
+            // 创建五行分组容器
+            const wuxingContainer = document.createElement('div');
+            wuxingContainer.className = 'wuxing-container';
+            wuxingContainer.dataset.wuxing = wuxingGroup.wuxing;
+            
             // 创建五行分组标题
             const wuxingHeader = document.createElement('div');
-            wuxingHeader.className = 'wuxing-group-header';
+            wuxingHeader.className = 'wuxing-header';
             wuxingHeader.innerHTML = `
-                <div class="wuxing-group-title">${wuxingGroup.color}色 - ${wuxingGroup.wuxing}</div>
-                <div class="wuxing-group-subtitle">共${wuxingGroup.colors.length}种颜色</div>
+                <div class="wuxing-title">${wuxingGroup.color}色 (${wuxingGroup.wuxing})</div>
             `;
-            colorGrid.appendChild(wuxingHeader);
+            wuxingContainer.appendChild(wuxingHeader);
             
-            // 创建颜色容器
-            const colorsContainer = document.createElement('div');
-            colorsContainer.className = 'colors-container';
-            colorGrid.appendChild(colorsContainer);
+            // 创建颜色列表容器 - 竖向滚动
+            const colorsList = document.createElement('div');
+            colorsList.className = 'colors-list';
+            wuxingContainer.appendChild(colorsList);
+            
+            // 对颜色按亮度排序（从浅到深）
+            const sortedColors = [...wuxingGroup.colors].sort((a, b) => {
+                // 提取RGB值
+                const getColorBrightness = (colorHex) => {
+                    const colorValue = colorHex.startsWith('#') ? colorHex : '#' + colorHex.substring(2);
+                    const r = parseInt(colorValue.substring(1, 3), 16);
+                    const g = parseInt(colorValue.substring(3, 5), 16);
+                    const b = parseInt(colorValue.substring(5, 7), 16);
+                    // 计算亮度 (感知亮度公式: 0.299*R + 0.587*G + 0.114*B)
+                    return 0.299 * r + 0.587 * g + 0.114 * b;
+                };
+                
+                const aBrightness = getColorBrightness(a.Color);
+                const bBrightness = getColorBrightness(b.Color);
+                
+                // 降序排列（从浅到深）
+                return bBrightness - aBrightness;
+            });
             
             // 添加颜色选项
-            wuxingGroup.colors.forEach(color => {
+            sortedColors.forEach(color => {
                 // 创建颜色选项元素
                 const colorOption = document.createElement('div');
                 colorOption.className = 'color-option';
@@ -38,16 +61,16 @@ fetch('data/WuxingColorData.json')
                 const colorValue = color.Color.startsWith('#') ? color.Color : '#' + color.Color.substring(2);
                 colorOption.style.backgroundColor = colorValue;
                 
-                // 添加五行标签
-                const wuxingLabel = document.createElement('span');
-                wuxingLabel.className = `wuxing-label wuxing-label-${wuxingGroup.wuxing.toLowerCase()}`;
-                wuxingLabel.textContent = wuxingGroup.wuxing;
-                colorOption.appendChild(wuxingLabel);
-                
                 // 创建颜色名称元素
                 const colorName = document.createElement('div');
                 colorName.className = 'color-name';
                 colorName.textContent = color.Title;
+                
+                // 创建颜色项容器
+                const colorItem = document.createElement('div');
+                colorItem.className = 'color-item';
+                colorItem.appendChild(colorOption);
+                colorItem.appendChild(colorName);
                 
                 // 设置点击事件
                 colorOption.addEventListener('click', function() {
@@ -65,8 +88,8 @@ fetch('data/WuxingColorData.json')
                     // 更新色彩描述
                     document.getElementById('color-description').textContent = color.Description || "无描述";
                     
-                    // 更新页面背景颜色 - 添加这一行来改变背景
-                    document.body.style.backgroundColor = `rgba(${getRGBString(colorValue)}, 0.1)`;
+                    // 更新页面背景颜色 - 增加透明度使颜色更明显
+                    document.body.style.backgroundColor = `rgba(${getRGBString(colorValue)}, 0.3)`;
                     
                     // 计算并更新五行占比
                     const rgb = getRGBFromColorOption(this);
@@ -81,9 +104,11 @@ fetch('data/WuxingColorData.json')
                 });
                 
                 // 添加到容器
-                colorsContainer.appendChild(colorOption);
-                colorsContainer.appendChild(colorName);
+                colorsList.appendChild(colorItem);
             });
+            
+            // 添加五行容器到网格
+            colorGrid.appendChild(wuxingContainer);
         });
     })
     .catch(error => console.error('加载五行数据时出错:', error));
@@ -346,12 +371,18 @@ function updateWuxingColorValues(percentages) {
     document.getElementById('bai-value').textContent = percentages.bai;
     document.getElementById('hei-value').textContent = percentages.hei;
     
-    // 更新环形进度条
-    updateCircleProgress('qing-circle', percentages.qing, getComputedStyle(document.documentElement).getPropertyValue('--qing-color'));
-    updateCircleProgress('chi-circle', percentages.chi, getComputedStyle(document.documentElement).getPropertyValue('--chi-color'));
-    updateCircleProgress('huang-circle', percentages.huang, getComputedStyle(document.documentElement).getPropertyValue('--huang-color'));
-    updateCircleProgress('bai-circle', percentages.bai, getComputedStyle(document.documentElement).getPropertyValue('--bai-color'));
-    updateCircleProgress('hei-circle', percentages.hei, getComputedStyle(document.documentElement).getPropertyValue('--hei-color'));
+    // 更新颜色指示器的背景色透明度，使其反映百分比
+    const qingIndicator = document.querySelector('.indicator-qing');
+    const chiIndicator = document.querySelector('.indicator-chi');
+    const huangIndicator = document.querySelector('.indicator-huang');
+    const baiIndicator = document.querySelector('.indicator-bai');
+    const heiIndicator = document.querySelector('.indicator-hei');
+    
+    if (qingIndicator) qingIndicator.style.opacity = 0.3 + (percentages.qing / 100) * 0.7;
+    if (chiIndicator) chiIndicator.style.opacity = 0.3 + (percentages.chi / 100) * 0.7;
+    if (huangIndicator) huangIndicator.style.opacity = 0.3 + (percentages.huang / 100) * 0.7;
+    if (baiIndicator) baiIndicator.style.opacity = 0.3 + (percentages.bai / 100) * 0.7;
+    if (heiIndicator) heiIndicator.style.opacity = 0.3 + (percentages.hei / 100) * 0.7;
 }
 
 // RGB转HSV
