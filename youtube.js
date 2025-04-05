@@ -1,4 +1,4 @@
-const YOUTUBE_API_KEY = "YOUR_YOUTUBE_API_KEY";  // <-- 请替换成你自己的
+const YOUTUBE_API_KEY = "601a768df8770b9c3523b8c7630db20817abf6a6ff2b0b82a7a0201e5dabce15";  // <-- 请替换成你自己的
 
 /**
  * 根据选定的颜色，从colorData里获取关键词列表，然后随机选择一个关键词去搜索YouTube。
@@ -15,7 +15,7 @@ function searchAndEmbedYouTubeMusic(selectedColor) {
 
   // 2. 随机选一个关键词，并加上“音乐”
   const randomIndex = Math.floor(Math.random() * Keywords.length);
-  const chosenKeyword = Keywords[randomIndex] + " 音乐";
+  const chosenKeyword = " 古风 " + Keywords[randomIndex];
 
   // 3. 使用 fetch 调用 YouTube Data API v3
   //    这里用 Search endpoint: 
