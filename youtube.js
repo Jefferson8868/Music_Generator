@@ -1,4 +1,4 @@
-const YOUTUBE_API_KEY = "";  
+const YOUTUBE_API_KEY = "AIzaSyD_wzomckbm9ZHFGBVnvfa_R-32sF2skyM";  
 
 /**
  * 中国传统色彩音乐生成器 - YouTube API 集成

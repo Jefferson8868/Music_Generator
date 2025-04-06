@@ -220,27 +220,52 @@ function updateWuxingRadarChart() {
             }]
         },
         options: {
-            scale: {
-                ticks: {
-                    beginAtZero: true,
-                    max: Math.ceil(maxValue * 1.2),
-                    stepSize: Math.ceil(maxValue / 5)
-                }
-            },
-            elements: {
-                line: {
-                    tension: 0.1
-                }
-            },
+            responsive: true,
+            maintainAspectRatio: true,
             plugins: {
                 legend: {
                     display: false
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                    titleColor: '#633d2e',
+                    bodyColor: '#633d2e',
+                    borderColor: 'rgba(181, 111, 74, 0.7)',
+                    borderWidth: 1
                 }
             },
-            responsive: true,
-            maintainAspectRatio: true
+            scales: {
+                r: {
+                    angleLines: {
+                        display: true,
+                        color: 'rgba(181, 111, 74, 0.2)'
+                    },
+                    ticks: {
+                        beginAtZero: true,
+                        max: Math.ceil(maxValue * 1.2),
+                        stepSize: Math.ceil(maxValue / 5),
+                        backdropColor: 'transparent',
+                        color: '#633d2e'
+                    },
+                    pointLabels: {
+                        color: '#633d2e',
+                        font: {
+                            family: '"KaiTi", "楷体", serif',
+                            size: 14
+                        }
+                    },
+                    grid: {
+                        color: 'rgba(181, 111, 74, 0.1)'
+                    }
+                }
+            }
         }
     });
+    
+    // Force a resize event to ensure the chart renders properly
+    setTimeout(() => {
+        window.dispatchEvent(new Event('resize'));
+    }, 100);
 }
 
 // Update the style insight display based on user data
@@ -609,6 +634,46 @@ function getSimulatedResponse(dominantWuxing, sortedStyles) {
 document.addEventListener('DOMContentLoaded', function() {
     console.log('History Page initializing...');
     
+    // Add CSS styles to ensure all content is visible
+    const styleEl = document.createElement('style');
+    styleEl.textContent = `
+        .history-page-content {
+            max-height: none !important;
+            overflow: visible !important;
+        }
+        .user-archive {
+            overflow: visible !important;
+            height: auto !important;
+            min-height: 650px;
+        }
+        #wuXingRadarChart {
+            display: block !important;
+        }
+        body {
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        .youtube-container, .youtube-section, .related-music-container, #related-music-container {
+            max-width: 100% !important;
+            overflow: hidden !important;
+            box-sizing: border-box !important;
+        }
+        iframe, video, embed, object {
+            max-width: 100% !important;
+            height: auto !important;
+        }
+        .insight-card {
+            overflow: hidden !important;
+            max-width: 100% !important;
+        }
+        .archive-section {
+            overflow: hidden !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+    `;
+    document.head.appendChild(styleEl);
+    
     // Initialize history display
     updateColorHistoryDisplay();
     initCharts();
@@ -660,6 +725,12 @@ document.addEventListener('DOMContentLoaded', function() {
             apiConfigModal.classList.remove('show');
         }
     });
+    
+    // Force a resize event after a delay to ensure charts render properly
+    setTimeout(() => {
+        window.dispatchEvent(new Event('resize'));
+        console.log('History Page fully initialized');
+    }, 500);
     
     console.log('History Page initialization complete.');
 }); 

@@ -48,14 +48,14 @@ body {
     transition: background-color 0.8s ease, background-blend-mode 0.8s ease;
     background-blend-mode: soft-light;
     background-color: #f9f5f1;
+    height: auto;
+    min-height: 100vh;
 }
 
 .pattern-overlay, .chinese-pattern-overlay, .cloud-overlay, .ink-wash-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
+    min-height: 100vh;
     width: 100%;
-    height: 100%;
     z-index: -1;
     pointer-events: none;
     transition: opacity 0.8s ease;
@@ -87,11 +87,15 @@ body {
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    width: 100%;
     max-width: 1400px;
     margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0 15px 40px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
 }
 
 .app-header {
@@ -160,11 +164,12 @@ body {
 }
 
 .main-content {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    box-sizing: border-box;
+    flex: 1;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: calc(100vh - 150px); /* Adjust based on your header/footer height */
 }
 
 .color-grid-container {
@@ -521,9 +526,10 @@ body {
 }
 
 #music-output {
-    margin-top: 15px;
-    font-size: 16px;
-    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
 .generating-music {
@@ -671,6 +677,20 @@ footer {
     .sidebar { width: 100%; padding-right: 0; margin-top: 30px; }
     .colors-container { height: 250px; }
     .music-center { width: 150px; height: 150px; }
+    .main-content {
+        max-height: none;
+        overflow-y: visible;
+    }
+    
+    .similar-music-list {
+        max-height: none;
+    }
+    
+    .data-visualization, 
+    .related-music-container, 
+    #related-music-container {
+        max-height: none;
+    }
 }
 
 .color-option:before, .color-option:after {
@@ -842,6 +862,11 @@ footer {
     background: rgba(255, 255, 255, 0.1);
     border-radius: var(--border-radius);
     border-left: 4px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    overflow-y: auto;
+    max-height: 500px; /* Adjust this value as needed */
+    box-sizing: border-box;
+    max-width: 100%; /* Ensure container doesn't exceed parent width */
 }
 
 .related-music-title {
@@ -939,26 +964,33 @@ footer {
 }
 
 .similar-music-title {
-    font: bold 18px var(--font-chinese);
-    color: white;
     margin-bottom: 15px;
     padding-bottom: 8px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-weight: normal;
+    color: #633d2e;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .similar-music-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 5px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
 }
 
 .similar-music-item {
+    display: flex;
+    flex-direction: column;
     padding: 15px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
     transition: var(--transition-default);
     border-left: 4px solid transparent;
+    max-width: 100%;
+    margin-bottom: 15px;
+    box-sizing: border-box;
 }
 
 .similar-music-item:hover {
@@ -988,13 +1020,14 @@ footer {
 }
 
 .similarity-score {
-    font-size: 14px;
-    font-weight: bold;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.3);
-    padding: 5px 10px;
-    border-radius: 12px;
     display: inline-block;
+    padding: 3px 8px;
+    background: rgba(181, 111, 74, 0.2);
+    border-radius: 12px;
+    font-size: 13px;
+    color: #633d2e;
+    margin-left: 10px;
+    white-space: nowrap;
 }
 
 .similarity-details {
@@ -1023,6 +1056,7 @@ footer {
     margin-top: 10px;
     border-radius: 20px;
     outline: none;
+    max-width: 100%;
 }
 
 .similar-music-item audio::-webkit-media-controls-panel {
@@ -1105,6 +1139,10 @@ footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     transition: all 0.3s ease;
+    width: 100%;
+    overflow-x: hidden;
+    margin-bottom: 25px;
+    overflow: hidden; /* Prevent content from spilling out */
 }
 
 .youtube-section:hover {
@@ -1140,6 +1178,8 @@ footer {
     border-radius: 8px;
     background-color: rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent content from spilling out */
 }
 
 .youtube-container iframe {
@@ -1212,6 +1252,8 @@ footer {
 .history-page-content {
     background: transparent;
     padding: 20px 0;
+    max-height: none;
+    overflow-y: visible;
 }
 
 .user-archive {
@@ -1220,10 +1262,11 @@ footer {
     background: rgba(255, 255, 255, 0.85);
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    padding: 0;
+    overflow: visible;
+    padding: 0 0 30px 0;
     backdrop-filter: blur(5px);
     border: 1px solid rgba(216, 191, 170, 0.5);
+    margin-bottom: 40px;
 }
 
 .archive-title {
@@ -1239,15 +1282,26 @@ footer {
 .archive-section {
     padding: 0;
     border-bottom: 1px solid rgba(216, 191, 170, 0.3);
+    overflow: visible;
+    margin-bottom: 25px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent content from spilling out */
 }
 
 .archive-section:last-child {
     border-bottom: none;
+    margin-bottom: 30px;
 }
 
 .insight-card {
     padding: 25px 20px;
     position: relative;
+    overflow: visible;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent content from spilling out */
 }
 
 .insight-card h4 {
@@ -1328,9 +1382,11 @@ footer {
 
 .wuxing-chart-wrapper {
     height: 300px;
+    min-height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .empty {
@@ -1385,11 +1441,16 @@ footer {
 
 /* Specialized style for AI recommendation */
 .ai-recommendation {
-    padding: 10px 0;
+    margin: 15px 0 30px 0;
+    min-height: 100px;
 }
 
 .ai-recommendation-content {
     margin-top: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: break-word; /* Allow long text to wrap */
+    overflow: hidden; /* Prevent content from spilling out */
 }
 
 .ai-analysis, .ai-suggestion, .ai-preference, .ai-explanation {
@@ -1462,6 +1523,7 @@ footer {
     max-width: 280px;
     max-height: 280px;
     margin: 0 auto;
+    display: block !important;
 }
 
 /* Style for the style bars */
@@ -1680,7 +1742,7 @@ footer {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 15px;
+    margin: 15px 0 25px 0;
     justify-content: center;
 }
 
@@ -1714,10 +1776,6 @@ footer {
 }
 
 /* AI Recommendation Styles */
-.ai-recommendation {
-    margin: 15px 0;
-}
-
 .ai-recommendation-content {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 8px;
@@ -1794,4 +1852,109 @@ footer {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Ensure proper flex behavior */
+.similar-music-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Ensure the music details don't overflow */
+.music-name, .music-yin, .yin-description {
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Add scrollbar styling for better UX */
+.similar-music-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.similar-music-list::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+}
+
+.similar-music-list::-webkit-scrollbar-thumb {
+    background-color: rgba(181, 111, 74, 0.3);
+    border-radius: 3px;
+}
+
+.similar-music-list::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(181, 111, 74, 0.5);
+}
+
+/* Fix container height for history page */
+.container .main-content {
+    max-height: none;
+    overflow-y: visible;
+}
+
+/* Ensure the style section displays properly */
+#emotion-insight-container {
+    min-height: 100px;
+    margin-bottom: 20px;
+}
+
+/* Fix main content for history page */
+body.history-page .main-content,
+.history-page-content {
+    max-height: none !important;
+    overflow-y: visible !important;
+    height: auto !important;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent content from spilling out */
+}
+
+/* Ensure container expands to fit content */
+body.history-page .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent content from spilling out */
+}
+
+/* Enhanced responsive video styles */
+.youtube-container iframe, .related-music-container iframe, 
+.youtube-section iframe, .insight-card iframe,
+.archive-section iframe, .user-archive iframe {
+    max-width: 100% !important;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    box-sizing: border-box;
+}
+
+/* Ensure proper containment on related section */
+.related-music-container, 
+#related-music-container, 
+.youtube-container, 
+.youtube-section,
+.insight-card,
+.archive-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    word-wrap: break-word;
+}
+
+/* Extra responsive styles for history page */
+@media (max-width: 768px) {
+    .history-page-content,
+    .user-archive,
+    .archive-section,
+    .insight-card {
+        width: 100% !important;
+        padding: 10px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+    }
 }
