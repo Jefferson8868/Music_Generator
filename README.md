@@ -1,22 +1,22 @@
 风水是什么？
-风水是源自中国的一种古老哲学与实践体系，主要关注人与自然环境之间的和谐关系。它通过观察、分析和调节住宅、建筑、墓地等环境的布局、朝向、地理形势（例如山、水、地势），来影响人们的运势、健康、家庭和事业等方面。风水强调“天人合一”，认为自然环境中的气场、能量流动会对人的生活有重要影响。通过合适的布局与设计，风水旨在使人们能够与大自然的能量相协调，从而得到更好的运势与福祉。
+风水是源自中国的一种古老哲学与实践体系，主要关注人与自然环境之间的和谐关系。它通过观察、分析和调节住宅、建筑、墓地等环境的布局、朝向、地理形势（例如山、水、地势），来影响人们的运势、健康、家庭和事业等方面。风水强调"天人合一"，认为自然环境中的气场、能量流动会对人的生活有重要影响。通过合适的布局与设计，风水旨在使人们能够与大自然的能量相协调，从而得到更好的运势与福祉。
 
 五行是什么？
-五行是中国传统哲学中的一个重要概念，指金、木、水、火、土五种基本要素。古人认为，宇宙中的万事万物都由这五种要素以及它们之间的相互作用所构成。五行之间存在“生克”关系：
+五行是中国传统哲学中的一个重要概念，指金、木、水、火、土五种基本要素。古人认为，宇宙中的万事万物都由这五种要素以及它们之间的相互作用所构成。五行之间存在"生克"关系：
 
-“相生”：木生火、火生土、土生金、金生水、水生木
+"相生"：木生火、火生土、土生金、金生水、水生木
 
-“相克”：木克土、土克水、水克火、火克金、金克木
+"相克"：木克土、土克水、水克火、火克金、金克木
 
 通过对五行相生相克规律的理解，可以解释自然现象及人际关系中许多变化和发展过程。在风水、医学、中餐烹饪、周易预测等多领域，五行理论都有重要应用价值。
 
 English Explanation:
 
 What is Feng Shui?
-Feng Shui is an ancient Chinese philosophy and practice that focuses on the harmonious relationship between humans and their natural environment. It involves observing, analyzing, and adjusting the layout and orientation of living spaces, buildings, and burial grounds based on geographical and environmental features (such as mountains, water sources, and terrain). The primary goal is to enhance the flow of energy or “qi” in a way that benefits health, luck, family, and career. Feng Shui emphasizes the unity of humanity and nature, believing that the flow of natural energy can significantly influence people’s lives. By applying proper layout and design principles, Feng Shui aims to harmonize human activities with the energy of the surrounding environment to promote well-being and prosperity.
+Feng Shui is an ancient Chinese philosophy and practice that focuses on the harmonious relationship between humans and their natural environment. It involves observing, analyzing, and adjusting the layout and orientation of living spaces, buildings, and burial grounds based on geographical and environmental features (such as mountains, water sources, and terrain). The primary goal is to enhance the flow of energy or "qi" in a way that benefits health, luck, family, and career. Feng Shui emphasizes the unity of humanity and nature, believing that the flow of natural energy can significantly influence people's lives. By applying proper layout and design principles, Feng Shui aims to harmonize human activities with the energy of the surrounding environment to promote well-being and prosperity.
 
 What are the Five Elements?
-The Five Elements (Wu Xing) are key concepts in traditional Chinese philosophy, referring to Metal, Wood, Water, Fire, and Earth. According to ancient thought, all things in the universe arise from these five elements and the interactions among them. They follow a cyclical process of “creation” (sheng) and “control” (ke):
+The Five Elements (Wu Xing) are key concepts in traditional Chinese philosophy, referring to Metal, Wood, Water, Fire, and Earth. According to ancient thought, all things in the universe arise from these five elements and the interactions among them. They follow a cyclical process of "creation" (sheng) and "control" (ke):
 
 Creation (sheng): Wood creates Fire, Fire creates Earth, Earth creates Metal, Metal creates Water, Water creates Wood
 
@@ -24,99 +24,110 @@ Control (ke): Wood controls Earth, Earth controls Water, Water controls Fire, Fi
 
 By understanding these creative and controlling relationships among the Five Elements, one can explain a wide range of natural and social phenomena. The Five Elements theory is widely applied in many fields, such as Feng Shui, traditional Chinese medicine, culinary practices, and fortune-telling methods like the I Ching (Book of Changes).
 
-# 中国传统色彩音乐生成器 (Chinese Colors Music Generator)
+# 中国传统色彩音乐生成器
 
-## 项目概述
-
-这是一个基于中国传统色彩理论与五行学说的创新音乐生成项目。通过将中国传统色彩与五行属性相结合，为用户提供一个独特的视听体验平台。
-
-## 核心功能
-
-### 1. 色彩选择与展示
-- 交互式色彩网格，展示多种中国传统色彩
-- 动态色彩选择系统
-- 每个颜色都配有详细的文化背景描述
-
-### 2. 五行属性分析
-- 基于选中颜色实时计算五行属性值（青、赤、黄、白、黑）
-- 展示五行相生相克关系
-- 显示相关的五音、五脏、方位、季节等传统文化元素
-
-### 3. AI音乐生成
-- 基于选中颜色的五行属性生成相应的音乐
-- 音乐风格与色彩情感的智能匹配
-- 实时音乐生成与播放功能
-
-### 4. 数据分析与可视化
-- 色彩情感分析
-- 流行文化与传统色彩的关联展示
-- 数据驱动的音乐推荐系统
-
-## 技术实现
-
-### 前端技术
-- HTML5 + CSS3：响应式布局设计
-- 现代化UI设计：
-  - 磨砂玻璃效果（backdrop-filter）
-  - 动态背景层叠（多层overlay）
-  - 中国传统设计元素（水墨、云纹、印章等）
-- JavaScript：
-  - 动态颜色网格生成
-  - 实时五行属性计算
-  - 音乐生成与播放控制
-
-### 视觉设计特点
-1. 传统元素融合：
-   - 水墨画效果背景
-   - 云纹图案装饰
-   - 中国传统印章设计
-2. 现代UI组件：
-   - 磨砂玻璃效果侧边栏
-   - 动态色彩展示
-   - 响应式布局适配
-
-### 交互设计
-- 颜色选择即时反馈
-- 五行属性实时更新
-- 音乐生成进度展示
-- 相似音乐推荐系统
+基于中国传统五行理论的色彩音乐生成和匹配系统。该项目将传统色彩映射到五行（木、火、土、金、水）和五音（角、徵、宫、商、羽），通过分析色彩组合生成音乐并匹配相似歌曲。
 
 ## 项目结构
 
 ```
-project/
-├── index.html          # 主页面结构
-├── style.css           # 样式定义
-├── scripts/
-│   ├── wuxing_music.js    # 五行音乐生成逻辑
-│   ├── music_api.js       # 音乐API接口
-│   ├── music_matcher.js   # 音乐匹配算法
-│   ├── script.js          # 主要业务逻辑
-│   └── grid_layout.js     # 颜色网格布局
-└── images/             # 视觉资源文件
+├── index.html                  # 主页面
+├── style.css                   # 样式表
+├── script.js                   # 主JavaScript逻辑
+├── grid_layout.js              # 色彩网格布局逻辑
+├── start_api_server.py         # API服务器启动脚本
+└── src/                        # 后端代码目录
+    ├── api_server.py           # API服务器
+    ├── wuxing_music_matcher.py # 五行音乐匹配算法
+    ├── music_files/            # 音乐文件目录
+    └── README.md               # 五行音乐匹配算法说明
 ```
 
-## 创新特点
+## 功能特点
 
-1. **文化传承**：将中国传统色彩理论与现代技术相结合
-2. **跨学科融合**：整合色彩学、音乐理论和数据科学
-3. **智能交互**：基于AI的实时音乐生成系统
-4. **数据驱动**：使用数据分析提供个性化音乐推荐
+- 展示中国传统色彩，按五行分类
+- 分析色彩的五行属性和所属音律
+- 实时生成基于五行理论的音乐
+- 基于五行相似度匹配相关音乐
+- 可视化展示五行颜色分布和情绪特征
+- AI风格推荐功能（需要OpenAI API密钥）
 
-## 团队信息
+## 运行步骤
 
-- 项目开发：DataHack @ UC San Diego
-- 联系方式：jeco68@ucsd.edu
-- 项目源码：[GitHub Repository](https://github.com/Jefferson8868/Music_Generator)
+### 1. 配置 OpenAI API（AI风格推荐功能）
 
-## 未来展望
+要使用AI风格推荐功能，需要配置OpenAI API密钥：
 
-1. 扩展色彩库和音乐生成算法
-2. 增加用户自定义音乐风格选项
-3. 引入机器学习优化音乐生成质量
-4. 开发移动端适配版本
-5. 加入社区分享功能
+1. 复制 `config_template.js` 文件并重命名为 `config.js`
+2. 在 [OpenAI平台](https://platform.openai.com/api-keys) 获取您的API密钥
+3. 将API密钥填入 `config.js` 文件中的 `OPENAI_API_KEY` 字段
+
+**重要安全提示：** 
+- 请勿将包含实际API密钥的 `config.js` 文件提交到版本控制系统中
+- 该文件已添加到 `.gitignore` 以防止意外提交
+- 如遇到API请求限制（429错误），系统会自动使用本地推荐功能作为备选
+
+### 2. 启动后端API服务器
+
+首先，需要启动后端API服务器，用于处理音乐匹配请求。你可以使用提供的启动脚本：
+
+```bash
+python start_api_server.py
+```
+
+或直接启动API服务器：
+
+```bash
+python src/api_server.py
+```
+
+服务器将在 http://localhost:5000 运行。
+
+### 3. 启动前端界面
+
+你可以使用任何Web服务器托管前端文件。例如，使用Python的简易HTTP服务器：
+
+```bash
+# Python 3
+python -m http.server
+
+# Python 2
+python -m SimpleHTTPServer
+```
+
+然后在浏览器中访问 http://localhost:8000。
+
+## 使用方法
+
+1. 在颜色网格中选择一个颜色
+2. 系统会显示该颜色的五行属性和相关信息
+3. 点击"生成音乐与搜索歌曲"按钮
+4. 系统将生成基于五行的音乐，并在右侧显示相似度最高的音乐推荐
+
+## 技术栈
+
+- 前端：HTML5, CSS3, JavaScript
+- 后端：Python, Flask
+- 音频分析：librosa, NumPy
+- 机器学习：scikit-learn
+
+## 配置音乐文件
+
+系统需要一些音乐文件来进行匹配。将MP3格式的音乐文件放入 `src/music_files` 目录，系统会自动分析这些文件的音频特征并用于匹配。
+
+## 相关理论
+
+本项目基于中国传统的以下理论：
+
+- **五行理论**：木、火、土、金、水五种元素及其相互关系
+- **五色理论**：青、赤、黄、白、黑五种颜色对应五行
+- **五音理论**：角、徵、宫、商、羽五种音阶对应五行
+- **情绪映射**：不同五行元素对应不同的情绪特征
+
+## 开发者
+
+- Jefferson Chen (jeco68@ucsd.edu)
 
 ## 许可证
 
-本项目采用 MIT 许可证
+MIT License

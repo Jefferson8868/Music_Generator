@@ -1,0 +1,35 @@
+# Environment variables and secrets
+.env
+.env.local
+secrets.json
+
+# Ignore config files with real credentials
+# Comment out the next line once you've committed the template config file
+# config.js
+
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Build artifacts
+dist/
+build/
+
+# Cache
+.cache/
+.npm/
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log 
