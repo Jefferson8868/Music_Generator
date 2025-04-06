@@ -20,26 +20,26 @@ function searchAndEmbedYouTubeMusic(selectedColor) {
     return;
   }
   
-  container.innerHTML = `<div class="generating-music"><div class="music-loading">搜索视频中...</div></div>`;
+  container.innerHTML = `<div class="generating-music"><div class="music-loading">${translations["搜索视频中..."]}</div></div>`;
   
   // 检查全局colorData是否存在
   if (typeof colorData === 'undefined') {
     console.error("找不到colorData对象，请确保在调用此函数前已加载颜色数据");
-    container.innerHTML = `<div class="error-message">无法加载颜色数据</div>`;
+    container.innerHTML = `<div class="error-message">${translations["无法加载颜色数据"]}</div>`;
     return;
   }
   
   // 获取颜色关键词数据
   if (!colorData[selectedColor]) {
     console.error(`找不到颜色 "${selectedColor}" 数据`);
-    container.innerHTML = `<div class="error-message">无法为 "${selectedColor}" 找到相关颜色数据</div>`;
+    container.innerHTML = `<div class="error-message">${translations["无法为"]} "${selectedColor}" ${translations["找到相关颜色数据"]}</div>`;
     return;
   }
   
   // 检查关键词列表
   if (!colorData[selectedColor].Keywords || !colorData[selectedColor].Keywords.length) {
     console.error(`找不到颜色 "${selectedColor}" 的关键词列表，或关键词列表为空`);
-    container.innerHTML = `<div class="error-message">无法为 "${selectedColor}" 找到相关关键词</div>`;
+    container.innerHTML = `<div class="error-message">${translations["无法为"]} "${selectedColor}" ${translations["找到相关关键词"]}</div>`;
     return;
   }
 
@@ -57,7 +57,7 @@ function searchAndEmbedYouTubeMusic(selectedColor) {
   // 检查API密钥
   if (YOUTUBE_API_KEY === "YOUR_API_KEY_HERE") {
     console.error("YouTube API密钥未设置，请在youtube.js中设置有效的API密钥");
-    container.innerHTML = `<div class="error-message">YouTube API密钥未配置</div>`;
+    container.innerHTML = `<div class="error-message">${translations["YouTube API密钥未配置"]}</div>`;
     return;
   }
   
@@ -70,13 +70,13 @@ function searchAndEmbedYouTubeMusic(selectedColor) {
     .then(response => {
       if (!response.ok) {
         if (response.status === 400) {
-          throw new Error("API请求格式错误或API密钥无效");
+          throw new Error(translations["API请求格式错误或API密钥无效"]);
         } else if (response.status === 403) {
-          throw new Error("API密钥无权限或已被限制");
+          throw new Error(translations["API密钥无权限或已被限制"]);
         } else if (response.status === 429) {
-          throw new Error("已超出API配额限制");
+          throw new Error(translations["已超出API配额限制"]);
         } else {
-          throw new Error(`YouTube API请求失败: ${response.status} ${response.statusText}`);
+          throw new Error(`${translations["YouTube API请求失败"]}: ${response.status} ${response.statusText}`);
         }
       }
       return response.json();
@@ -88,13 +88,13 @@ function searchAndEmbedYouTubeMusic(selectedColor) {
         embedYouTubeVideos(data.items);
       } else {
         console.warn("未找到相关视频数据");
-        container.innerHTML = `<div class="error-message">未找到与 "${selectedColor}" 相关的视频</div>`;
+        container.innerHTML = `<div class="error-message">${translations["未找到相关视频"]} "${selectedColor}"</div>`;
       }
     })
     .catch(error => {
       console.error("YouTube搜索接口错误:", error);
-      container.innerHTML = `<div class="error-message">搜索视频时出错: ${error.message}</div>
-                             <div class="api-help">请确保已配置有效的YouTube API密钥，并已启用YouTube Data API v3</div>`;
+      container.innerHTML = `<div class="error-message">${translations["搜索视频时出错"]}: ${error.message}</div>
+                             <div class="api-help">${translations["请确保已配置有效的YouTube API密钥，并已启用YouTube Data API v3"]}</div>`;
     });
 }
 
@@ -115,7 +115,7 @@ function embedYouTubeVideos(videoItems) {
   // 添加标题
   const titleElement = document.createElement("div");
   titleElement.className = "found-videos-title";
-  titleElement.textContent = `找到 ${videoItems.length} 个相关视频`;
+  titleElement.textContent = `${translations["找到"]} ${videoItems.length} ${translations["个相关视频"]}`;
   container.appendChild(titleElement);
   
   // 创建视频容器
@@ -130,8 +130,8 @@ function embedYouTubeVideos(videoItems) {
     }
     
     const videoId = item.id.videoId;
-    const videoTitle = item.snippet ? (item.snippet.title || "无标题") : "无标题";
-    const channelTitle = item.snippet ? (item.snippet.channelTitle || "未知频道") : "未知频道";
+    const videoTitle = item.snippet ? (item.snippet.title || translations["无标题"]) : translations["无标题"];
+    const channelTitle = item.snippet ? (item.snippet.channelTitle || translations["未知频道"]) : translations["未知频道"];
     
     const videoWrapper = document.createElement("div");
     videoWrapper.className = "video-wrapper";
