@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>中国传统色彩音乐生成器</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <!-- 背景覆盖层 -->
@@ -22,10 +23,6 @@
       <div class="header-decoration">
         <div class="ink-brush-stroke"></div>
       </div>
-      <nav class="main-nav">
-        <a href="index.html" class="nav-link active">首页</a>
-        <a href="history.html" class="nav-link">我的历史</a>
-      </nav>
     </header>
     
     <div class="main-content">
@@ -57,7 +54,7 @@
         <div class="color-description-container">
           <div class="color-description-label">色彩描述</div>
           <div id="color-description" class="color-description">
-            大红：正红色三原色中的红，传统的中国红，又称绛色。
+            大红：正红色，三原色中的红，传统的中国红，又称绛色。
           </div>
         </div>
         
@@ -86,7 +83,7 @@
         </div>
         
         <!-- 按钮：生成音乐并搜索相关歌曲 -->
-        <button id="generate-btn">搜索相似音乐</button>
+        <button id="generate-btn">生成音乐与搜索歌曲</button>
         <div id="music-output"></div>
         
         <!-- 相似音乐列表容器 -->
@@ -101,28 +98,57 @@
           <div id="wuxing-details" class="wuxing-details">
             五音：角 | 五脏：肝 | 方位：东 | 季节：春
           </div>
-          <!-- YouTube视频容器 -->
-          <div class="youtube-section">
-            <div class="youtube-title">相关视频推荐</div>
-            <div id="youtube-container" class="youtube-container">
-                <!-- YouTube视频将在这里显示 -->
-            </div>
-          </div>
         </div>
       </div>
     </div>
 
-    <!-- 流行文化与数据科学数据可视化部分 -->
+    <!-- 数据分析洞察 -->
     <section id="pop-culture-section" class="pop-culture-section">
       <div class="section-header">
         <h2>流行文化与数据科学洞察</h2>
         <div class="ink-decoration"></div>
       </div>
-      <p>探索传统色彩与现代流行文化之间的联系，利用数据科学解读色彩背后的情感与趋势。通过分析色彩情绪，推荐与当前色彩氛围相匹配的流行音乐。</p>
-      <div class="visualization-container">
-        <!-- 数据可视化和相关歌曲由JavaScript动态生成 -->
+      <p>探索传统色彩与现代流行文化之间的联系，利用数据科学解读色彩背后的情感与趋势。</p>
+    
+      <button id="toggle-archive-btn" class="archive-toggle-btn">📖 查看我的创作档案</button>
+    
+      <div id="user-archive" class="user-archive hidden">
+        <h3>📘 我的创作人格档案</h3>
+    
+        <!-- 🎨 最近选色记录 -->
+        <div class="archive-section">
+          <div class="insight-card">
+            <h4>🎨 最近选色记录</h4>
+            <ul id="color-history">
+              <li class="empty">暂无记录</li>
+            </ul>
+          </div>
+        </div>
+    
+        <!-- 🪷 五行偏好 -->
+        <div class="archive-section">
+          <div class="insight-card">
+            <h4>🪷 五行偏好</h4>
+            <div id="wuXingRadarWrapper" class="wuxing-chart-wrapper">
+              <div id="wuXingRadarPlaceholder" class="empty">
+                暂无记录，快去选择颜色开始吧！
+              </div>
+              <canvas id="wuXingRadarChart" width="280" height="280" style="display: none;"></canvas>
+            </div>
+          </div>
+        </div>
+    
+        <!-- 🎵 歌曲风格分析 -->
+        <div class="archive-section">
+          <div class="insight-card">
+            <h4>🎵 歌曲风格分析</h4>
+            <div id="emotion-insight-container" class="emotion-display">
+              <p class="empty">暂无风格分析结果，快去选择颜色生成歌曲吧！</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+    </section>    
   </div>
 
   <footer>
@@ -140,8 +166,8 @@
   <script src="wuxing_music.js"></script>
   <script src="music_api.js"></script>
   <script src="music_matcher.js"></script>
-  <script src="youtube.js"></script>
   <script src="script.js"></script>
   <script src="grid_layout.js"></script>
+  <script src="share_card.js"></script>
 </body>
 </html>

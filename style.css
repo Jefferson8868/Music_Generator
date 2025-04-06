@@ -19,7 +19,7 @@
 }
 
 :root {
-    --selected-color: #c04851; /* 默认中国红 */
+    --selected-color: #c04851;
     --primary-color: #1e88e5;
     --secondary-color: #26a69a;
     --accent-color: #ff5722;
@@ -28,102 +28,67 @@
     --light-text: #ffffff;
     --border-radius: 8px;
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    
-    /* 五行颜色变量 */
-    --qing-color: #33691E; /* 青色(木) */
-    --chi-color: #BF360C; /* 赤色(火) */
-    --huang-color: #F9A825; /* 黄色(土) */
-    --bai-color: #9E9E9E; /* 白色(金) */
-    --hei-color: #0D47A1; /* 黑色(水) */
+    --font-chinese: "KaiTi", "楷体", serif;
+    --transition-default: all 0.3s ease;
+    --qing-color: #33691E;
+    --chi-color: #BF360C;
+    --huang-color: #F9A825;
+    --bai-color: #9E9E9E;
+    --hei-color: #0D47A1;
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-family: "FangSong", "KaiTi", "SimSun", "STSong", serif;
-    background-color: var(--selected-color); /* 使用CSS变量 */
-    background-image: url('images/background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    font-family: "FangSong", var(--font-chinese), "SimSun", "STSong", serif;
+    background: var(--selected-color) url('images/background.jpg') no-repeat fixed center/cover;
     color: #333;
     overflow-x: hidden;
     position: relative;
     transition: background-color 0.8s ease, background-blend-mode 0.8s ease;
-    background-blend-mode: soft-light; /* 使用柔光混合模式让背景图与颜色融合 */
+    background-blend-mode: soft-light;
+    background-color: #f9f5f1;
+}
+
+.pattern-overlay, .chinese-pattern-overlay, .cloud-overlay, .ink-wash-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
 }
 
 .pattern-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('images/paper_texture.svg');
-    background-repeat: repeat;
-    opacity: 0.3; /* 降低纸质纹理的不透明度，让真实颜色更明显 */
-    z-index: -1;
-    pointer-events: none;
-    transition: opacity 0.8s ease;
-    mix-blend-mode: overlay; /* 使用叠加混合模式，保持颜色真实性 */
+    background: url('images/paper_texture.svg') repeat;
+    opacity: 0.3;
+    mix-blend-mode: overlay;
 }
 
 .chinese-pattern-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('images/chinese_pattern.svg');
-    background-repeat: repeat;
-    background-size: auto;
-    background-position: center center;
+    background: url('images/chinese_pattern.svg') repeat auto center;
     opacity: 0.15;
-    z-index: -1;
-    pointer-events: none;
-    transition: opacity 0.8s ease;
     mix-blend-mode: soft-light;
 }
 
 .cloud-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('images/cloud_pattern.svg');
-    background-repeat: repeat;
-    background-size: auto;
-    background-position: center center;
+    background: url('images/cloud_pattern.svg') repeat auto center;
     opacity: 0.1;
-    z-index: -1;
-    pointer-events: none;
-    transition: opacity 0.8s ease;
     mix-blend-mode: overlay;
 }
 
 .ink-wash-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('images/ink_wash.svg');
-    background-repeat: no-repeat;
+    background-image: url('https://cdn.jsdelivr.net/gh/Jefferson8868/Music_Generator@main/backdrop.png');
     background-size: cover;
-    background-position: center center;
-    opacity: 0.08;
-    z-index: -1;
-    pointer-events: none;
-    transition: opacity 0.8s ease;
-    mix-blend-mode: multiply;
+    background-position: center;
+    opacity: 0.3;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    padding: 0;
     min-height: 100vh;
     max-width: 1400px;
     margin: 0 auto;
@@ -137,18 +102,13 @@ body {
     padding: 20px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     position: relative;
-    background-color: transparent;
 }
 
 .app-header:before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('images/chinese_pattern.svg');
-    background-repeat: repeat;
+    inset: 0;
+    background: url('images/chinese_pattern.svg') repeat;
     opacity: 0.05;
     z-index: 0;
 }
@@ -162,10 +122,7 @@ body {
 .ink-brush-stroke {
     width: 100%;
     height: 30px;
-    background-image: url('images/ink_brush_stroke.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+    background: url('images/ink_brush_stroke.svg') no-repeat center/contain;
     opacity: 0.2;
     margin-top: 5px;
 }
@@ -177,12 +134,10 @@ body {
 }
 
 .app-title {
-    font-size: 36px;
-    font-weight: bold;
+    font: bold 36px var(--font-chinese);
     letter-spacing: 8px;
     margin-bottom: 10px;
     color: #000;
-    font-family: "KaiTi", "楷体", serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
     position: relative;
 }
@@ -195,24 +150,21 @@ body {
     transform: translateX(-50%);
     width: 80%;
     height: 1px;
-    background-color: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.1);
 }
 
 .app-subtitle {
-    font-size: 14px;
+    font: 14px "FangSong", "仿宋", serif;
     letter-spacing: 3px;
     color: #666;
-    font-family: "FangSong", "仿宋", serif;
 }
 
 .main-content {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     gap: 20px;
     box-sizing: border-box;
     width: 100%;
-    flex-wrap: nowrap;
 }
 
 .color-grid-container {
@@ -228,55 +180,116 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 30px;
-    background-color: rgba(255, 255, 255, 0.85);
-    border-radius: 8px;
-    position: relative;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: var(--border-radius);
     transition: background-color 0.8s ease;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     z-index: 2;
 }
 
-.color-grid {
+#color-grid {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    max-width: 800px;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 65vh;
+    overflow-y: auto;
     padding: 20px;
-    background-color: transparent;
+    padding-top: 50px; /* 增加顶部内边距以避开遮盖 */
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    transition: background-color 0.8s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     position: relative;
-    margin-bottom: 30px;
+    z-index: 10; /* 确保在顶层 */
 }
 
-/* 五行容器样式 */
+.wuxing-section {
+    margin-bottom: 20px;
+}
+
+.wuxing-title {
+    font: bold 18px var(--font-chinese);
+    color: white;
+    text-align: center;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.wuxing-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.colors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.color-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease;
+}
+
+.color-item:hover {
+    transform: translateY(-5px);
+}
+
+.color-option {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.color-option:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.color-option.selected {
+    border: 3px solid rgba(255, 255, 255, 1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    transform: scale(1.15);
+}
+
+.color-name {
+    font: 14px var(--font-chinese);
+    color: white;
+    text-align: center;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .wuxing-container {
     margin-bottom: 20px;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.15);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 15px;
-    transition: all 0.3s ease;
+    transition: var(--transition-default);
     display: flex;
     flex-direction: column;
 }
 
 .wuxing-container:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-.wuxing-title {
-    font-size: 18px;
-    font-weight: bold;
-    font-family: "KaiTi", "楷体", serif;
-    color: white;
-    display: flex;
-    align-items: center;
-}
-
-/* 五行颜色列表 */
 .colors-list {
     display: flex;
     flex-direction: column;
@@ -298,7 +311,7 @@ body {
 }
 
 .colors-list::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
 }
 
@@ -313,47 +326,21 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* 颜色网格样式 */
-.colors-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    justify-items: center;
-}
-
-/* 颜色项目样式 */
-.color-item {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    transition: all 0.3s ease;
-    padding: 8px;
-    border-radius: 8px;
-    gap: 15px;
-}
-
-.color-item:hover {
-    transform: translateX(5px);
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
 .color-count-info {
-    font-size: 12px;
+    font: 12px "FangSong", "仿宋", serif;
     margin-top: 3px;
     color: rgba(255, 255, 255, 0.6);
-    font-family: "FangSong", "仿宋", serif;
     text-align: right;
 }
 
-/* 颜色容器 */
 .colors-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 15px;
     padding: 15px;
-    border-radius: 8px; /* 改为普通圆角矩形 */
-    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.05);
     width: 100%;
     max-width: 800px;
     position: relative;
@@ -401,9 +388,7 @@ body {
     right: 10px;
     width: 60px;
     height: 60px;
-    background-image: url('images/chinese_flower.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
+    background: url('images/chinese_flower.svg') no-repeat center/contain;
     opacity: 0.7;
 }
 
@@ -415,88 +400,71 @@ body {
 }
 
 .chinese-characters {
-    font-size: 64px;
+    font: 64px var(--font-chinese);
     margin: 10px 0;
-    font-family: "KaiTi", "楷体", serif;
     writing-mode: vertical-rl;
     text-orientation: upright;
     letter-spacing: 5px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+.color-values-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 15px 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    flex-wrap: wrap;
+}
+
 .color-value {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 15px 0;
+    margin: 5px;
 }
 
-.color-values-container {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    margin: 15px 0;
-    padding: 10px;
-    background-color: transparent; /* 移除背景色 */
-    border-radius: 8px;
-    flex-wrap: wrap; /* 允许在需要时换行 */
-}
-
-/* 颜色指示器样式 - 重新定义以确保在新布局中正确显示 */
 .color-indicator {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: bold;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font: bold 16px/40px sans-serif;
     color: white;
     margin: 0 auto 5px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     border: 2px solid rgba(255, 255, 255, 0.4);
+    position: relative;
 }
 
-.indicator-qing {
-    background-color: var(--qing-color);
-}
-
-.indicator-chi {
-    background-color: var(--chi-color);
-}
-
-.indicator-huang {
-    background-color: var(--huang-color);
-}
-
-.indicator-bai {
-    background-color: var(--bai-color);
-}
-
-.indicator-hei {
-    background-color: var(--hei-color);
-}
+.indicator-qing { background: var(--qing-color); }
+.indicator-chi { background: var(--chi-color); }
+.indicator-huang { background: var(--huang-color); }
+.indicator-bai { background: var(--bai-color); }
+.indicator-hei { background: var(--hei-color); }
 
 .wuxing-value {
     font-size: 14px;
     color: white;
-    margin-top: 3px;
     text-align: center;
 }
 
 .vertical-text {
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    font-size: 28px;
+    font: bold 28px var(--font-chinese);
     letter-spacing: 8px;
     margin: 20px 0;
-    font-weight: bold;
-    font-family: "KaiTi", "楷体", serif;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     padding: 15px 5px;
-    border-left: 1px solid rgba(255, 255, 255, 0.2);
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: none;
+    border-bottom: none;
     position: relative;
 }
 
@@ -507,31 +475,25 @@ body {
     transform: translateX(-50%);
     width: 40px;
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.3);
 }
 
-.vertical-text:before {
-    top: 0;
-}
-
-.vertical-text:after {
-    bottom: 0;
-}
+.vertical-text:before { top: 0; }
+.vertical-text:after { bottom: 0; }
 
 #generate-btn {
     margin-top: 20px;
     padding: 12px 20px;
-    background-color: transparent;
+    background: transparent;
     color: #000;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 4px;
-    font-size: 18px;
+    font: 18px var(--font-chinese);
+    letter-spacing: 2px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--transition-default);
     position: relative;
     overflow: hidden;
-    font-family: "KaiTi", "楷体", serif;
-    letter-spacing: 2px;
 }
 
 #generate-btn:before {
@@ -546,15 +508,12 @@ body {
 }
 
 #generate-btn:hover {
-    background-color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.8);
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    border-color: rgba(0, 0, 0, 0.3);
 }
 
-#generate-btn:hover:before {
-    left: 100%;
-}
+#generate-btn:hover:before { left: 100%; }
 
 #generate-btn:active {
     transform: translateY(1px);
@@ -567,7 +526,6 @@ body {
     text-align: center;
 }
 
-/* 音乐生成中的加载动画 */
 .generating-music {
     display: flex;
     justify-content: center;
@@ -577,10 +535,9 @@ body {
 }
 
 .music-loading {
-    font-size: 16px;
+    font: 16px var(--font-chinese);
     color: white;
     text-align: center;
-    font-family: "KaiTi", "楷体", serif;
 }
 
 @keyframes pulse {
@@ -589,22 +546,19 @@ body {
     100% { opacity: 0.6; }
 }
 
-/* 音乐信息显示 */
 .music-info {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 15px;
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: var(--border-radius);
     border-left: 3px solid rgba(255, 255, 255, 0.3);
 }
 
 .music-title {
-    font-size: 18px;
-    font-weight: bold;
+    font: bold 18px var(--font-chinese);
     margin-bottom: 10px;
-    font-family: "KaiTi", "楷体", serif;
     letter-spacing: 2px;
     color: rgba(255, 255, 255, 0.9);
 }
@@ -624,17 +578,17 @@ body {
 
 .control-btn {
     padding: 8px 15px;
-    background-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 4px;
     color: rgba(255, 255, 255, 0.9);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--transition-default);
     font-family: "FangSong", "仿宋", serif;
 }
 
 .control-btn:hover {
-    background-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.25);
     transform: translateY(-2px);
 }
 
@@ -643,10 +597,9 @@ footer {
     padding: 20px 0;
     font-size: 14px;
     color: #555;
-    position: relative;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     margin-top: 20px;
-    background-color: transparent;
+    position: relative;
 }
 
 .footer-content {
@@ -679,33 +632,18 @@ footer {
     transform: translateX(-50%);
     width: 100px;
     height: 30px;
-    background-image: url('images/chinese_flower.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    background: url('images/chinese_flower.svg') no-repeat center/contain;
     opacity: 0.5;
 }
 
-/* 五行相生区域 */
 .wuxing-area {
     padding: 20px;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
-    grid-area: wuxing-area;
-    transition: all 0.3s ease;
-}
-
-.wuxing-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    margin-bottom: 15px;
-    position: relative;
-    font-family: "KaiTi", "楷体", serif;
+    transition: var(--transition-default);
 }
 
 .wuxing-text-container {
@@ -715,107 +653,46 @@ footer {
 }
 
 .wuxing-attribute {
-    font-size: 16px;
-    font-family: "KaiTi", "楷体", serif;
+    font: 16px var(--font-chinese);
     line-height: 1.6;
     color: white;
     text-align: justify;
 }
 
 .wuxing-details {
-    font-size: 14px;
+    font: 14px var(--font-chinese);
     color: rgba(255, 255, 255, 0.8);
-    font-family: "KaiTi", "楷体", serif;
     line-height: 1.5;
 }
 
-/* 响应式设计 */
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-    
-    .color-grid {
-        width: 100%;
-    }
-    
-    .sidebar {
-        width: 100%;
-        padding-right: 0;
-        margin-top: 30px;
-    }
-    
-    .colors-container {
-        height: 250px;
-    }
-    
-    .music-center {
-        width: 150px;
-        height: 150px;
-    }
+    .container { flex-direction: column; }
+    .color-grid { width: 100%; }
+    .sidebar { width: 100%; padding-right: 0; margin-top: 30px; }
+    .colors-container { height: 250px; }
+    .music-center { width: 150px; height: 150px; }
 }
 
-/* 添加颜色选项样式 */
-.color-option {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.7);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: visible; /* 确保颜色可见 */
-    flex-shrink: 0; /* 防止颜色圆圈被压缩 */
-    /* 移除透明背景设置，让颜色圈显示实际颜色 */
-}
-
-.color-option:after {
+.color-option:before, .color-option:after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
-    opacity: 0.5; /* 增加不透明度，使效果更明显 */
-    transition: opacity 0.3s ease;
-    pointer-events: none; /* 避免干扰点击事件 */
+    inset: 0;
     border-radius: 50%;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
 .color-option:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
-    opacity: 0.3; /* 增加不透明度 */
-    transition: opacity 0.3s ease;
-    pointer-events: none; /* 避免干扰点击事件 */
-    border-radius: 50%;
-}
-
-.color-option:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
-    z-index: 10;
-}
-
-.color-option:hover:before {
+    background: none;
     opacity: 1;
 }
 
-.color-option.selected {
-    border: 3px solid rgba(255, 255, 255, 1);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-    transform: scale(1.15);
+.color-option:after {
+    background: none;
+    opacity: 1;
 }
+
+.color-option:hover:before { opacity: 1; }
 
 .color-option.selected:after {
     content: '';
@@ -825,51 +702,12 @@ footer {
     transform: translate(-50%, -50%);
     width: 10px;
     height: 10px;
-    background-color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 50%;
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
     z-index: 2;
 }
 
-.color-name {
-    font-size: 14px;
-    text-align: left;
-    font-family: "KaiTi", "楷体", serif;
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    color: rgba(255, 255, 255, 0.9);
-    flex-grow: 1; /* 让文字占据剩余空间 */
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    word-break: break-all;
-}
-
-/* 五行容器样式 */
-.wuxing-container {
-    margin-bottom: 20px;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.wuxing-title:after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 1px;
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
-/* 加载指示器样式 */
 .loading-indicator {
     display: flex;
     justify-content: center;
@@ -881,28 +719,33 @@ footer {
     animation: pulse 1.5s infinite;
 }
 
-@keyframes pulse {
-    0% { opacity: 0.6; }
-    50% { opacity: 1; }
-    100% { opacity: 0.6; }
-}
-
-/* 情绪容器样式 */
-.emotion-container {
+.emotion-container, .selected-color-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 15px 0;
     padding: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    border-radius: var(--border-radius);
     width: 80%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    position: relative;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
 }
 
-.emotion-title {
+.emotion-container { background: rgba(255, 255, 255, 0.1); }
+
+.selected-color-container:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.05) 75%, transparent 75%);
+    background-size: 10px 10px;
+    border-radius: var(--border-radius);
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.emotion-title, .selected-color-label {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 8px;
@@ -910,7 +753,7 @@ footer {
     position: relative;
 }
 
-.emotion-title:after {
+.emotion-title:after, .selected-color-label:after {
     content: '';
     position: absolute;
     bottom: -4px;
@@ -918,19 +761,19 @@ footer {
     transform: translateX(-50%);
     width: 40px;
     height: 1px;
-    background-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.3);
 }
 
-.emotion-name {
-    font-size: 24px;
-    font-weight: bold;
+.emotion-name, .selected-color-name {
+    font: bold 24px var(--font-chinese);
     color: white;
     text-align: center;
-    font-family: "KaiTi", "楷体", serif;
     letter-spacing: 2px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    margin-bottom: 5px;
 }
+
+.emotion-name { font-size: 24px; margin-bottom: 5px; }
+.selected-color-name { font-size: 28px; }
 
 .emotion-keywords {
     font-size: 14px;
@@ -946,12 +789,11 @@ footer {
     font-style: italic;
 }
 
-/* 流行文化部分样式 */
 .pop-culture-section {
     padding: 30px 20px;
     margin: 20px 0;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
     position: relative;
     overflow: hidden;
 }
@@ -965,11 +807,9 @@ footer {
 }
 
 .section-header h2 {
-    font-size: 24px;
-    font-weight: bold;
+    font: bold 24px var(--font-chinese);
     color: rgba(0, 0, 0, 0.8);
     text-align: center;
-    font-family: "KaiTi", "楷体", serif;
     letter-spacing: 3px;
     margin-bottom: 5px;
 }
@@ -977,7 +817,7 @@ footer {
 .ink-decoration {
     width: 100px;
     height: 2px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.3);
     position: relative;
 }
 
@@ -987,37 +827,27 @@ footer {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.3);
     top: -3px;
 }
 
-.ink-decoration:before {
-    left: 0;
-}
+.ink-decoration:before { left: 0; }
+.ink-decoration:after { right: 0; }
 
-.ink-decoration:after {
-    right: 0;
-}
+.visualization-container { margin-top: 20px; }
 
-.visualization-container {
-    margin-top: 20px;
-}
-
-/* 相关音乐容器样式 */
-.related-music-container {
+.related-music-container, #related-music-container {
     margin: 20px 0;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    border-left: 3px solid rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
 }
 
 .related-music-title {
-    font-size: 18px;
-    font-weight: bold;
+    font: bold 18px var(--font-chinese);
     color: rgba(0, 0, 0, 0.8);
     margin-bottom: 5px;
-    font-family: "KaiTi", "楷体", serif;
     letter-spacing: 2px;
 }
 
@@ -1035,7 +865,7 @@ footer {
 
 .music-item {
     padding: 10px 15px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 6px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -1065,20 +895,17 @@ footer {
     color: rgba(0, 0, 0, 0.6);
 }
 
-/* 数据可视化样式 */
 .data-visualization {
     margin: 20px 0;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
 }
 
 .data-viz-title {
-    font-size: 18px;
-    font-weight: bold;
+    font: bold 18px var(--font-chinese);
     color: rgba(0, 0, 0, 0.8);
     margin-bottom: 5px;
-    font-family: "KaiTi", "楷体", serif;
     letter-spacing: 2px;
     text-align: center;
 }
@@ -1090,21 +917,18 @@ footer {
     text-align: center;
 }
 
-/* 情绪分析样式 */
 .emotion-analysis {
     margin: 20px 0;
     padding: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
     border-left: 3px solid rgba(0, 0, 0, 0.2);
 }
 
 .emotion-analysis-title {
-    font-size: 18px;
-    font-weight: bold;
+    font: bold 18px var(--font-chinese);
     color: rgba(0, 0, 0, 0.8);
     margin-bottom: 10px;
-    font-family: "KaiTi", "楷体", serif;
     letter-spacing: 2px;
 }
 
@@ -1114,15 +938,12 @@ footer {
     align-items: center;
 }
 
-/* 相似音乐显示样式 */
 .similar-music-title {
-    font-size: 18px;
-    font-weight: bold;
+    font: bold 18px var(--font-chinese);
     color: white;
     margin-bottom: 15px;
     padding-bottom: 8px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    font-family: "KaiTi", "楷体", serif;
 }
 
 .similar-music-list {
@@ -1134,14 +955,14 @@ footer {
 
 .similar-music-item {
     padding: 15px;
-    background-color: rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: var(--border-radius);
+    transition: var(--transition-default);
     border-left: 4px solid transparent;
 }
 
 .similar-music-item:hover {
-    background-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.25);
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -1167,13 +988,34 @@ footer {
 }
 
 .similarity-score {
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: bold;
     color: white;
     background-color: rgba(0, 0, 0, 0.3);
-    padding: 3px 8px;
+    padding: 5px 10px;
     border-radius: 12px;
     display: inline-block;
-    margin-left: 8px;
+}
+
+.similarity-details {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.similarity-breakdown {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 8px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.similarity-breakdown div {
+    margin-bottom: 3px;
 }
 
 .similar-music-item audio {
@@ -1184,445 +1026,772 @@ footer {
 }
 
 .similar-music-item audio::-webkit-media-controls-panel {
-    background-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .similar-music-item audio::-webkit-media-controls-play-button {
-    background-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 50%;
 }
 
-/* 相似音乐容器 */
-#related-music-container {
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    margin-top: 20px;
-    border-left: 4px solid rgba(255, 255, 255, 0.3);
-}
-
-/* 五行颜色值显示 */
-.color-values-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    border-radius: 8px;
-    flex-wrap: wrap;
-}
-
-.color-value {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 5px;
-}
-
-.color-indicator {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 5px;
-    color: white;
-    position: relative;
-}
-
-.indicator-qing {
-    background-color: var(--qing-color);
-}
-
-.indicator-chi {
-    background-color: var(--chi-color);
-}
-
-.indicator-huang {
-    background-color: var(--huang-color);
-}
-
-.indicator-bai {
-    background-color: var(--bai-color);
-}
-
-.indicator-hei {
-    background-color: var(--hei-color);
-}
-
-.wuxing-value {
-    font-size: 14px;
-    color: white;
-}
-
-/* 五行标签样式 */
 .wuxing-label {
     position: absolute;
     top: -8px;
     right: -8px;
-    font-size: 10px;
+    font: bold 10px var(--font-chinese);
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background-color: white;
+    background: white;
     color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     z-index: 5;
-    font-weight: bold;
-    font-family: "KaiTi", "楷体", serif;
 }
 
-.wuxing-label-木 {
-    background-color: var(--qing-color);
-    color: white;
-}
+.wuxing-label-木 { background: var(--qing-color); color: white; }
+.wuxing-label-火 { background: var(--chi-color); color: white; }
+.wuxing-label-土 { background: var(--huang-color); color: white; }
+.wuxing-label-金 { background: var(--bai-color); color: #333; }
+.wuxing-label-水 { background: var(--hei-color); color: white; }
 
-.wuxing-label-火 {
-    background-color: var(--chi-color);
-    color: white;
-}
-
-.wuxing-label-土 {
-    background-color: var(--huang-color);
-    color: white;
-}
-
-.wuxing-label-金 {
-    background-color: var(--bai-color);
-    color: #333;
-}
-
-.wuxing-label-水 {
-    background-color: var(--hei-color);
-    color: white;
-}
-
-/* 添加选中颜色名称样式 */
-.selected-color-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 15px 0;
-    padding: 15px;
-    background-color: transparent; /* 移除背景色 */
-    border-radius: 8px;
-    width: 80%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.selected-color-container:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.05) 75%, transparent 75%);
-    background-size: 10px 10px;
-    border-radius: 8px;
-    opacity: 0.3;
-    pointer-events: none;
-}
-
-.selected-color-label {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 8px;
-    letter-spacing: 2px;
-    position: relative;
-}
-
-.selected-color-label:after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
-.selected-color-name {
-    font-size: 28px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    font-family: "KaiTi", "楷体", serif;
-    letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-/* 添加颜色描述样式 */
 .color-description-container {
     display: block !important;
     margin-bottom: 15px;
     padding: 15px;
-    background-color: rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: var(--border-radius);
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .color-description {
-    font-family: "KaiTi", "楷体", serif;
-    font-size: 16px;
+    font: 16px var(--font-chinese);
     line-height: 1.6;
     color: white;
     text-align: justify;
 }
 
 .color-description-label {
-    font-size: 16px;
-    font-weight: bold;
+    font: bold 16px var(--font-chinese);
     color: white;
     margin-bottom: 10px;
     display: block;
-    font-family: "KaiTi", "楷体", serif;
 }
 
-/* 五行属性容器样式 */
-.wuxing-attribute {
-    font-size: 16px;
-    font-family: "KaiTi", "楷体", serif;
-    line-height: 1.6;
-    color: white;
-    text-align: justify;
-}
-
-.wuxing-details {
-    font-size: 14px;
-    font-family: "KaiTi", "楷体", serif;
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.6;
-}
-
-/* 五音标签样式 */
 .wuyin-tag {
     display: inline-block;
     padding: 3px 8px;
     border-radius: 12px;
-    font-size: 12px;
-    font-weight: bold;
+    font: bold 12px var(--font-chinese);
     margin-right: 5px;
-    font-family: "KaiTi", "楷体", serif;
     color: white;
 }
 
-.wuyin-gong {
-    background-color: #F9A825; /* 黄色-宫 */
-}
+.wuyin-gong { background: #F9A825; }
+.wuyin-shang { background: #9E9E9E; }
+.wuyin-jue { background: #33691E; }
+.wuyin-zhi { background: #BF360C; }
+.wuyin-yu { background: #0D47A1; }
 
-.wuyin-shang {
-    background-color: #9E9E9E; /* 白色-商 */
-}
-
-.wuyin-jue {
-    background-color: #33691E; /* 青色-角 */
-}
-
-.wuyin-zhi {
-    background-color: #BF360C; /* 赤色-徵 */
-}
-
-.wuyin-yu {
-    background-color: #0D47A1; /* 黑色-羽 */
-}
-
-/* 相似音乐显示样式 */
-.similar-music-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 15px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    font-family: "KaiTi", "楷体", serif;
-}
-
-.similar-music-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 5px;
-}
-
-.similar-music-item {
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.15);
-    border-radius: 8px;
+/* YouTube 相关样式 */
+.youtube-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
     transition: all 0.3s ease;
-    border-left: 4px solid transparent;
 }
 
-.similar-music-item:hover {
-    background-color: rgba(255, 255, 255, 0.25);
+.youtube-section:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.music-name {
-    font-size: 16px;
+.youtube-title {
+    font-size: 20px;
     font-weight: bold;
-    margin-bottom: 8px;
-    color: white;
-}
-
-.music-yin {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-}
-
-.yin-description {
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 12px;
-    font-style: italic;
-}
-
-.similarity-score {
-    font-size: 12px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.3);
-    padding: 3px 8px;
-    border-radius: 12px;
-    display: inline-block;
-    margin-left: 8px;
-}
-
-.similar-music-item audio {
-    width: 100%;
-    margin-top: 10px;
-    border-radius: 20px;
-    outline: none;
-}
-
-.similar-music-item audio::-webkit-media-controls-panel {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.similar-music-item audio::-webkit-media-controls-play-button {
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-}
-
-/* 相似音乐容器 */
-#related-music-container {
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    margin-top: 20px;
-    border-left: 4px solid rgba(255, 255, 255, 0.3);
-}
-
-/* 五行颜色值显示 */
-.color-values-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    border-radius: 8px;
-    flex-wrap: wrap;
-}
-
-.color-value {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 5px;
-}
-
-.color-indicator {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 5px;
-    color: white;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 10px;
     position: relative;
 }
 
-.indicator-qing {
-    background-color: var(--qing-color);
-}
-
-.indicator-chi {
-    background-color: var(--chi-color);
-}
-
-.indicator-huang {
-    background-color: var(--huang-color);
-}
-
-.indicator-bai {
-    background-color: var(--bai-color);
-}
-
-.indicator-hei {
-    background-color: var(--hei-color);
-}
-
-.wuxing-value {
-    font-size: 14px;
-    color: white;
-}
-
-/* 五行标签样式 */
-.wuxing-label {
+.youtube-title:after {
+    content: "";
     position: absolute;
-    top: -8px;
-    right: -8px;
-    font-size: 10px;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: white;
+    bottom: -1px;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(255, 0, 0, 0.6), transparent);
+}
+
+.youtube-container {
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.youtube-container iframe {
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.youtube-container iframe:hover {
+    transform: scale(1.02);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .youtube-container {
+        height: auto;
+    }
+    
+    .youtube-container iframe {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+/* Navigation styles */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.nav-link {
     color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    font-family: var(--font-chinese);
+    padding: 5px 15px;
+    border-radius: 4px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-link.active {
+    color: #000;
+    font-weight: bold;
+}
+
+.nav-link.active:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* History Page Specific Styles */
+.history-page-content {
+    background: transparent;
+    padding: 20px 0;
+}
+
+.user-archive {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 0;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(216, 191, 170, 0.5);
+}
+
+.archive-title {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(244, 238, 228, 0.9);
+    border-bottom: 1px solid rgba(216, 191, 170, 0.5);
+    color: #633d2e;
+    font-weight: normal;
+}
+
+.archive-section {
+    padding: 0;
+    border-bottom: 1px solid rgba(216, 191, 170, 0.3);
+}
+
+.archive-section:last-child {
+    border-bottom: none;
+}
+
+.insight-card {
+    padding: 25px 20px;
+    position: relative;
+}
+
+.insight-card h4 {
+    font-size: 16px;
+    color: #633d2e;
+    margin: 0 0 15px 0;
+    padding: 0 0 0 20px;
+    position: relative;
+    font-weight: normal;
+}
+
+.insight-card h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 16px;
+    background: #b56f4a;
+    border-radius: 3px;
+}
+
+.color-history-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.color-history-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.color-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.color-name {
+    flex: 1;
+    font-size: 14px;
+    color: #633d2e;
+}
+
+.color-time {
+    font-size: 12px;
+    color: #9e8d80;
+}
+
+.wuxing-label {
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    background: #f4ece0;
+    color: #633d2e;
+}
+
+.wuxing-label-木 { background: rgba(122, 169, 60, 0.2); color: #4a6824; }
+.wuxing-label-火 { background: rgba(196, 69, 54, 0.2); color: #8c3124; }
+.wuxing-label-土 { background: rgba(214, 158, 59, 0.2); color: #8e6212; }
+.wuxing-label-金 { background: rgba(181, 172, 156, 0.2); color: #746b5d; }
+.wuxing-label-水 { background: rgba(57, 108, 176, 0.2); color: #245184; }
+
+.timestamp {
+    font-size: 0.85em;
+    color: #9e8d80;
+    margin-left: auto;
+}
+
+.wuxing-chart-wrapper {
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    z-index: 5;
+}
+
+.empty {
+    text-align: center;
+    color: #9e8d80;
+    font-style: italic;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+}
+
+.recommendation-btn {
+    background: linear-gradient(135deg, #cc9966 0%, #b56f4a 100%);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.recommendation-btn:hover {
+    background: linear-gradient(135deg, #b56f4a 0%, #8c4931 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(181, 111, 74, 0.3);
+}
+
+/* Improved background overlays for history page */
+.chinese-pattern-overlay {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="none" width="100" height="100"/><path fill="rgba(200, 180, 160, 0.05)" d="M0,50 Q25,0 50,50 T100,50 T150,50 T200,50 T250,50 T300,50 T350,50"></path></svg>');
+    opacity: 0.3;
+}
+
+.ink-wash-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://cdn.jsdelivr.net/gh/Jefferson8868/Music_Generator@main/backdrop.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.25;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Specialized style for AI recommendation */
+.ai-recommendation {
+    padding: 10px 0;
+}
+
+.ai-recommendation-content {
+    margin-top: 15px;
+}
+
+.ai-analysis, .ai-suggestion, .ai-preference, .ai-explanation {
+    margin-bottom: 20px;
+}
+
+.ai-analysis h4, .ai-suggestion h4, .ai-preference h4, .ai-explanation h4 {
+    font-size: 15px;
+    color: #633d2e;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.ai-analysis h4:before, .ai-suggestion h4:before, 
+.ai-preference h4:before, .ai-explanation h4:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 14px;
+    background: #b56f4a;
+    border-radius: 2px;
+}
+
+.recommendation-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0;
+}
+
+.recommendation-list li {
+    padding: 6px 0;
+    border-bottom: 1px dashed rgba(99, 61, 46, 0.1);
+}
+
+.recommendation-list li:last-child {
+    border-bottom: none;
+}
+
+.song-title {
     font-weight: bold;
-    font-family: "KaiTi", "楷体", serif;
+    color: #633d2e;
 }
 
-.wuxing-label-木 {
-    background-color: var(--qing-color);
+.song-artist {
+    color: #9e8d80;
+}
+
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.artist-tag {
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 13px;
+    color: #633d2e;
+    background: rgba(181, 111, 74, 0.1);
+    border: 1px solid rgba(181, 111, 74, 0.2);
+}
+
+/* Style for the radar chart to better match the screenshot */
+#wuXingRadarChart {
+    max-width: 280px;
+    max-height: 280px;
+    margin: 0 auto;
+}
+
+/* Style for the style bars */
+.style-bar-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.style-name {
+    flex: 0 0 100px;
+    font-weight: normal;
+    color: #633d2e;
+}
+
+.style-bar-wrapper {
+    flex: 1;
+    background: rgba(99, 61, 46, 0.05);
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.style-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #cc9966, #b56f4a);
+    border-radius: 10px;
+}
+
+.style-percentage {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #633d2e;
+}
+
+.style-count {
+    flex: 0 0 50px;
+    text-align: right;
+    font-size: 12px;
+    color: #9e8d80;
+}
+
+/* Style for the style summary */
+.style-summary {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.style-icon {
+    margin-right: 8px;
+}
+
+.style-main {
+    margin: 0;
+    color: #633d2e;
+}
+
+.style-main strong {
+    font-weight: bold;
+    color: #b56f4a;
+}
+
+/* Override styles for color dots */
+.color-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.color-history-list li:before {
+    content: none;
+}
+
+/* Make the sections more spaced out */
+.archive-section {
+    border-bottom: 1px solid rgba(216, 191, 170, 0.3);
+}
+
+.insight-card {
+    padding: 25px 20px;
+}
+
+/* AI Recommendation Controls */
+.recommendation-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.configure-api-link {
+    color: #9e8d80;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 1px dashed #9e8d80;
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+}
+
+.configure-api-link:hover {
+    color: #b56f4a;
+    border-bottom-color: #b56f4a;
+}
+
+/* Modal for API configuration */
+.api-config-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.api-config-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #9e8d80;
+}
+
+.modal-title {
+    margin-top: 0;
+    color: #633d2e;
+    font-weight: normal;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-body {
+    color: #666;
+    line-height: 1.6;
+}
+
+.modal-body p {
+    margin-bottom: 10px;
+}
+
+.modal-body code {
+    background-color: #f5f5f5;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+.modal-body a {
+    color: #b56f4a;
+    text-decoration: none;
+}
+
+.modal-body a:hover {
+    text-decoration: underline;
+}
+
+.modal-footer {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.modal-button {
+    background: linear-gradient(135deg, #cc9966 0%, #b56f4a 100%);
     color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
 }
 
-.wuxing-label-火 {
-    background-color: var(--chi-color);
-    color: white;
+.modal-button:hover {
+    background: linear-gradient(135deg, #b56f4a 0%, #8c4931 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(181, 111, 74, 0.3);
 }
 
-.wuxing-label-土 {
-    background-color: var(--huang-color);
-    color: white;
+/* Style Tag Styles */
+.style-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+    justify-content: center;
 }
 
-.wuxing-label-金 {
-    background-color: var(--bai-color);
-    color: #333;
+.style-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background-color: rgba(181, 111, 74, 0.1);
+    border: 1px solid rgba(181, 111, 74, 0.2);
+    border-radius: 15px;
+    color: #633d2e;
+    transition: all 0.3s ease;
 }
 
-.wuxing-label-水 {
-    background-color: var(--hei-color);
-    color: white;
+.style-tag:hover {
+    background-color: rgba(181, 111, 74, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
 }
 
+.style-count {
+    font-size: 0.8em;
+    color: #9e8d80;
+    margin-left: 5px;
+}
+
+.style-insight {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 15px;
+    color: #633d2e;
+}
+
+/* AI Recommendation Styles */
+.ai-recommendation {
+    margin: 15px 0;
+}
+
+.ai-recommendation-content {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+.ai-recommendation-warning {
+    background-color: rgba(255, 248, 230, 0.7);
+    border-left: 3px solid #ffd54f;
+    color: #856404;
+}
+
+.ai-recommendation-error {
+    background-color: rgba(255, 235, 238, 0.7);
+    border-left: 3px solid #f44336;
+    color: #721c24;
+}
+
+.ai-recommendation-analysis, 
+.ai-recommendation-suggestions, 
+.ai-recommendation-explanation {
+    margin-bottom: 20px;
+}
+
+.ai-recommendation-analysis h4, 
+.ai-recommendation-suggestions h4, 
+.ai-recommendation-explanation h4 {
+    color: #633d2e;
+    font-size: 16px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 15px;
+}
+
+.ai-recommendation-analysis h4:before, 
+.ai-recommendation-suggestions h4:before, 
+.ai-recommendation-explanation h4:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 15px;
+    background: #b56f4a;
+    border-radius: 2px;
+}
+
+.ai-recommendation-suggestions ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.ai-recommendation-suggestions li {
+    padding: 5px 0;
+    border-bottom: 1px dashed rgba(0,0,0,0.1);
+}
+
+.ai-recommendation-suggestions li:last-child {
+    border-bottom: none;
+}
+
+.loader {
+    border: 3px solid rgba(181, 111, 74, 0.1);
+    border-radius: 50%;
+    border-top: 3px solid #b56f4a;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 15px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

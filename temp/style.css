@@ -1,0 +1,1727 @@
+@font-face {
+    font-family: 'FangSong';
+    src: local('FangSong'), local('仿宋');
+}
+
+@font-face {
+    font-family: 'KaiTi';
+    src: local('KaiTi'), local('楷体');
+}
+
+@font-face {
+    font-family: 'XingKai';
+    src: local('STXingkai'), local('华文行楷');
+}
+
+@font-face {
+    font-family: 'LiSu';
+    src: local('LiSu'), local('隶书');
+}
+
+:root {
+    --selected-color: #c04851; /* 默认中国红 */
+    --primary-color: #1e88e5;
+    --secondary-color: #26a69a;
+    --accent-color: #ff5722;
+    --background-color: #f5f5f5;
+    --text-color: #333333;
+    --light-text: #ffffff;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    /* 五行颜色变量 */
+    --qing-color: #33691E; /* 青色(木) */
+    --chi-color: #BF360C; /* 赤色(火) */
+    --huang-color: #F9A825; /* 黄色(土) */
+    --bai-color: #9E9E9E; /* 白色(金) */
+    --hei-color: #0D47A1; /* 黑色(水) */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "FangSong", "KaiTi", "SimSun", "STSong", serif;
+    background-color: var(--selected-color); /* 使用CSS变量 */
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #333;
+    overflow-x: hidden;
+    position: relative;
+    transition: background-color 0.8s ease, background-blend-mode 0.8s ease;
+    background-blend-mode: soft-light; /* 使用柔光混合模式让背景图与颜色融合 */
+}
+
+.pattern-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/paper_texture.svg');
+    background-repeat: repeat;
+    opacity: 0.3; /* 降低纸质纹理的不透明度，让真实颜色更明显 */
+    z-index: -1;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+    mix-blend-mode: overlay; /* 使用叠加混合模式，保持颜色真实性 */
+}
+
+.chinese-pattern-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/chinese_pattern.svg');
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: center center;
+    opacity: 0.15;
+    z-index: -1;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+    mix-blend-mode: soft-light;
+}
+
+.cloud-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/cloud_pattern.svg');
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: center center;
+    opacity: 0.1;
+    z-index: -1;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+    mix-blend-mode: overlay;
+}
+
+.ink-wash-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/ink_wash.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.08;
+    z-index: -1;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+    mix-blend-mode: multiply;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    min-height: 100vh;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.app-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    background-color: transparent;
+}
+
+.app-header:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/chinese_pattern.svg');
+    background-repeat: repeat;
+    opacity: 0.05;
+    z-index: 0;
+}
+
+.header-decoration {
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+}
+
+.ink-brush-stroke {
+    width: 100%;
+    height: 30px;
+    background-image: url('images/ink_brush_stroke.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.2;
+    margin-top: 5px;
+}
+
+.title-container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.app-title {
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+    color: #000;
+    font-family: "KaiTi", "楷体", serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.app-title:after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.app-subtitle {
+    font-size: 14px;
+    letter-spacing: 3px;
+    color: #666;
+    font-family: "FangSong", "仿宋", serif;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+
+.color-grid-container {
+    flex: 0 0 65%;
+    min-width: 300px;
+}
+
+.sidebar {
+    flex: 0 0 30%;
+    max-width: 300px;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
+    position: relative;
+    transition: background-color 0.8s ease;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.color-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: transparent;
+    border-radius: 8px;
+    transition: background-color 0.8s ease;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+/* 五行容器样式 */
+.wuxing-container {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.wuxing-container:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.wuxing-title {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "KaiTi", "楷体", serif;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+/* 五行颜色列表 */
+.colors-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.1);
+}
+
+.colors-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.colors-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.colors-list::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+.wuxing-icon {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 颜色网格样式 */
+.colors-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+/* 颜色项目样式 */
+.color-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    transition: all 0.3s ease;
+    padding: 8px;
+    border-radius: 8px;
+    gap: 15px;
+}
+
+.color-item:hover {
+    transform: translateX(5px);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.color-count-info {
+    font-size: 12px;
+    margin-top: 3px;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: "FangSong", "仿宋", serif;
+    text-align: right;
+}
+
+/* 颜色容器 */
+.colors-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px; /* 改为普通圆角矩形 */
+    background-color: rgba(255, 255, 255, 0.05);
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+}
+
+.color-label {
+    margin-top: 10px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.logo-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.chinese-seal {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 80px;
+    height: 80px;
+    transform: rotate(15deg);
+    opacity: 0.9;
+    transition: transform 0.3s ease;
+    z-index: 2;
+}
+
+.chinese-seal:hover {
+    transform: rotate(0deg) scale(1.1);
+}
+
+.seal-image {
+    width: 100%;
+    height: 100%;
+}
+
+.decoration-flower {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    background-image: url('images/chinese_flower.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+}
+
+.logo {
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.chinese-characters {
+    font-size: 64px;
+    margin: 10px 0;
+    font-family: "KaiTi", "楷体", serif;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.color-value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.color-values-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: transparent; /* 移除背景色 */
+    border-radius: 8px;
+    flex-wrap: wrap; /* 允许在需要时换行 */
+}
+
+/* 颜色指示器样式 - 重新定义以确保在新布局中正确显示 */
+.color-indicator {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    margin: 0 auto 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.indicator-qing {
+    background-color: var(--qing-color);
+}
+
+.indicator-chi {
+    background-color: var(--chi-color);
+}
+
+.indicator-huang {
+    background-color: var(--huang-color);
+}
+
+.indicator-bai {
+    background-color: var(--bai-color);
+}
+
+.indicator-hei {
+    background-color: var(--hei-color);
+}
+
+.wuxing-value {
+    font-size: 14px;
+    color: white;
+    margin-top: 3px;
+    text-align: center;
+}
+
+.vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 28px;
+    letter-spacing: 8px;
+    margin: 20px 0;
+    font-weight: bold;
+    font-family: "KaiTi", "楷体", serif;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 15px 5px;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.vertical-text:before, .vertical-text:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.vertical-text:before {
+    top: 0;
+}
+
+.vertical-text:after {
+    bottom: 0;
+}
+
+#generate-btn {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: transparent;
+    color: #000;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-family: "KaiTi", "楷体", serif;
+    letter-spacing: 2px;
+}
+
+#generate-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+    transition: all 0.6s ease;
+}
+
+#generate-btn:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+#generate-btn:hover:before {
+    left: 100%;
+}
+
+#generate-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#music-output {
+    margin-top: 15px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* 音乐生成中的加载动画 */
+.generating-music {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: pulse 1.5s infinite;
+}
+
+.music-loading {
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    font-family: "KaiTi", "楷体", serif;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* 音乐信息显示 */
+.music-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.music-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: "KaiTi", "楷体", serif;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.music-style, .music-scale {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.music-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 15px;
+}
+
+.control-btn {
+    padding: 8px 15px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "FangSong", "仿宋", serif;
+}
+
+.control-btn:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #555;
+    position: relative;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    background-color: transparent;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.footer-decoration {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 30px;
+    background-image: url('images/chinese_flower.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.5;
+}
+
+/* 五行相生区域 */
+.wuxing-area {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    grid-area: wuxing-area;
+    transition: all 0.3s ease;
+}
+
+.wuxing-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 15px;
+    position: relative;
+    font-family: "KaiTi", "楷体", serif;
+}
+
+.wuxing-text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.wuxing-attribute {
+    font-size: 16px;
+    font-family: "KaiTi", "楷体", serif;
+    line-height: 1.6;
+    color: white;
+    text-align: justify;
+}
+
+.wuxing-details {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: "KaiTi", "楷体", serif;
+    line-height: 1.5;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .color-grid {
+        width: 100%;
+    }
+    
+    .sidebar {
+        width: 100%;
+        padding-right: 0;
+        margin-top: 30px;
+    }
+    
+    .colors-container {
+        height: 250px;
+    }
+    
+    .music-center {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* 添加颜色选项样式 */
+.color-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: visible; /* 确保颜色可见 */
+    flex-shrink: 0; /* 防止颜色圆圈被压缩 */
+    /* 移除透明背景设置，让颜色圈显示实际颜色 */
+}
+
+.color-option:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0.5; /* 增加不透明度，使效果更明显 */
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* 避免干扰点击事件 */
+    border-radius: 50%;
+}
+
+.color-option:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+    opacity: 0.3; /* 增加不透明度 */
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* 避免干扰点击事件 */
+    border-radius: 50%;
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+    z-index: 10;
+}
+
+.color-option:hover:before {
+    opacity: 1;
+}
+
+.color-option.selected {
+    border: 3px solid rgba(255, 255, 255, 1);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    transform: scale(1.15);
+}
+
+.color-option.selected:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    z-index: 2;
+}
+
+.color-name {
+    font-size: 14px;
+    text-align: left;
+    font-family: "KaiTi", "楷体", serif;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.9);
+    flex-grow: 1; /* 让文字占据剩余空间 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-all;
+}
+
+/* 五行容器样式 */
+.wuxing-container {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.wuxing-title:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* 加载指示器样式 */
+.loading-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    font-size: 18px;
+    color: white;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* 情绪容器样式 */
+.emotion-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    width: 80%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.emotion-title {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.emotion-title:after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.emotion-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-family: "KaiTi", "楷体", serif;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-bottom: 5px;
+}
+
+.emotion-keywords {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.emotion-music-styles {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    font-style: italic;
+}
+
+/* 流行文化部分样式 */
+.pop-culture-section {
+    padding: 30px 20px;
+    margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.section-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    font-family: "KaiTi", "楷体", serif;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+.ink-decoration {
+    width: 100px;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.ink-decoration:before, .ink-decoration:after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: -3px;
+}
+
+.ink-decoration:before {
+    left: 0;
+}
+
+.ink-decoration:after {
+    right: 0;
+}
+
+.visualization-container {
+    margin-top: 20px;
+}
+
+/* 相关音乐容器样式 */
+.related-music-container {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid rgba(0, 0, 0, 0.2);
+}
+
+.related-music-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 5px;
+    font-family: "KaiTi", "楷体", serif;
+    letter-spacing: 2px;
+}
+
+.related-music-subtitle {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 15px;
+}
+
+.music-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.music-item {
+    padding: 10px 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.music-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.music-item-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 3px;
+}
+
+.music-item-artist {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 5px;
+}
+
+.music-item-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* 数据可视化样式 */
+.data-visualization {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.data-viz-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 5px;
+    font-family: "KaiTi", "楷体", serif;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.data-viz-subtitle {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* 情绪分析样式 */
+.emotion-analysis {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid rgba(0, 0, 0, 0.2);
+}
+
+.emotion-analysis-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 10px;
+    font-family: "KaiTi", "楷体", serif;
+    letter-spacing: 2px;
+}
+
+.emotion-analysis-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 相似音乐显示样式 */
+.similar-music-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-family: "KaiTi", "楷体", serif;
+}
+
+.similar-music-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 5px;
+}
+
+.similar-music-item {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.similar-music-item:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.music-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.music-yin {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.yin-description {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+.similarity-score {
+    font-size: 12px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 3px 8px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.similar-music-item audio {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 20px;
+    outline: none;
+}
+
+.similar-music-item audio::-webkit-media-controls-panel {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.similar-music-item audio::-webkit-media-controls-play-button {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+}
+
+/* 相似音乐容器 */
+#related-music-container {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 五行颜色值显示 */
+.color-values-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    flex-wrap: wrap;
+}
+
+.color-value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+}
+
+.color-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: white;
+    position: relative;
+}
+
+.indicator-qing {
+    background-color: var(--qing-color);
+}
+
+.indicator-chi {
+    background-color: var(--chi-color);
+}
+
+.indicator-huang {
+    background-color: var(--huang-color);
+}
+
+.indicator-bai {
+    background-color: var(--bai-color);
+}
+
+.indicator-hei {
+    background-color: var(--hei-color);
+}
+
+.wuxing-value {
+    font-size: 14px;
+    color: white;
+}
+
+/* 五行标签样式 */
+.wuxing-label {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: 10px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: white;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+    font-weight: bold;
+    font-family: "KaiTi", "楷体", serif;
+}
+
+.wuxing-label-木 {
+    background-color: var(--qing-color);
+    color: white;
+}
+
+.wuxing-label-火 {
+    background-color: var(--chi-color);
+    color: white;
+}
+
+.wuxing-label-土 {
+    background-color: var(--huang-color);
+    color: white;
+}
+
+.wuxing-label-金 {
+    background-color: var(--bai-color);
+    color: #333;
+}
+
+.wuxing-label-水 {
+    background-color: var(--hei-color);
+    color: white;
+}
+
+/* 添加选中颜色名称样式 */
+.selected-color-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+    padding: 15px;
+    background-color: transparent; /* 移除背景色 */
+    border-radius: 8px;
+    width: 80%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.selected-color-container:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.05) 75%, transparent 75%);
+    background-size: 10px 10px;
+    border-radius: 8px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.selected-color-label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.selected-color-label:after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.selected-color-name {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    font-family: "KaiTi", "楷体", serif;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* 添加颜色描述样式 */
+.color-description-container {
+    display: block !important;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.color-description {
+    font-family: "KaiTi", "楷体", serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: white;
+    text-align: justify;
+}
+
+.color-description-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+    display: block;
+    font-family: "KaiTi", "楷体", serif;
+}
+
+/* 五行属性容器样式 */
+.wuxing-attribute {
+    font-size: 16px;
+    font-family: "KaiTi", "楷体", serif;
+    line-height: 1.6;
+    color: white;
+    text-align: justify;
+}
+
+.wuxing-details {
+    font-size: 14px;
+    font-family: "KaiTi", "楷体", serif;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+/* 五音标签样式 */
+.wuyin-tag {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 5px;
+    font-family: "KaiTi", "楷体", serif;
+    color: white;
+}
+
+.wuyin-gong {
+    background-color: #F9A825; /* 黄色-宫 */
+}
+
+.wuyin-shang {
+    background-color: #9E9E9E; /* 白色-商 */
+}
+
+.wuyin-jue {
+    background-color: #33691E; /* 青色-角 */
+}
+
+.wuyin-zhi {
+    background-color: #BF360C; /* 赤色-徵 */
+}
+
+.wuyin-yu {
+    background-color: #0D47A1; /* 黑色-羽 */
+}
+
+/* 相似音乐显示样式 */
+.similar-music-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-family: "KaiTi", "楷体", serif;
+}
+
+.similar-music-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 5px;
+}
+
+.similar-music-item {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.similar-music-item:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.music-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: white;
+}
+
+.music-yin {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.yin-description {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+.similarity-score {
+    font-size: 12px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 3px 8px;
+    border-radius: 12px;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.similar-music-item audio {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 20px;
+    outline: none;
+}
+
+.similar-music-item audio::-webkit-media-controls-panel {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.similar-music-item audio::-webkit-media-controls-play-button {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+}
+
+/* 相似音乐容器 */
+#related-music-container {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 五行颜色值显示 */
+.color-values-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    flex-wrap: wrap;
+}
+
+.color-value {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+}
+
+.color-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: white;
+    position: relative;
+}
+
+.indicator-qing {
+    background-color: var(--qing-color);
+}
+
+.indicator-chi {
+    background-color: var(--chi-color);
+}
+
+.indicator-huang {
+    background-color: var(--huang-color);
+}
+
+.indicator-bai {
+    background-color: var(--bai-color);
+}
+
+.indicator-hei {
+    background-color: var(--hei-color);
+}
+
+.wuxing-value {
+    font-size: 14px;
+    color: white;
+}
+
+/* 五行标签样式 */
+.wuxing-label {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: 10px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: white;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+    font-weight: bold;
+    font-family: "KaiTi", "楷体", serif;
+}
+
+.wuxing-label-木 {
+    background-color: var(--qing-color);
+    color: white;
+}
+
+.wuxing-label-火 {
+    background-color: var(--chi-color);
+    color: white;
+}
+
+.wuxing-label-土 {
+    background-color: var(--huang-color);
+    color: white;
+}
+
+.wuxing-label-金 {
+    background-color: var(--bai-color);
+    color: #333;
+}
+
+.wuxing-label-水 {
+    background-color: var(--hei-color);
+    color: white;
+}
+
+.user-archive.hidden {
+    display: none;
+}
+
+.color-history-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 4px 0;
+    font-size: 14px;
+}
+  
+.color-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid #ccc;
+}
+  
+.color-name-text {
+    font-weight: 500;
+}
+  
+#wuXingRadarChart {
+    width: 280px !important;
+    height: 280px !important;
+    max-width: 90%;
+    margin: 0 auto;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.6); /* 可选：加个背景提升可读性 */
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.wuxing-chart-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+}
+  
+.placeholder-text {
+    font-size: 14px;
+    color: #777;
+    font-style: italic;
+    padding: 0.5em;
+    text-align: left;          
+    align-self: flex-start;     
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+  
+
+.style-insight {
+    font-size: 14px;
+    line-height: 1.6;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 12px;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.insight-card {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(4px);
+  }
+  
+.insight-card h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    border-left: 4px solid #b95b5b;
+    padding-left: 8px;
+}
+  
+.insight-card ul,
+.insight-card p {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 14px;
+    color: #333;
+}
+  
+.insight-card .empty {
+    color: #777;
+    font-style: italic;
+    padding-left: 0.5em;
+}
+  

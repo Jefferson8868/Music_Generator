@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的色彩音乐历史 - 中国传统色彩音乐生成器</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- 背景覆盖层 -->
+  <div class="pattern-overlay"></div>
+  <div class="chinese-pattern-overlay"></div>
+  <div class="cloud-overlay"></div>
+  <div class="ink-wash-overlay"></div>
+
+  <div class="container">
+    <header class="app-header">
+      <div class="title-container">
+        <h1 class="app-title">我的色彩音乐历史</h1>
+        <div class="app-subtitle">MY COLOR MUSIC HISTORY</div>
+      </div>
+      <div class="header-decoration">
+        <div class="ink-brush-stroke"></div>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">首页</a>
+        <a href="history.html" class="nav-link active">我的历史</a>
+      </nav>
+    </header>
+    
+    <div class="main-content history-page-content">
+      <!-- 用户创作档案部分 -->
+      <div id="user-archive" class="user-archive">
+        <h3 class="archive-title">📘 我的创作人格档案</h3>
+    
+        <!-- 🎨 最近选色记录 -->
+        <div class="archive-section">
+          <div class="insight-card">
+            <h4>🎨 最近选色记录</h4>
+            <ul id="color-history" class="color-history-list">
+              <li class="empty">暂无记录</li>
+            </ul>
+          </div>
+        </div>
+    
+        <!-- 🪷 五行偏好 -->
+        <div class="archive-section">
+          <div class="insight-card">
+            <h4>🪷 五行偏好</h4>
+            <div id="wuXingRadarWrapper" class="wuxing-chart-wrapper">
+              <div id="wuXingRadarPlaceholder" class="empty">
+                暂无记录，快去选择颜色开始吧！
+              </div>
+              <canvas id="wuXingRadarChart" width="280" height="280" style="display: none;"></canvas>
+            </div>
+          </div>
+        </div>
+    
+        <!-- 🎵 歌曲风格分析 -->
+        <div class="archive-section">
+          <div class="insight-card">
+            <h4>🎵 歌曲风格分析</h4>
+            <div id="emotion-insight-container" class="emotion-display">
+              <p class="empty">暂无风格分析结果，快去选择颜色生成歌曲吧！</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🤖 AI风格推荐 -->
+        <div class="archive-section">
+          <div class="insight-card">
+            <h4>🤖 AI风格推荐</h4>
+            <div id="ai-recommendation" class="ai-recommendation">
+              <div class="ai-recommendation-content ai-recommendation-warning">
+                点击"获取AI推荐"按钮，基于您的颜色选择获取个性化音乐推荐。
+              </div>
+            </div>
+            <div class="recommendation-controls">
+              <button id="get-recommendation-btn" class="modal-button">获取AI推荐</button>
+              <a href="#" id="configure-api-btn" class="configure-api-link" title="配置OpenAI API密钥">配置API</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-decoration"></div>
+      <div class="footer-content">
+        <p>© 2025 中国传统色彩音乐生成器 | DataHack @ UC San Diego</p>
+        <div class="footer-links">
+          <a href="https://github.com/Jefferson8868/Music_Generator/blob/main/README.md" target="_blank">关于项目</a>
+          <a href="https://github.com/Jefferson8868/Music_Generator" target="_blank">数据来源</a>
+          <a href="mailto:jeco68@ucsd.edu">联系我们</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- API Configuration Modal -->
+  <div id="api-config-modal" class="api-config-modal">
+    <div class="modal-content">
+      <button id="modal-close" class="modal-close">×</button>
+      <h3 class="modal-title">配置 OpenAI API</h3>
+      <div class="modal-body">
+        <p>要使用 AI 推荐功能，您需要配置自己的 OpenAI API 密钥。请按照以下步骤操作：</p>
+        <ol>
+          <li>访问 <a href="https://platform.openai.com/signup" target="_blank">OpenAI 平台</a> 并创建账户或登录</li>
+          <li>前往 <a href="https://platform.openai.com/api-keys" target="_blank">API 密钥页面</a> 创建新的密钥</li>
+          <li>复制生成的 API 密钥</li>
+          <li>打开 <code>config.js</code> 文件</li>
+          <li>将复制的密钥粘贴到 <code>OPENAI_API_KEY</code> 的引号中</li>
+        </ol>
+        <p>示例：</p>
+        <pre><code>OPENAI_API_KEY: 'sk-...'</code></pre>
+        <p>注意：您的 API 密钥是敏感信息，不要与他人分享。本应用仅在您的浏览器中使用此密钥，并不会将其发送至除 OpenAI 之外的任何服务器。</p>
+        <p>遇到 "429 Too Many Requests" 错误？这表示您已达到 OpenAI 的请求限制。请等待一段时间再尝试，或查看 <a href="https://help.openai.com/en/articles/6891831-rate-limit-error-guide" target="_blank">OpenAI 帮助文档</a>。</p>
+      </div>
+      <div class="modal-footer">
+        <button id="modal-understand" class="modal-button">我已了解</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="wuxing_music.js"></script>
+  <script src="config.js"></script>
+  <script src="history.js"></script>
+</body>
+</html> 

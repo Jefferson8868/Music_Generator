@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五色值计算测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .color-box {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 10px;
+            border: 1px solid #ccc;
+        }
+        .result-container {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        .result-box {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #eee;
+            margin: 5px;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>五色值计算测试</h1>
+    <p>比较原始算法和改进算法对相似红色系颜色的区分能力</p>
+    
+    <div class="result-container">
+        <div class="result-box">
+            <h2>渥赭 #DD6B7B</h2>
+            <div class="color-box" style="background-color: #DD6B7B;"></div>
+            <p>RGB: 221, 107, 123</p>
+            <h3>原始算法结果：</h3>
+            <pre id="original-wozhe"></pre>
+            <h3>改进算法结果：</h3>
+            <pre id="improved-wozhe"></pre>
+        </div>
+        
+        <div class="result-box">
+            <h2>长春 #DC6B82</h2>
+            <div class="color-box" style="background-color: #DC6B82;"></div>
+            <p>RGB: 220, 107, 130</p>
+            <h3>原始算法结果：</h3>
+            <pre id="original-changchun"></pre>
+            <h3>改进算法结果：</h3>
+            <pre id="improved-changchun"></pre>
+        </div>
+    </div>
+
+    <script>
+        // 定义HSV转换函数
+        function rgbToHsv(r, g, b) {
+            const max = Math.max(r, g, b);
+            const min = Math.min(r, g, b);
+            const d = max - min;
+            let h = 0;
+            
+            if (d !== 0) {
+                if (max === r) {
+                    h = ((g - b) / d) % 6;
+                } else if (max === g) {
+                    h = (b - r) / d + 2;
+                } else {
+                    h = (r - g) / d + 4;
+                }
+            }
+            
+            h = Math.round((h < 0 ? h + 6 : h) * 60);
+            const s = max ? d / max : 0;
+            const v = max;
+            
+            return { h, s, v };
+        }
+
+        // 原始的五行颜色计算函数
+        function originalCalcWuxing(r, g, b) {
+            // 归一化RGB值到[0,1]范围
+            const nr = r / 255;
+            const ng = g / 255;
+            const nb = b / 255;
+            // 转换为HSV颜色空间
+            const { h, s, v } = rgbToHsv(nr, ng, nb);
+            // 混合函数：计算色相h与目标色相c的接近程度，r为半径范围
+            const mix = (h, c, r) => 1 - Math.min(Math.abs(h - c) / r, 1);
+            
+            // 初始化五色值
+            let qing = 0, chi = 0, huang = 0, bai = 0, hei = 0;
+            
+            // 计算白色和黑色基础值
+            bai = (1 - s) * v * 1.8;
+            hei = (1 - v) * (0.8 + s * 0.4);
+            
+            // 根据色相范围计算青、赤、黄的值
+            
+            // 青色：主要在90-150度范围（青绿色系）
+            if (h >= 90 && h <= 150) {
+                qing += mix(h, 120, 30) * s * v * 3.2;
+            }
+            // 青色次要范围：150-210度（青蓝色系）
+            if (h > 150 && h <= 210) {
+                qing += mix(h, 180, 30) * s * v * 2.5;
+            }
+            
+            // 赤色：主要在0-30度和330-360度范围（红色系）
+            if ((h <= 30 || h >= 330) && s > 0.2) {
+                chi += mix(h > 180 ? 360 - h : h, 0, 30) * s * v * 4.2;
+            }
+            // 赤色次要范围：270-330度（紫红色系）
+            if (h >= 270 && h < 330) {
+                chi += mix(h, 300, 30) * s * v * 1.8;
+            }
+            
+            // 黄色：主要在30-90度范围（黄色系）
+            if (h >= 30 && h <= 90) {
+                huang += mix(h, 60, 30) * s * v * 3.5;
+            }
+            // 黄色次要范围：210-270度（青黄过渡）
+            if (h > 210 && h < 270) {
+                huang += mix(h, 240, 30) * s * v * 0.8;
+            }
+            
+            // 处理过渡色区域
+            // 青黄过渡区（75-105度）
+            if (h > 75 && h < 105) {
+                qing += mix(h, 90, 15) * s * v * 0.6;
+                huang += mix(h, 90, 15) * s * v * 0.6;
+            }
+            // 黄赤过渡区（15-45度）
+            if (h > 15 && h < 45) {
+                huang += mix(h, 30, 15) * s * v * 0.6;
+                chi += mix(h, 30, 15) * s * v * 0.6;
+            }
+            
+            // 特殊颜色处理
+            // 高饱和度红色：确保赤色占主导
+            if ((h <= 15 || h >= 345) && s > 0.7 && v > 0.5) {
+                chi = Math.max(chi, 0.85);
+                hei = Math.min(hei, 0.08);
+            }
+            // 高饱和度青色：确保青色占主导
+            if (h >= 100 && h <= 140 && s > 0.7 && v > 0.5) {
+                qing = Math.max(qing, 0.85);
+                bai = Math.min(bai, 0.1);
+            }
+            // 高饱和度黄色：确保黄色占主导
+            if (h >= 45 && h <= 75 && s > 0.7 && v > 0.7) {
+                huang = Math.max(huang, 0.85);
+                bai = Math.min(bai, 0.1);
+            }
+            
+            // 特殊处理：对于低饱和度高亮度的颜色（如#EBEEE8），增强白色比例
+            if (s < 0.1 && v > 0.9) {
+                bai = Math.max(bai, 0.9);
+                // 根据微小的色相差异调整其他颜色
+                if (h >= 90 && h <= 150) qing = Math.max(qing, 0.05);
+                if ((h <= 30 || h >= 330)) chi = Math.max(chi, 0.03);
+                if (h >= 30 && h <= 90) huang = Math.max(huang, 0.04);
+            }
+            
+            // 计算总和并归一化为百分比
+            const total = qing + chi + huang + bai + hei || 1;
+            const percentages = [qing, chi, huang, bai, hei].map(v => Math.round(v / total * 100));
+            
+            // 确保总和为100%
+            const sum = percentages.reduce((a, b) => a + b, 0);
+            const adjustment = 100 - sum;
+            
+            // 创建结果对象
+            const result = { 
+                qing: percentages[0], 
+                chi: percentages[1], 
+                huang: percentages[2], 
+                bai: percentages[3], 
+                hei: percentages[4] 
+            };
+            
+            // 如果总和不是100%，调整最大值
+            if (adjustment !== 0) {
+                const maxIndex = percentages.indexOf(Math.max(...percentages));
+                result[Object.keys(result)[maxIndex]] += adjustment;
+            }
+            
+            return result;
+        }
+
+        // 改进的五行颜色计算函数
+        function improvedCalcWuxing(r, g, b) {
+            // 归一化RGB值到[0,1]范围
+            const nr = r / 255;
+            const ng = g / 255;
+            const nb = b / 255;
+            // 转换为HSV颜色空间
+            const { h, s, v } = rgbToHsv(nr, ng, nb);
+            // 混合函数：计算色相h与目标色相c的接近程度，r为半径范围
+            const mix = (h, c, r) => 1 - Math.min(Math.abs(h - c) / r, 1);
+            
+            // 初始化五色值
+            let qing = 0, chi = 0, huang = 0, bai = 0, hei = 0;
+            
+            // 计算白色和黑色基础值 - 改进算法，使其对RGB微小差异更敏感
+            // 白色：低饱和度、高亮度的颜色，考虑RGB通道差异
+            const rgbVariance = Math.sqrt(((nr-ng)**2 + (ng-nb)**2 + (nb-nr)**2)/3);
+            bai = (1 - s) * v * (1.8 - rgbVariance * 0.5);
+            
+            // 黑色：低亮度的颜色，但避免过度偏向黑色，考虑RGB通道比例
+            const rgbRatio = Math.max(nr, ng, nb) / (Math.min(nr, ng, nb) || 0.01);
+            hei = (1 - v) * (0.8 + s * 0.4) * (1 + (rgbRatio - 1) * 0.1);
+            
+            // 根据色相范围计算青、赤、黄的值
+            
+            // 青色：主要在90-150度范围（青绿色系）
+            if (h >= 90 && h <= 150) {
+                qing += mix(h, 120, 30) * s * v * 3.2;
+            }
+            // 青色次要范围：150-210度（青蓝色系）
+            if (h > 150 && h <= 210) {
+                qing += mix(h, 180, 30) * s * v * 2.5;
+            }
+            
+            // 赤色：主要在0-30度和330-360度范围（红色系）- 增强对红色系的细分
+            if ((h <= 30 || h >= 330) && s > 0.2) {
+                // 根据红色通道的强度和RGB比例调整赤色值
+                const redIntensity = nr > 0.5 ? nr : 0.5;
+                const redRatio = nr / (ng + nb + 0.01);
+                chi += mix(h > 180 ? 360 - h : h, 0, 30) * s * v * 4.2 * redIntensity * (1 + (redRatio - 1) * 0.2);
+                
+                // 细分红色系的色相范围，使相似红色有不同的五色值
+                if (h <= 10 || h >= 350) {
+                    // 纯红色区域
+                    chi *= 1.1;
+                    bai *= 0.95;
+                } else if ((h > 10 && h <= 20) || (h >= 340 && h < 350)) {
+                    // 偏橙红色区域
+                    chi *= 1.05;
+                    huang *= 1.02;
+                } else if ((h > 20 && h <= 30) || (h >= 330 && h < 340)) {
+                    // 偏紫红色区域
+                    chi *= 1.03;
+                    hei *= 1.02;
+                }
+            }
+            
+            // 赤色次要范围：270-330度（紫红色系）
+            if (h >= 270 && h < 330) {
+                // 增强对紫红色系的细分
+                const purpleIntensity = (nr + nb) / 2;
+                chi += mix(h, 300, 30) * s * v * 1.8 * (1 + purpleIntensity * 0.2);
+            }
+            
+            // 黄色：主要在30-90度范围（黄色系）
+            if (h >= 30 && h <= 90) {
+                huang += mix(h, 60, 30) * s * v * 3.5;
+            }
+            // 黄色次要范围：210-270度（青黄过渡）
+            if (h > 210 && h < 270) {
+                huang += mix(h, 240, 30) * s * v * 0.8;
+            }
+            
+            // 处理过渡色区域
+            // 青黄过渡区（75-105度）
+            if (h > 75 && h < 105) {
+                qing += mix(h, 90, 15) * s * v * 0.6;
+                huang += mix(h, 90, 15) * s * v * 0.6;
+            }
+            // 黄赤过渡区（15-45度）
+            if (h > 15 && h < 45) {
+                huang += mix(h, 30, 15) * s * v * 0.6;
+                chi += mix(h, 30, 15) * s * v * 0.6;
+            }
+            
+            // 特殊颜色处理
+            // 高饱和度红色：确保赤色占主导，但保留细微差异
+            if ((h <= 15 || h >= 345) && s > 0.7 && v > 0.5) {
+                // 使用RGB通道比例来调整赤色和黑色的值
+                const redBlueRatio = nr / (nb + 0.01);
+                const redGreenRatio = nr / (ng + 0.01);
+                chi = Math.max(chi, 0.85 * (1 + (redBlueRatio - redGreenRatio) * 0.05));
+                hei = Math.min(hei, 0.08 * (1 + (nb / (nr + 0.01)) * 0.1));
+            }
+            
+            // 高饱和度青色：确保青色占主导
+            if (h >= 100 && h <= 140 && s > 0.7 && v > 0.5) {
+                qing = Math.max(qing, 0.85);
+                bai = Math.min(bai, 0.1);
+            }
+            
+            // 高饱和度黄色：确保黄色占主导
+            if (h >= 45 && h <= 75 && s > 0.7 && v > 0.7) {
+                huang = Math.max(huang, 0.85);
+                bai = Math.min(bai, 0.1);
+            }
+            
+            // 特殊处理：对于低饱和度高亮度的颜色（如#EBEEE8），增强白色比例
+            if (s < 0.1 && v > 0.9) {
+                bai = Math.max(bai, 0.9);
+                // 根据微小的色相差异和RGB通道差异调整其他颜色
+                if (h >= 90 && h <= 150) qing = Math.max(qing, 0.05 + (ng - nr) * 0.1);
+                if ((h <= 30 || h >= 330)) chi = Math.max(chi, 0.03 + (nr - ng) * 0.1);
+                if (h >= 30 && h <= 90) huang = Math.max(huang, 0.04 + (nr + ng - nb) * 0.05);
+            }
+            
+            // 对于相似的红色系颜色，使用RGB通道的微小差异来调整五色值
+            if ((h <= 30 || h >= 330) && s > 0.3 && s < 0.8 && v > 0.3 && v < 0.9) {
+                // 使用RGB通道的精确值来微调五色比例
+                const redFactor = nr * 100 - Math.floor(nr * 100); // 获取小数部分
+                const greenFactor = ng * 100 - Math.floor(ng * 100);
+                const blueFactor = nb * 100 - Math.floor(nb * 100);
+                
+                // 使用这些微小差异来调整五色值
+                chi *= 1 + (redFactor - 0.5) * 0.04;
+                bai *= 1 + (greenFactor - 0.5) * 0.03;
+                hei *= 1 + (blueFactor - 0.5) * 0.03;
+            }
+            
+            // 计算总和并归一化为百分比
+            const total = qing + chi + huang + bai + hei || 1;
+            const percentages = [qing, chi, huang, bai, hei].map(v => Math.round(v / total * 100));
+            
+            // 确保总和为100%
+            const sum = percentages.reduce((a, b) => a + b, 0);
+            const adjustment = 100 - sum;
+            
+            // 创建结果对象
+            const result = { 
+                qing: percentages[0], 
+                chi: percentages[1], 
+                huang: percentages[2], 
+                bai: percentages[3], 
+                hei: percentages[4] 
+            };
+            
+            // 如果总和不是100%，调整最大值
+            if (adjustment !== 0) {
+                const maxIndex = percentages.indexOf(Math.max(...percentages));
+                result[Object.keys(result)[maxIndex]] += adjustment;
+            }
+            
+            return result;
+        }
+
+        // 测试用户提到的两个颜色
+        const wozhe = [221, 107, 123]; // 渥赭：RGB(221,107,123)
+        const changchun = [220, 107, 130]; // 长春：RGB(220,107,130)
+
+        // 测试原始算法
+        const originalWozhe = originalCalcWuxing(...wozhe);
+        const originalChangchun = originalCalcWuxing(...changchun);
+
+        // 测试改进算法
+        const improvedWozhe = improvedCalcWuxing(...wozhe);
+        const improvedChangchun = improvedCalcWuxing(...changchun);
+
+        // 显示结果
+        document.getElementById('original-wozhe').textContent = 
+            `青: ${originalWozhe.qing}%, 赤: ${originalWozhe.chi}%, 黄: ${originalWozhe.huang}%, 白: ${originalWozhe.bai}%, 黑: ${originalWozhe.hei}%`;
+        
+        document.getElementById('original-changchun').textContent = 
+            `青: ${originalChangchun.qing}%, 赤: ${originalChangchun.chi}%, 黄: ${originalChangchun.huang}%, 白: ${originalChangchun.bai}%, 黑: ${originalChangchun.hei}%`;
+        
+        document.getElementById('improved-wozhe').textContent = 
+            `青: ${improvedWozhe.qing}%, 赤: ${improvedWozhe.chi}%, 黄: ${improvedWozhe.huang}%, 白: ${improvedWozhe.bai}%, 黑: ${improvedWozhe.hei}%`;
+        
+        document.getElementById('improved-changchun').textContent = 
+            `青: ${improvedChangchun.qing}%, 赤: ${improvedChangchun.chi}%, 黄: ${improvedChangchun.huang}%, 白: ${improvedChangchun.bai}%, 黑: ${improvedChangchun.hei}%`;
+    </script>
+</body>
+</html>

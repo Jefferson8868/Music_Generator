@@ -80,386 +80,16 @@ const musicFileCharacteristics = {
 };
 
 /**
- * 音频分析器类 - 使用Web Audio API分析音频特征
- */
-class AudioAnalyzer {
-    constructor() {
-        // 创建AudioContext（如果浏览器支持）
-        this.audioContext = null;
-        if (window.AudioContext) {
-            this.audioContext = new AudioContext();
-        } else if (window.webkitAudioContext) {
-            this.audioContext = new webkitAudioContext();
-        }
-        
-        // 用于缓存已分析的文件
-        this.analyzedFiles = {};
-    }
-    
-    /**
-     * 分析音频文件
-     * @param {string} url - 音频文件URL
-     * @returns {Promise<Object>} - 音频特征数据
-     */
-    async analyzeAudio(url) {
-        // 如果没有AudioContext，返回null
-        if (!this.audioContext) {
-            console.warn('Web Audio API不受支持，无法分析音频');
-            return null;
-        }
-        
-        // 如果已分析过，直接返回结果
-        if (this.analyzedFiles[url]) {
-            return this.analyzedFiles[url];
-        }
-        
-        try {
-            // 获取音频数据
-            console.log(`开始分析音频: ${url}`);
-            const audioData = await this.loadAudioData(url);
-            if (!audioData) {
-                throw new Error('无法加载音频数据');
-            }
-            
-            // 创建音频分析节点
-            const analyser = this.audioContext.createAnalyser();
-            analyser.fftSize = 2048;
-            
-            // 解码音频
-            const audioBuffer = await this.audioContext.decodeAudioData(audioData);
-            
-            // 创建音频源
-            const source = this.audioContext.createBufferSource();
-            source.buffer = audioBuffer;
-            source.connect(analyser);
-            
-            // 分析频率分布
-            const frequencyData = this.analyzeFrequencyDistribution(analyser);
-            
-            // 分析节奏
-            const rhythmFeatures = this.analyzeRhythm(audioBuffer);
-            
-            // 分析音高
-            const pitchFeatures = this.analyzePitch(audioBuffer, frequencyData);
-            
-            // 提取情感特征
-            const emotionalFeatures = this.extractEmotionalFeatures(
-                frequencyData, 
-                rhythmFeatures, 
-                pitchFeatures
-            );
-            
-            // 转换为五音特征
-            const wuyinFeatures = this.convertToWuyinFeatures(emotionalFeatures);
-            
-            // 缓存结果
-            this.analyzedFiles[url] = wuyinFeatures;
-            
-            return wuyinFeatures;
-        } catch (error) {
-            console.error(`分析音频时出错: ${error.message}`);
-            return null;
-        }
-    }
-    
-    /**
-     * 加载音频数据
-     * @param {string} url - 音频文件URL
-     * @returns {Promise<ArrayBuffer>} - 音频数据
-     */
-    async loadAudioData(url) {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`获取音频文件失败: ${response.status} ${response.statusText}`);
-            }
-            return await response.arrayBuffer();
-        } catch (error) {
-            console.error(`加载音频数据出错: ${error.message}`);
-            return null;
-        }
-    }
-    
-    /**
-     * 分析频率分布
-     * @param {AnalyserNode} analyser - 音频分析节点
-     * @returns {Object} - 频率分布数据
-     */
-    analyzeFrequencyDistribution(analyser) {
-        const bufferLength = analyser.frequencyBinCount;
-        const dataArray = new Uint8Array(bufferLength);
-        analyser.getByteFrequencyData(dataArray);
-        
-        // 计算低、中、高频的能量
-        const lowEnd = Math.floor(bufferLength * 0.2);
-        const midEnd = Math.floor(bufferLength * 0.6);
-        
-        let lowFreqEnergy = 0;
-        let midFreqEnergy = 0;
-        let highFreqEnergy = 0;
-        let totalEnergy = 0;
-        
-        for (let i = 0; i < bufferLength; i++) {
-            const value = dataArray[i];
-            totalEnergy += value;
-            
-            if (i < lowEnd) {
-                lowFreqEnergy += value;
-            } else if (i < midEnd) {
-                midFreqEnergy += value;
-            } else {
-                highFreqEnergy += value;
-            }
-        }
-        
-        // 归一化能量值
-        const total = lowFreqEnergy + midFreqEnergy + highFreqEnergy;
-        return {
-            lowFreqRatio: total > 0 ? lowFreqEnergy / total : 0.33,
-            midFreqRatio: total > 0 ? midFreqEnergy / total : 0.33,
-            highFreqRatio: total > 0 ? highFreqEnergy / total : 0.33,
-            energyLevel: totalEnergy / (bufferLength * 255) // 归一化总能量
-        };
-    }
-    
-    /**
-     * 分析节奏
-     * @param {AudioBuffer} audioBuffer - 音频缓冲区
-     * @returns {Object} - 节奏特征
-     */
-    analyzeRhythm(audioBuffer) {
-        const data = audioBuffer.getChannelData(0); // 使用第一个声道
-        const sampleRate = audioBuffer.sampleRate;
-        
-        // 计算20ms帧的能量
-        const frameSize = Math.floor(sampleRate * 0.02); // 20ms
-        const numFrames = Math.floor(data.length / frameSize);
-        const frameEnergies = [];
-        
-        for (let i = 0; i < numFrames; i++) {
-            let energy = 0;
-            const startIdx = i * frameSize;
-            
-            for (let j = 0; j < frameSize; j++) {
-                if (startIdx + j < data.length) {
-                    energy += Math.abs(data[startIdx + j]);
-                }
-            }
-            
-            frameEnergies.push(energy / frameSize);
-        }
-        
-        // 计算能量变化率
-        let changes = 0;
-        let threshold = 0.1; // 变化阈值
-        let prevEnergy = frameEnergies[0] || 0;
-        
-        for (let i = 1; i < frameEnergies.length; i++) {
-            const energy = frameEnergies[i];
-            if (Math.abs(energy - prevEnergy) > threshold) {
-                changes++;
-            }
-            prevEnergy = energy;
-        }
-        
-        // 计算节奏变化频率
-        const changeRate = changes / frameEnergies.length;
-        
-        // 估计节奏的快慢（1-10的范围）
-        const tempoEstimate = Math.min(10, Math.max(1, Math.round(changeRate * 20)));
-        
-        return {
-            tempo: tempoEstimate,
-            rhythmVariability: changeRate
-        };
-    }
-    
-    /**
-     * 分析音高
-     * @param {AudioBuffer} audioBuffer - 音频缓冲区
-     * @param {Object} frequencyData - 频率分布数据
-     * @returns {Object} - 音高特征
-     */
-    analyzePitch(audioBuffer, frequencyData) {
-        // 使用频率分布估计音高范围
-        // 高频比例高 -> 音高偏高, 低频比例高 -> 音高偏低
-        const pitchLevel = (frequencyData.midFreqRatio * 5) + (frequencyData.highFreqRatio * 9);
-        
-        // 将音高转换到1-10的范围
-        const normalizedPitch = Math.min(10, Math.max(1, Math.round(pitchLevel)));
-        
-        return {
-            pitch: normalizedPitch,
-            // 利用能量分布估算音色松紧度
-            tightness: Math.round((frequencyData.lowFreqRatio * 8) + (frequencyData.midFreqRatio * 5) + (frequencyData.highFreqRatio * 3))
-        };
-    }
-    
-    /**
-     * 提取情感特征
-     * @param {Object} frequencyData - 频率分布数据
-     * @param {Object} rhythmFeatures - 节奏特征
-     * @param {Object} pitchFeatures - 音高特征
-     * @returns {Object} - 情感特征
-     */
-    extractEmotionalFeatures(frequencyData, rhythmFeatures, pitchFeatures) {
-        // 基于音频特征计算各种情感参数
-        
-        // 快慢指数 (1-10)
-        const fastSlow = rhythmFeatures.tempo;
-        
-        // 高低指数 (1-10)
-        const highLow = pitchFeatures.pitch;
-        
-        // 紧松指数 (1-10)
-        const tightLoose = pitchFeatures.tightness;
-        
-        // 根据特征确定主导五音
-        // - 羽(悲伤): 慢、低、松弛
-        // - 徵(喜悦): 快、高、中等
-        // - 角(柔和): 中等、高、松弛
-        // - 宫(稳定): 中等、中等、中等
-        // - 商(激烈): 快、中等、紧凑
-        
-        let yinScores = {
-            "宫": 0,
-            "商": 0,
-            "角": 0,
-            "徵": 0,
-            "羽": 0
-        };
-        
-        // 宫(稳定)评分
-        yinScores["宫"] = 10 - Math.abs(fastSlow - 5) - Math.abs(highLow - 5) - Math.abs(tightLoose - 5);
-        
-        // 商(激烈)评分
-        yinScores["商"] = 10 - Math.abs(fastSlow - 8) - Math.abs(highLow - 5) - Math.abs(tightLoose - 8);
-        
-        // 角(柔和)评分
-        yinScores["角"] = 10 - Math.abs(fastSlow - 4) - Math.abs(highLow - 6) - Math.abs(tightLoose - 3);
-        
-        // 徵(喜悦)评分
-        yinScores["徵"] = 10 - Math.abs(fastSlow - 7) - Math.abs(highLow - 7) - Math.abs(tightLoose - 5);
-        
-        // 羽(悲伤)评分
-        yinScores["羽"] = 10 - Math.abs(fastSlow - 3) - Math.abs(highLow - 3) - Math.abs(tightLoose - 4);
-        
-        // 确定主导五音
-        let dominantYin = "宫"; // 默认
-        let maxScore = yinScores["宫"];
-        
-        for (const yin in yinScores) {
-            if (yinScores[yin] > maxScore) {
-                maxScore = yinScores[yin];
-                dominantYin = yin;
-            }
-        }
-        
-        return {
-            fastSlow,
-            highLow,
-            tightLoose,
-            dominantYin,
-            yinScores
-        };
-    }
-    
-    /**
-     * 将情感特征转换为五音特征
-     * @param {Object} emotionalFeatures - 情感特征
-     * @returns {Object} - 五音特征
-     */
-    convertToWuyinFeatures(emotionalFeatures) {
-        // 从情感特征创建五音比例
-        const wuyinRatio = {};
-        let total = 0;
-        
-        for (const yin in emotionalFeatures.yinScores) {
-            // 确保所有分数为正值
-            const score = Math.max(0, emotionalFeatures.yinScores[yin]);
-            wuyinRatio[yin] = score;
-            total += score;
-        }
-        
-        // 归一化比例，确保总和为1
-        if (total > 0) {
-            for (const yin in wuyinRatio) {
-                wuyinRatio[yin] = wuyinRatio[yin] / total;
-            }
-        } else {
-            // 如果所有分数都为负，使用均等分配
-            for (const yin in wuyinRatio) {
-                wuyinRatio[yin] = 0.2;
-            }
-        }
-        
-        return {
-            fastSlow: emotionalFeatures.fastSlow,
-            highLow: emotionalFeatures.highLow,
-            tightLoose: emotionalFeatures.tightLoose,
-            dominantYin: emotionalFeatures.dominantYin,
-            wuyinRatio
-        };
-    }
-    
-    /**
-     * 基于文件名分析音乐特性(当音频分析失败时作为备选方法)
-     * @param {string} filename - 音乐文件名
-     * @returns {Object} - 音乐特性数据
-     */
-    analyzeByFilename(filename) {
-        // 这个方法会被analyzeMusicFile中的同名函数替换，
-        // 保留在这里以防AudioAnalyzer被单独使用
-        return null;
-    }
-}
-
-// 创建全局音频分析器实例
-const audioAnalyzer = new AudioAnalyzer();
-
-/**
  * 分析音乐文件特性
  * @param {string} filename - 音乐文件名
  * @returns {Object} - 音乐特性数据
  */
-async function analyzeMusicFile(filename) {
+function analyzeMusicFile(filename) {
     // 如果已经分析过，直接返回结果
     if (musicFileCharacteristics[filename]) {
         return musicFileCharacteristics[filename];
     }
     
-    try {
-        // 1. 尝试使用Web Audio API进行音频分析
-        const fileUrl = getMusicPreviewUrl(filename);
-        
-        // 判断是否可以进行音频分析
-        if (window.AudioContext || window.webkitAudioContext) {
-            console.log(`使用音频分析分析文件: ${filename}`);
-            
-            // 进行音频分析
-            const audioFeatures = await audioAnalyzer.analyzeAudio(fileUrl);
-            
-            // 如果成功获取到音频特性，保存并返回
-            if (audioFeatures) {
-                musicFileCharacteristics[filename] = audioFeatures;
-                return audioFeatures;
-            }
-        }
-    } catch (error) {
-        console.warn(`音频分析失败: ${error.message}，使用文件名分析代替`);
-    }
-    
-    // 2. 如果音频分析失败或不可用，使用文件名分析
-    console.log(`使用文件名分析文件: ${filename}`);
-    return analyzeByFilename(filename);
-}
-
-/**
- * 基于文件名分析音乐特性
- * @param {string} filename - 音乐文件名
- * @returns {Object} - 音乐特性数据
- */
-function analyzeByFilename(filename) {
     // 分析文件名中的关键词，推断音乐特性
     const keywords = {
         // 情绪关键词
@@ -594,7 +224,7 @@ function analyzeByFilename(filename) {
         }
     }
     
-    // 计算五音比例
+    // 计算五音比例 - 基于主导五音和其他特性
     const wuyinRatio = calculateWuyinRatio(dominantYin, fastSlow, highLow, tightLoose);
     
     // 创建并保存音乐特性
@@ -615,72 +245,62 @@ function analyzeByFilename(filename) {
 /**
  * 计算五音比例
  * @param {string} dominantYin - 主导五音
- * @param {number} fastSlow - 快慢指数(1-10)
- * @param {number} highLow - 高低指数(1-10)
- * @param {number} tightLoose - 紧松指数(1-10)
+ * @param {number} fastSlow - 快缓度 (1-10)
+ * @param {number} highLow - 音高 (1-10)
+ * @param {number} tightLoose - 紧松度 (1-10)
  * @returns {Object} - 五音比例
  */
 function calculateWuyinRatio(dominantYin, fastSlow, highLow, tightLoose) {
-    // 基础五音比例
-    const baseRatio = {
-        "宫": 0.2,
-        "商": 0.2,
-        "角": 0.2,
-        "徵": 0.2,
-        "羽": 0.2
+    // 基于主导五音的初始比例
+    const ratio = {
+        "宫": 0.1, // 基础值
+        "商": 0.1,
+        "角": 0.1,
+        "徵": 0.1,
+        "羽": 0.1
     };
     
-    // 根据主导五音增加其比例
-    const dominantBoost = 0.3;
-    baseRatio[dominantYin] += dominantBoost;
+    // 增加主导五音的比例
+    ratio[dominantYin] += 0.5; // 主导音占50%
     
-    // 根据主导五音减少其他五音的比例
-    const reduction = dominantBoost / 4;
-    for (const yin in baseRatio) {
-        if (yin !== dominantYin) {
-            baseRatio[yin] -= reduction;
-        }
+    // 基于特性调整其他五音比例
+    // 1. 快缓度影响宫和徵
+    if (fastSlow > 7) { // 快
+        ratio["徵"] += 0.1;
+        ratio["商"] += 0.05;
+    } else if (fastSlow < 4) { // 慢
+        ratio["羽"] += 0.1;
+        ratio["角"] += 0.05;
+    } else { // 中等
+        ratio["宫"] += 0.1;
     }
     
-    // 根据快慢调整徵和羽的比例
-    // 快 -> 增加徵，减少羽
-    // 慢 -> 增加羽，减少徵
-    const tempoAdjustment = (fastSlow - 5) / 50; // -0.08 到 0.08
-    if (tempoAdjustment !== 0) {
-        baseRatio["徵"] += tempoAdjustment;
-        baseRatio["羽"] -= tempoAdjustment;
+    // 2. 音高影响角和羽
+    if (highLow > 7) { // 高
+        ratio["角"] += 0.05;
+        ratio["徵"] += 0.05;
+    } else if (highLow < 4) { // 低
+        ratio["羽"] += 0.1;
     }
     
-    // 根据高低调整角和商的比例
-    // 高 -> 增加角，减少商
-    // 低 -> 增加商，减少角
-    const pitchAdjustment = (highLow - 5) / 50; // -0.08 到 0.08
-    if (pitchAdjustment !== 0) {
-        baseRatio["角"] += pitchAdjustment;
-        baseRatio["商"] -= pitchAdjustment;
-    }
-    
-    // 根据紧松调整宫和商的比例
-    // 紧 -> 增加商，减少宫
-    // 松 -> 增加宫，减少商
-    const tightnessAdjustment = (tightLoose - 5) / 50; // -0.08 到 0.08
-    if (tightnessAdjustment !== 0) {
-        baseRatio["宫"] += tightnessAdjustment;
-        baseRatio["商"] -= tightnessAdjustment;
-    }
-    
-    // 确保所有比例都在有效范围内(0到1)
-    for (const yin in baseRatio) {
-        baseRatio[yin] = Math.max(0, Math.min(1, baseRatio[yin]));
+    // 3. 紧松度影响商和角
+    if (tightLoose > 7) { // 紧张
+        ratio["商"] += 0.1;
+    } else if (tightLoose < 4) { // 松弛
+        ratio["角"] += 0.1;
     }
     
     // 归一化比例，确保总和为1
-    const total = Object.values(baseRatio).reduce((sum, value) => sum + value, 0);
-    for (const yin in baseRatio) {
-        baseRatio[yin] = baseRatio[yin] / total;
+    let total = 0;
+    for (const yin in ratio) {
+        total += ratio[yin];
     }
     
-    return baseRatio;
+    for (const yin in ratio) {
+        ratio[yin] = ratio[yin] / total;
+    }
+    
+    return ratio;
 }
 
 /**
@@ -828,44 +448,117 @@ async function findSimilarMusic(wuxingElement, wuxingPercentages) {
 
 /**
  * 获取音乐文件列表
- * @returns {Promise<Array<string>>} - 音乐文件名数组
+ * @returns {Promise<Array>} - 音乐文件名数组
  */
 async function getMusicFiles() {
     try {
-        // 尝试从API获取音乐文件列表
-        const response = await fetch('/api/list-music-files');
-        
-        if (response.ok) {
-            const files = await response.json();
-            console.log('从API获取到音乐文件列表:', files);
-            return files;
-        } else {
-            console.warn('获取音乐文件列表失败，使用静态列表代替');
-            return getStaticMusicFilesList();
-        }
+        // 这里我们直接返回从您提供的文件夹中读取的音乐文件列表
+        return [
+            '抒情大气充满力量和喜悦的背景音乐荣耀火焰.mp3',
+            '温馨宣传片背景音乐.mp3',
+            '浪漫风格轻快舒缓背景音乐.mp3',
+            '悲伤伟大欣慰的演讲背景音乐.mp3',
+            '悲伤紧张的背景音乐.mp3',
+            '红色经典背景音乐(我的祖国).mp3',
+            '渐入佳境灵动逐渐升起宣传片背景音乐.mp3',
+            '电视台抗震节目悲伤背景音乐.mp3',
+            '舒缓安静美好的演讲背景音乐.mp3',
+            '紧张震撼奋斗色彩的背景音乐.mp3',
+            '大气超燃的年会背景音乐.mp3',
+            '董事长及公司高层进场背景音乐.mp3',
+            '一段悠扬的笛子旋律优美古风古韵背景音乐.mp3',
+            '婚礼音乐-3矜持 小提琴版 婚礼前抒情背景音乐.mp3',
+            '感人进取动情的演讲背景音乐.mp3',
+            '激昂前进拼搏背景音乐.mp3',
+            '感人欣慰动情的演讲背景音乐.mp3',
+            '欢快愉悦的活动宣传片背景音乐.mp3',
+            '安静舒缓优柔古风钢琴曲影视游戏背景音乐.mp3',
+            '朗诵背景音乐(雄浑气魄)3.mp3',
+            '史诗魔幻壮观大气的年会背景音乐.mp3',
+            '欢快搞怪背景音乐配乐.mp3',
+            '现代活泼小清新活动背景音乐.mp3',
+            '故事的起点温柔舒缓背景音乐.mp3',
+            '浪漫感人婚礼背景音乐.mp3',
+            '动感激情高昂的背景音乐.mp3',
+            '愉快快节奏高兴的背景音乐.mp3',
+            '成长艰难成功感动的背景音乐.mp3',
+            '悲伤感人安静纯音乐背景音乐.mp3',
+            '久石譲 Summer儿童诗朗诵背景音乐.mp3',
+            '纯音乐 搞笑背景音乐.mp3',
+            '古风大气激昂背景音乐.mp3',
+            '宁静舒心的儿童节目背景音乐.mp3',
+            '欢快活泼的儿童节目背景音乐.mp3',
+            '气势进取的知名手机品牌宣传片背景音乐.mp3',
+            '紧张危险刺激色彩的好莱坞背景音乐.mp3',
+            '动感欢快的公司年会背景音乐.mp3',
+            '温馨浪漫的背景音乐.mp3',
+            '抒情诗文朗诵背景音乐 (13).mp3',
+            '故事叙事抒情背景音乐 (2).mp3',
+            '悲伤感动催泪好莱坞背景音乐.mp3',
+            '安静感人动情的演讲背景音乐.mp3',
+            '安静悲伤压抑背景音乐.mp3',
+            '平静温柔史诗级的城市宣传片背景音乐.mp3',
+            '诗歌语文朗诵背景音乐 (19).mp3',
+            '安静恬静经典广告背景音乐.mp3',
+            '欢快舒缓轻松愉快背景音乐.mp3',
+            '安静感人的儿童背景音乐.mp3',
+            '游戏和我们充满童趣的幽默节奏感背景音乐.mp3',
+            '悬念紧张好莱坞背景音乐.mp3',
+            '现代科技感广告背景音乐.mp3',
+            '安静舒缓的党政会议背景音乐.mp3',
+            '欢快轻快节奏兴奋背景音乐.mp3',
+            '欣慰满足的演讲背景音乐.mp3',
+            '进取向上快乐的背景音乐.mp3',
+            '诗歌朗诵背景音乐 (10).mp3',
+            '抒情诗文朗诵背景音乐 (27).mp3',
+            '搞笑滑稽节奏快的综艺节目背景音乐.mp3',
+            '炫酷略搞笑综艺节目背景音乐.mp3',
+            '浪漫感人婚礼背景音乐建一个家.mp3',
+            '轻快旋律优美的背景音乐.mp3',
+            '悠然古朴的国家宝藏背景音乐.mp3',
+            '展望未来光明的航拍背景音乐.mp3',
+            '万宝路进行曲舞台颁奖专业背景音乐.mp3',
+            '欢快带节奏的电音作运动舞蹈背景音乐设计.mp3',
+            '公司聚会表彰背景音乐红毯.mp3',
+            '动感帅气时尚的背景音乐.mp3',
+            '紧张激烈战斗色彩的背景音乐.mp3',
+            '舒缓震撼唯美大气的航拍背景音乐.mp3',
+            '安静舒缓钢弹奏回忆满满背景音乐.mp3',
+            '儿童诗朗诵背景音乐视频vlog背景音乐.mp3',
+            '胜利的号角革命视频背景音乐.mp3',
+            '回忆往昔岁月的感人视频背景音乐.mp3',
+            '感动震撼激动的演讲背景音乐.mp3',
+            '史诗级背景音乐《victory》，太震撼了！.mp3',
+            '紧张进取激情背景音乐.mp3',
+            '搞笑轻松喜庆背景音乐.mp3',
+            '浪漫温馨美好的婚礼背景音乐.mp3',
+            '欢快轻松的广告背景音乐.mp3',
+            '低沉凄凉的背景音乐灰色空间.mp3',
+            '感动温馨色彩的背景音乐.mp3',
+            '抒情会议背景音乐党政回忆过去.mp3',
+            '欢乐节奏感舒畅视频背景音乐.mp3',
+            '夜店快节奏超燃节奏感背景音乐.mp3',
+            '拯救舒缓大气背景音乐感恩节复活节.mp3',
+            '破坏分子搞笑滑稽综艺感背景音乐.mp3',
+            '悠扬笛子安静唯美古风中秋节赏月背景音乐.mp3',
+            '抒情诗文朗诵背景音乐 (34).mp3',
+            '正能量积极向上宣传片背景音乐.mp3',
+            '超燃运动健身背景音乐无穷.mp3',
+            '感人感动震撼唯美的航拍背景音乐.mp3',
+            '悲伤伤感忧愁的背景音乐.mp3',
+            '节奏感重鼓点汽车广告背景音乐.mp3',
+            '浪漫青春美好温馨的背景音乐.mp3',
+            '冬至动感轻快的商务背景音乐.mp3',
+            '轻松愉悦朗诵纯背景音乐.mp3',
+            '极限挑战紧张气氛背景音乐.mp3',
+            '史诗级进取昂扬的航拍背景音乐.mp3',
+            '感伤唯美爱情背景音乐.mp3',
+            '欢快古风背景音乐vlog音乐.mp3'
+        ];
     } catch (error) {
-        console.error('获取音乐文件列表出错:', error);
-        return getStaticMusicFilesList();
+        console.error('获取音乐文件列表时出错:', error);
+        return [];
     }
-}
-
-/**
- * 获取静态音乐文件列表（备用）
- * @returns {Array<string>} - 音乐文件名数组
- */
-function getStaticMusicFilesList() {
-    return [
-        "抒情大气充满力量和喜悦的背景音乐荣耀火焰.mp3",
-        "优美抒情的中国风纯音乐.mp3",
-        "悲伤伟大欣慰的演讲背景音乐.mp3",
-        "欢快活泼积极向上的轻快背景音乐.mp3",
-        "温暖明亮的钢琴与弦乐企业宣传背景音乐.mp3",
-        "清新明亮的企业宣传片配乐.mp3",
-        "震撼大气恢宏的配乐.mp3",
-        "激昂澎湃热血沸腾的配乐起航.mp3",
-        "钢琴曲温馨感人催泪治愈系.mp3",
-        "古筝悠扬古风纯音乐.mp3"
-    ].map(file => `src/music_files/${file}`);
 }
 
 /**
@@ -874,15 +567,7 @@ function getStaticMusicFilesList() {
  * @returns {string} - 音乐文件URL
  */
 function getMusicPreviewUrl(filename) {
-    if (!filename) return '';
-    
-    // 如果已经是完整URL，直接返回
-    if (filename.startsWith('http://') || filename.startsWith('https://')) {
-        return filename;
-    }
-    
-    // 否则构建相对路径
-    return `./src/music_files/${filename}`;
+    return `src/music_files/${filename}`;
 }
 
 /**
@@ -978,14 +663,5 @@ function getYinPinyin(yinName) {
 window.MusicMatcher = {
     findSimilarMusic,
     displaySimilarMusic,
-    calculateWuyinValuesFromColors,
-    getYinPinyin,
-    getWuyinCharacteristics,
-    calculateMusicSimilarity,
-    getMusicFiles,
-    analyzeMusicFile,
-    getMusicPreviewUrl
-};
-
-// 导出音频分析器供外部使用
-window.AudioAnalyzer = audioAnalyzer; 
+    calculateWuyinValuesFromColors
+}; 
