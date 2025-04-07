@@ -6,7 +6,7 @@
 // 全局配置对象
 const CONFIG = {
     // OpenAI API 密钥 (请替换为您自己的密钥)
-    OPENAI_API_KEY: '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',
+    OPENAI_API_KEY: '',
     
     // OpenAI 模型配置
     OPENAI_MODEL: 'gpt-3.5-turbo',
